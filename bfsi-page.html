@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Voice AI for Banks, NBFCs &amp; Lenders | Skit.ai</title>
+<style>
+  /* ===== Skit.ai brand tokens — from hive/shared/build/STYLE-REFERENCE.md ===== */
+  :root {
+    --skit-primary: #000000;
+    --skit-accent: #4678ee;
+    --skit-accent-hover: #2456cc;
+    --skit-accent-light: #5789ff;
+    --skit-accent-lighter: #689aff;
+    --skit-accent-alt: #1c9ef2;
+    --skit-teal: #1d7a6b;
+    --skit-near-black: #0e0f13;
+    --skit-navy: #0b1220;
+    --skit-bg: #ffffff;
+    --skit-bg-alt: #f8f8f8;
+    --skit-border: #ebebeb;
+    --skit-border-med: #dadada;
+    --skit-text-muted: #969696;
+    --skit-tint-mint: #e1f0ed;
+    --skit-tint-cream: #fbf9f6;
+
+    --skit-font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    --skit-font-display: 'Merriweather', serif;
+
+    --skit-radius: 8px;
+    --skit-radius-lg: 12px;
+    --skit-radius-xl: 16px;
+    --skit-radius-pill: 20px;
+
+    --skit-shadow-sm: 0 1px 2px rgba(0,0,0,.04);
+    --skit-shadow-md: 0 2px 8px rgba(0,0,0,.06);
+    --skit-shadow-lg: 0 8px 24px rgba(0,0,0,.08);
+
+    --skit-container-max: 1310px;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: var(--skit-font-body);
+    color: var(--skit-primary);
+    background: var(--skit-bg);
+    -webkit-font-smoothing: antialiased;
+    line-height: 1.5;
+  }
+
+  img, svg { max-width: 100%; display: block; }
+  a { color: inherit; text-decoration: none; }
+  ul { list-style: none; }
+
+  .skit-container {
+    width: 100%;
+    max-width: var(--skit-container-max);
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  .skit-section { padding: 80px 0; }
+  .skit-section--alt { background: var(--skit-bg-alt); }
+  .skit-section--dark { background: var(--skit-near-black); color: #ffffff; }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--skit-font-body);
+    font-weight: 700;
+    color: inherit;
+    line-height: 1.15;
+  }
+
+  .eyebrow {
+    font-family: var(--skit-font-body);
+    text-transform: uppercase;
+    letter-spacing: .08em;
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--skit-accent);
+  }
+  .skit-section--dark .eyebrow { color: var(--skit-accent-light); }
+
+  .skit-stat {
+    font-family: var(--skit-font-display);
+    font-weight: 300;
+    color: var(--skit-teal);
+    line-height: 1;
+  }
+  .skit-quote {
+    font-family: var(--skit-font-display);
+    font-weight: 300;
+    font-style: normal;
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: var(--skit-font-body);
+    font-weight: 600;
+    font-size: 15px;
+    padding: 13px 28px;
+    border-radius: var(--skit-radius);
+    cursor: pointer;
+    transition: all .2s ease;
+    border: 1px solid transparent;
+  }
+  .btn--primary {
+    background: var(--skit-accent);
+    color: #ffffff;
+    border-color: var(--skit-accent-hover);
+  }
+  .btn--primary:hover { background: var(--skit-accent-hover); }
+  .btn--outline {
+    background: transparent;
+    color: #ffffff;
+    border-color: rgba(255,255,255,.4);
+  }
+  .btn--outline:hover { border-color: #ffffff; }
+  .skit-arrow-link {
+    font-weight: 600;
+    color: var(--skit-accent);
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .skit-section--dark .skit-arrow-link { color: var(--skit-accent-light); }
+
+  .card {
+    background: var(--skit-bg);
+    border: 1px solid var(--skit-border);
+    border-radius: var(--skit-radius);
+    box-shadow: var(--skit-shadow-sm);
+    padding: 28px;
+    transition: box-shadow .2s ease, transform .2s ease;
+  }
+  .card:hover { box-shadow: var(--skit-shadow-md); transform: translateY(-2px); }
+
+  .skit-text-muted { color: var(--skit-text-muted); }
+  .skit-section--dark .skit-text-muted { color: rgba(255,255,255,.6); }
+
+  /* ===== Header / Nav ===== */
+  header.skit-header {
+    position: sticky; top: 0; z-index: 50;
+    background: #ffffff;
+    border-bottom: 1px solid var(--skit-border);
+  }
+  .skit-nav {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 16px 24px;
+    max-width: var(--skit-container-max);
+    margin: 0 auto;
+  }
+  .skit-logo { font-weight: 800; font-size: 20px; letter-spacing: -.02em; color: var(--skit-primary); }
+  .skit-logo span { color: var(--skit-accent); }
+  .skit-nav-links { display: flex; align-items: center; gap: 32px; }
+  .skit-nav-links a { font-size: 14px; font-weight: 600; color: var(--skit-primary); }
+  .skit-nav-links a.current { color: var(--skit-accent); }
+  .skit-nav-cta { display: flex; align-items: center; gap: 16px; }
+  .skit-lang { font-size: 12px; color: var(--skit-text-muted); font-weight: 600; }
+
+  /* ===== Hero ===== */
+  .hero {
+    background: var(--skit-near-black);
+    color: #ffffff;
+    padding: 90px 0 70px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::after {
+    content: "";
+    position: absolute; inset: 0;
+    background:
+      radial-gradient(700px 420px at 85% 10%, rgba(70,120,238,.16), transparent 60%),
+      radial-gradient(600px 380px at 10% 90%, rgba(29,122,107,.14), transparent 60%);
+    pointer-events: none;
+  }
+  .hero-inner { position: relative; }
+  .hero h1 { font-size: 48px; margin: 14px 0 18px; }
+  .hero h1 em { font-style: normal; color: var(--skit-accent-light); }
+  .hero p.lead { font-size: 19px; color: rgba(255,255,255,.72); max-width: 620px; margin-bottom: 32px; }
+  .hero-ctas { display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 46px; }
+  .trust-strip { border-top: 1px solid rgba(255,255,255,.12); padding-top: 22px; }
+  .trust-strip .eyebrow { color: rgba(255,255,255,.5); margin-bottom: 12px; display: block; }
+  .trust-logos { display: flex; gap: 28px; flex-wrap: wrap; align-items: center; }
+  .trust-logos span {
+    font-size: 13px; font-weight: 700; letter-spacing: .03em;
+    color: rgba(255,255,255,.55);
+    border: 1px dashed rgba(255,255,255,.25);
+    padding: 6px 12px; border-radius: var(--skit-radius);
+  }
+
+  /* ===== Sub-vertical grid ===== */
+  .subvert-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    margin-top: 40px;
+  }
+  .subvert-card { text-align: left; }
+  .subvert-icon {
+    width: 42px; height: 42px; border-radius: var(--skit-radius);
+    background: var(--skit-tint-mint);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 20px; margin-bottom: 16px;
+  }
+  .subvert-card h3 { font-size: 16px; margin-bottom: 6px; }
+  .subvert-card p { font-size: 13.5px; color: var(--skit-text-muted); }
+
+  /* ===== Section headers ===== */
+  .section-head { max-width: 640px; margin-bottom: 40px; }
+  .section-head h2 { font-size: 32px; margin-top: 10px; }
+  .section-head p { font-size: 16px; color: var(--skit-text-muted); margin-top: 12px; }
+  .skit-section--dark .section-head p { color: rgba(255,255,255,.65); }
+
+  /* ===== Stat band ===== */
+  .stat-band { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; text-align: center; }
+  .stat-band .num { font-size: 44px; }
+  .stat-band .lbl { font-size: 13px; text-transform: uppercase; letter-spacing: .05em; color: var(--skit-text-muted); margin-top: 8px; font-weight: 600; }
+
+  /* ===== Use cases ===== */
+  .usecase-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+  .usecase-card h3 { font-size: 18px; margin-bottom: 14px; padding-bottom: 14px; border-bottom: 1px solid var(--skit-border); }
+  .usecase-card ul li {
+    font-size: 14.5px; padding: 8px 0 8px 22px; position: relative; color: #333;
+  }
+  .usecase-card ul li::before {
+    content: "✓"; position: absolute; left: 0; color: var(--skit-teal); font-weight: 700;
+  }
+
+  /* ===== Quote ===== */
+  .quote-block {
+    background: var(--skit-tint-cream);
+    border-radius: var(--skit-radius-lg);
+    padding: 48px;
+    display: grid;
+    grid-template-columns: 1fr 260px;
+    gap: 40px;
+    align-items: center;
+  }
+  .quote-block blockquote.skit-quote { font-size: 24px; color: var(--skit-navy); }
+  .quote-attrib { margin-top: 20px; font-size: 14px; font-weight: 700; }
+  .quote-attrib span { display: block; font-weight: 400; color: var(--skit-text-muted); font-size: 13px; margin-top: 2px; }
+  .quote-stats { display: flex; flex-direction: column; gap: 18px; }
+  .quote-stats .num { font-size: 30px; }
+  .quote-stats .lbl { font-size: 11.5px; text-transform: uppercase; letter-spacing: .04em; color: var(--skit-text-muted); font-weight: 700; }
+
+  /* ===== Compliance ===== */
+  .compliance-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-bottom: 32px; }
+  .compliance-card { }
+  .compliance-card .tag {
+    display: inline-block; font-size: 11px; font-weight: 700; letter-spacing: .04em;
+    background: var(--skit-tint-mint); color: var(--skit-teal);
+    padding: 4px 10px; border-radius: var(--skit-radius-pill); margin-bottom: 14px;
+  }
+  .compliance-card h3 { font-size: 17px; margin-bottom: 8px; }
+  .compliance-card p { font-size: 14px; color: var(--skit-text-muted); }
+  .cert-row { display: flex; gap: 14px; flex-wrap: wrap; padding-top: 28px; border-top: 1px solid var(--skit-border); }
+  .cert-badge {
+    font-size: 12.5px; font-weight: 700; letter-spacing: .02em;
+    border: 1px solid var(--skit-border-med); border-radius: var(--skit-radius);
+    padding: 8px 14px; color: var(--skit-primary);
+  }
+
+  /* ===== Integrations ===== */
+  .integ-strip { display: flex; gap: 16px; flex-wrap: wrap; justify-content: center; }
+  .integ-logo {
+    border: 1px solid var(--skit-border); border-radius: var(--skit-radius);
+    padding: 16px 22px; font-size: 13.5px; font-weight: 700; color: var(--skit-primary);
+    background: #ffffff; min-width: 150px; text-align: center;
+  }
+  .integ-note { text-align: center; font-size: 12.5px; color: var(--skit-text-muted); margin-top: 18px; }
+
+  /* ===== CTA band ===== */
+  .cta-band { text-align: center; }
+  .cta-band h2 { font-size: 34px; max-width: 620px; margin: 0 auto 14px; }
+  .cta-band p { font-size: 16px; color: rgba(255,255,255,.68); max-width: 520px; margin: 0 auto 32px; }
+  .cta-band-btns { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+
+  /* ===== Footer ===== */
+  footer.skit-footer { background: var(--skit-near-black); color: #ffffff; padding: 60px 0 30px; }
+  .footer-grid { display: grid; grid-template-columns: 1.6fr repeat(3, 1fr); gap: 32px; margin-bottom: 50px; }
+  .footer-brand p { font-size: 13.5px; color: rgba(255,255,255,.55); margin: 14px 0 20px; max-width: 260px; }
+  .footer-col h4 { font-size: 13px; text-transform: uppercase; letter-spacing: .05em; margin-bottom: 16px; color: rgba(255,255,255,.5); }
+  .footer-col a, .footer-col p { display: block; font-size: 14px; color: rgba(255,255,255,.75); margin-bottom: 10px; }
+  .footer-bottom {
+    border-top: 1px solid rgba(255,255,255,.12); padding-top: 24px;
+    display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px;
+    font-size: 12.5px; color: rgba(255,255,255,.45);
+  }
+  .footer-bottom a { color: rgba(255,255,255,.45); margin-left: 18px; }
+
+  @media (max-width: 989px) {
+    .subvert-grid, .compliance-grid { grid-template-columns: repeat(2, 1fr); }
+    .stat-band, .usecase-grid { grid-template-columns: 1fr; }
+    .quote-block { grid-template-columns: 1fr; }
+    .footer-grid { grid-template-columns: 1fr 1fr; }
+    .hero h1 { font-size: 36px; }
+  }
+  @media (max-width: 767px) {
+    .skit-nav-links { display: none; }
+    .subvert-grid, .compliance-grid { grid-template-columns: 1fr; }
+    .footer-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<header class="skit-header">
+  <nav class="skit-nav">
+    <div class="skit-logo">skit<span>.ai</span></div>
+    <div class="skit-nav-links">
+      <a href="#">AI Platform</a>
+      <a href="#" class="current">BFSI Solutions</a>
+      <a href="#">Company</a>
+      <a href="#">Resources</a>
+    </div>
+    <div class="skit-nav-cta">
+      <span class="skit-lang">English (India)</span>
+      <a href="#" class="btn btn--primary" style="color:#fff;">Book a Demo</a>
+    </div>
+  </nav>
+</header>
+
+<section class="hero">
+  <div class="skit-container hero-inner">
+    <span class="eyebrow">Voice AI for Banking, NBFCs &amp; Lending</span>
+    <h1>Higher Recovery. Lower Effort.<br><em>Built for India's BFSI Compliance Bar.</em></h1>
+    <p class="lead">One Voice AI platform for banks, NBFCs, MFIs and lenders — covering acquisition, servicing, KYC/Re-KYC and collections, in 10+ Indian languages, with compliance built in from the first ring.</p>
+    <div class="hero-ctas">
+      <a href="#" class="btn btn--primary">Talk to Our BFSI Team</a>
+      <a href="#" class="btn btn--outline">CALL LIVE →</a>
+    </div>
+    <div class="trust-strip">
+      <span class="eyebrow">Trusted by leading enterprises</span>
+      <div class="trust-logos">
+        <span>IndusInd Bank</span>
+        <span>Leading NBFC</span>
+        <span>Bank Partner Logo</span>
+        <span>Lender Logo</span>
+        <span>MFI Partner Logo</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="skit-section">
+  <div class="skit-container">
+    <div class="section-head">
+      <span class="eyebrow">Built for every BFSI sub-vertical</span>
+      <h2>One platform. Every lending &amp; banking use case.</h2>
+      <p>From large private banks to last-mile MFIs, Skit.ai's voice agents are configured to each sub-vertical's risk profile, regulatory obligations and customer language.</p>
+    </div>
+    <div class="subvert-grid">
+      <div class="card subvert-card">
+        <div class="subvert-icon">🏦</div>
+        <h3>Banks</h3>
+        <p>Servicing, cross-sell, and collections voice agents integrated with core banking &amp; CRM stacks.</p>
+      </div>
+      <div class="card subvert-card">
+        <div class="subvert-icon">💼</div>
+        <h3>NBFCs</h3>
+        <p>Portfolio-aware outreach and negotiation flows tuned to NBFC delinquency buckets.</p>
+      </div>
+      <div class="card subvert-card">
+        <div class="subvert-icon">🤝</div>
+        <h3>MFIs</h3>
+        <p>Regional-language, empathy-first collections calling for microfinance portfolios.</p>
+      </div>
+      <div class="card subvert-card">
+        <div class="subvert-icon">📄</div>
+        <h3>Lending</h3>
+        <p>Loan origination top-ups, application status updates, and document collection calls.</p>
+      </div>
+      <div class="card subvert-card">
+        <div class="subvert-icon">🛍️</div>
+        <h3>BNPL</h3>
+        <p>High-volume, high-frequency payment reminders tuned for short repayment cycles.</p>
+      </div>
+      <div class="card subvert-card">
+        <div class="subvert-icon">📞</div>
+        <h3>Collections</h3>
+        <p>PTP capture, settlement offers, right-party verification and callback scheduling.</p>
+      </div>
+      <div class="card subvert-card">
+        <div class="subvert-icon">🪪</div>
+        <h3>KYC / Re-KYC</h3>
+        <p>VKYC and periodic Re-KYC verification calls, fully logged for audit.</p>
+      </div>
+      <div class="card subvert-card">
+        <div class="subvert-icon">🎧</div>
+        <h3>Customer Service</h3>
+        <p>24/7 inbound automation for balance queries, FAQs, and service ticket resolution.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="skit-section skit-section--alt">
+  <div class="skit-container">
+    <div class="stat-band">
+      <div>
+        <div class="skit-stat num">₹600Cr+</div>
+        <div class="lbl">Total collections driven</div>
+      </div>
+      <div>
+        <div class="skit-stat num">82%</div>
+        <div class="lbl">Liquidation rate achieved</div>
+      </div>
+      <div>
+        <div class="skit-stat num">100M+</div>
+        <div class="lbl">Voice calls placed</div>
+      </div>
+      <div>
+        <div class="skit-stat num">10+</div>
+        <div class="lbl">Indian languages supported</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="skit-section">
+  <div class="skit-container">
+    <div class="section-head">
+      <span class="eyebrow">End-to-end, not just collections</span>
+      <h2>Voice AI across the full BFSI lifecycle.</h2>
+      <p>Skit.ai runs marketing, servicing and collections conversations on one platform — so your lending book gets a consistent voice from acquisition through recovery.</p>
+    </div>
+    <div class="usecase-grid">
+      <div class="card usecase-card">
+        <h3>Marketing</h3>
+        <ul>
+          <li>Loan origination &amp; top-ups</li>
+          <li>Product cross-sell</li>
+          <li>Lead qualification</li>
+          <li>Renewal &amp; retention calls</li>
+          <li>Savings campaign outreach</li>
+        </ul>
+      </div>
+      <div class="card usecase-card">
+        <h3>Inbound Servicing</h3>
+        <ul>
+          <li>FAQ handling &amp; routing</li>
+          <li>Account balance queries</li>
+          <li>Application status checks</li>
+          <li>VKYC &amp; Re-KYC verification</li>
+          <li>Service ticket resolution</li>
+        </ul>
+      </div>
+      <div class="card usecase-card">
+        <h3>Collections</h3>
+        <ul>
+          <li>Payment reminders</li>
+          <li>PTP capture &amp; negotiations</li>
+          <li>Settlement offers</li>
+          <li>Right-party verification</li>
+          <li>Callback scheduling</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="skit-section skit-section--alt">
+  <div class="skit-container">
+    <div class="quote-block">
+      <div>
+        <blockquote class="skit-quote">&ldquo;We are very glad to have found an intelligent AI-powered assistant that has helped us create a positive &amp; better CX. The efficiency with which the team handled a large-scale deployment like ours is highly commendable.&rdquo;</blockquote>
+        <div class="quote-attrib">Neena Raheja<span>Portfolio Head – Digital Initiatives, IndusInd Bank</span></div>
+      </div>
+      <div class="quote-stats">
+        <div><div class="skit-stat num">9</div><div class="lbl">Use cases automated</div></div>
+        <div><div class="skit-stat num">6</div><div class="lbl">Languages deployed</div></div>
+        <div><div class="skit-stat num">86%</div><div class="lbl">Resolution rate</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="skit-section">
+  <div class="skit-container">
+    <div class="section-head">
+      <span class="eyebrow">Compliance highlights</span>
+      <h2>Compliance built for India's regulatory bar — not bolted on.</h2>
+      <p>Every conversation is recorded, disclosed, and logged to an audit-ready trail — the same compliance architecture Skit.ai runs for FDCPA/TCPA-regulated US collections, mapped to India's BFSI rulebook.</p>
+    </div>
+    <div class="compliance-grid">
+      <div class="card compliance-card">
+        <span class="tag">RBI</span>
+        <h3>RBI Fair Practices Code</h3>
+        <p>Calling-hours discipline, no-harassment conversation design, and right-party verification before any collections dialogue begins.</p>
+      </div>
+      <div class="card compliance-card">
+        <span class="tag">DPDP</span>
+        <h3>DPDP Act, 2023 readiness</h3>
+        <p>Consent capture, purpose limitation, and data-retention controls built into every call and SMS touchpoint — logged for audit, not just promised.</p>
+      </div>
+      <div class="card compliance-card">
+        <span class="tag">TRAI</span>
+        <h3>TRAI &amp; telecom compliance</h3>
+        <p>Registered-sender and consent-based outreach patterns aligned to India's commercial-communication regulations.</p>
+      </div>
+    </div>
+    <div class="cert-row">
+      <span class="cert-badge">ISO 27001 Certified</span>
+      <span class="cert-badge">PCI-DSS Compliant</span>
+      <span class="cert-badge">SOC 2 Compliant</span>
+      <span class="cert-badge">Immutable Audit Trail</span>
+      <span class="cert-badge">AI Disclosure by Default</span>
+    </div>
+  </div>
+</section>
+
+<section class="skit-section skit-section--alt">
+  <div class="skit-container">
+    <div class="section-head" style="margin: 0 auto 32px; text-align: center;">
+      <span class="eyebrow">Integrates with your existing stack</span>
+      <h2>No rip-and-replace required.</h2>
+    </div>
+    <div class="integ-strip">
+      <div class="integ-logo">Genesys</div>
+      <div class="integ-logo">Salesforce</div>
+      <div class="integ-logo">Tata Communications</div>
+      <div class="integ-logo">Ozonetel</div>
+      <div class="integ-logo">Exotel</div>
+      <div class="integ-logo">Microsoft Dynamics</div>
+      <div class="integ-logo">AWS</div>
+      <div class="integ-logo">Freshdesk</div>
+    </div>
+    <p class="integ-note">Placeholder wordmarks — swap for licensed partner logos before publishing. Full integration list: Cisco, Avaya, Knowlarity, SAP, Zoho, LeadSquared, Oracle, Azure, Google Cloud, SIP/WebRTC/PSTN.</p>
+  </div>
+</section>
+
+<section class="skit-section skit-section--dark cta-band">
+  <div class="skit-container">
+    <h2>Ready to see it on your portfolio?</h2>
+    <p>Bring a live NBFC, bank, or lending portfolio to the demo — we'll show recovery, containment and compliance side by side.</p>
+    <div class="cta-band-btns">
+      <a href="#" class="btn btn--primary">Test It on Your Portfolio</a>
+      <a href="#" class="skit-arrow-link">View a BFSI Case Study →</a>
+    </div>
+  </div>
+</section>
+
+<footer class="skit-footer">
+  <div class="skit-container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="skit-logo" style="color:#fff;">skit<span style="color:var(--skit-accent-light);">.ai</span></div>
+        <p>Voice AI for Collections, Marketing &amp; Servicing — built at the intersection of AI and collections.</p>
+        <p style="margin-bottom:4px;">United States: 135 Madison Ave, 7th Floor, New York, NY 10016</p>
+        <p>India: Kothari Adonis, #3/1, Old Madras Road, Bangalore 560038</p>
+      </div>
+      <div class="footer-col">
+        <h4>AI Platform</h4>
+        <a href="#">Collection Intelligence</a>
+        <a href="#">AI Agents</a>
+        <a href="#">BFSI Solutions</a>
+      </div>
+      <div class="footer-col">
+        <h4>Resources</h4>
+        <a href="#">Case Studies</a>
+        <a href="#">Blogs</a>
+        <a href="#">White Papers</a>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <a href="#">About Us</a>
+        <a href="#">Careers</a>
+        <a href="#">Contact Us</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Skit.ai USA Inc. All trademarks are property of their respective owners.</span>
+      <span>
+        <a href="#">Privacy Policy</a>
+        <a href="#">Disclaimer</a>
+        <a href="#">Terms of Service</a>
+      </span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
