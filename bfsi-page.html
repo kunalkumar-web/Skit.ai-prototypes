@@ -126,7 +126,7 @@
       "name": "Which Indian banks and lenders use Skit.ai?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Skit.ai is trusted by 100+ enterprises, including named engagements such as IndusInd Bank and Axis Bank, alongside other leading banks and NBFCs. Skit.ai's platform has driven ₹600Cr+ in total collections at an 82% liquidation rate, and placed 100M+ voice calls."
+        "text": "Skit.ai is trusted by 100+ enterprises, including named engagements such as Axis Bank, alongside other leading banks and NBFCs. Skit.ai's platform has driven ₹600Cr+ in total collections at an 82% liquidation rate, and placed 100M+ voice calls."
       }
     },
     {
@@ -277,24 +277,31 @@
   .skit-section--dark .skit-text-muted { color: rgba(255,255,255,.6); }
 
   /* ===== Header / Nav ===== */
-  header.skit-header {
-    position: sticky; top: 0; z-index: 50;
-    background: #ffffff;
+  nav {
+    background: #fff;
     border-bottom: 1px solid var(--skit-border);
+    position: sticky;
+    top: 0;
+    z-index: 100;
   }
-  .skit-nav {
-    display: flex; align-items: center; justify-content: space-between;
-    padding: 16px 24px;
-    max-width: var(--skit-container-max);
-    margin: 0 auto;
+  .nav-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 64px;
   }
-  .skit-logo { font-weight: 800; font-size: 20px; letter-spacing: -.02em; color: var(--skit-primary); }
+  .skit-logo { font-weight: 800; font-size: 20px; letter-spacing: -.02em; color: var(--skit-primary); text-decoration: none; }
   .skit-logo span { color: var(--skit-accent); }
-  .skit-nav-links { display: flex; align-items: center; gap: 32px; }
-  .skit-nav-links a { font-size: 14px; font-weight: 600; color: var(--skit-primary); }
-  .skit-nav-links a.current { color: var(--skit-accent); }
-  .skit-nav-cta { display: flex; align-items: center; gap: 16px; }
-  .skit-lang { font-size: 12px; color: var(--skit-text-muted); font-weight: 600; }
+  .nav-links { display: flex; gap: 28px; list-style: none; }
+  .nav-links a { font-size: 15px; font-weight: 500; color: var(--skit-primary); text-decoration: none; }
+  .nav-links a:hover { color: var(--skit-accent); }
+  .nav-cta { display: flex; gap: 12px; align-items: center; }
+  .btn-outline {
+    background: transparent;
+    color: var(--skit-accent);
+    border-color: var(--skit-accent);
+  }
+  .btn-outline:hover { background: var(--skit-accent); color: #fff; }
 
   /* ===== Hero ===== */
   .hero {
@@ -370,20 +377,61 @@
     background: var(--skit-tint-cream);
     border-radius: var(--skit-radius-lg);
     padding: 48px;
-    display: grid;
-    grid-template-columns: 1fr 260px;
-    gap: 40px;
-    align-items: center;
+    text-align: left;
   }
   .quote-block blockquote.skit-quote { font-size: 24px; color: var(--skit-navy); }
   .quote-attrib { margin-top: 20px; font-size: 14px; font-weight: 700; }
   .quote-attrib span { display: block; font-weight: 400; color: var(--skit-text-muted); font-size: 13px; margin-top: 2px; }
-  .quote-stats { display: flex; flex-direction: column; gap: 18px; }
-  .quote-stats .num { font-size: 30px; }
-  .quote-stats .lbl { font-size: 11.5px; text-transform: uppercase; letter-spacing: .04em; color: var(--skit-text-muted); font-weight: 700; }
+
+  /* ===== Case study slider ===== */
+  .case-slider { display: flex; align-items: center; gap: 12px; }
+  .case-slider-viewport { flex: 1; min-width: 0; overflow: hidden; padding: 4px; }
+  .case-slider-track { display: flex; gap: 20px; transition: transform .45s cubic-bezier(.65,0,.35,1); }
+  .case-slide { flex: 0 0 92%; min-width: 0; display: flex; }
+  .quote-block.case-card {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    min-height: 280px;
+    border: 1px solid var(--skit-border);
+    box-shadow: var(--skit-shadow-sm);
+    position: relative;
+    overflow: hidden;
+  }
+  .quote-block.case-card::before {
+    content: "\201C";
+    position: absolute;
+    top: 10px; left: 28px;
+    font-family: var(--skit-font-display);
+    font-size: 110px;
+    line-height: 1;
+    color: var(--skit-accent-lighter);
+    opacity: .3;
+  }
+  .case-company {
+    align-self: flex-start;
+    font-size: 12px; font-weight: 800; letter-spacing: .05em; text-transform: uppercase;
+    color: var(--skit-teal); background: var(--skit-tint-mint);
+    padding: 5px 12px; border-radius: var(--skit-radius-pill); margin-bottom: 20px;
+    position: relative;
+  }
+  .case-highlight { margin-top: 18px; font-size: 13px; font-weight: 700; color: var(--skit-teal); }
+  .case-arrow {
+    flex-shrink: 0;
+    background: none;
+    border: none;
+    padding: 8px;
+    display: flex; align-items: center; justify-content: center;
+    color: var(--skit-primary); cursor: pointer; transition: color .2s ease, transform .2s ease;
+  }
+  .case-arrow svg { width: 40px; height: 40px; display: block; }
+  .case-arrow:hover { color: var(--skit-accent); transform: translateX(2px); }
+  .case-arrow:first-child:hover { transform: translateX(-2px); }
 
   /* ===== Compliance ===== */
-  .compliance-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-bottom: 32px; }
+  .compliance-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; margin-bottom: 32px; }
   .compliance-card { }
   .compliance-card .tag {
     display: inline-block; font-size: 11px; font-weight: 700; letter-spacing: .04em;
@@ -392,6 +440,12 @@
   }
   .compliance-card h3 { font-size: 17px; margin-bottom: 8px; }
   .compliance-card p { font-size: 14px; color: var(--skit-text-muted); }
+  .compliance-card .chip-row { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 16px; }
+  .compliance-card .chip {
+    font-size: 12px; font-weight: 600;
+    border: 1px solid var(--skit-border-med); border-radius: var(--skit-radius-pill);
+    padding: 5px 12px; color: var(--skit-text-muted);
+  }
   .cert-row { display: flex; gap: 14px; flex-wrap: wrap; padding-top: 28px; border-top: 1px solid var(--skit-border); }
   .cert-badge {
     font-size: 12.5px; font-weight: 700; letter-spacing: .02em;
@@ -473,35 +527,39 @@
   @media (max-width: 989px) {
     .subvert-grid, .compliance-grid { grid-template-columns: repeat(2, 1fr); }
     .stat-band, .usecase-grid { grid-template-columns: 1fr; }
-    .quote-block { grid-template-columns: 1fr; }
     .footer-inner { grid-template-columns: 1fr 1fr; }
     .hero h1 { font-size: 36px; }
   }
   @media (max-width: 767px) {
-    .skit-nav-links { display: none; }
+    .nav-links { display: none; }
     .subvert-grid, .compliance-grid { grid-template-columns: 1fr; }
     .footer-inner { grid-template-columns: 1fr; }
+    .case-slider { gap: 12px; }
+    .case-arrow { width: 38px; height: 38px; font-size: 15px; }
+    .quote-block.case-card { padding: 32px 24px; min-height: 320px; }
   }
 </style>
 </head>
 <body>
 
-<header class="skit-header">
-  <nav class="skit-nav">
-    <div class="skit-logo">skit<span>.ai</span></div>
-    <div class="skit-nav-links">
-      <a href="#">AI Platform</a>
-      <a href="#" class="current">BFSI Solutions</a>
-      <a href="#faq">FAQs</a>
-      <a href="#">Company</a>
-      <a href="#">Resources</a>
+<nav>
+  <div class="skit-container">
+    <div class="nav-inner">
+      <a href="/" class="skit-logo">Skit<span>.ai</span></a>
+      <ul class="nav-links">
+        <li><a href="#">AI Platform</a></li>
+        <li><a href="#">Collections</a></li>
+        <li><a href="#">BFSI</a></li>
+        <li><a href="#">Compliance</a></li>
+        <li><a href="#">Resources</a></li>
+      </ul>
+      <div class="nav-cta">
+        <a href="#" class="btn btn-outline" style="font-size:14px;padding:9px 20px;">Sign in</a>
+        <a href="#" class="btn btn--primary" style="font-size:14px;padding:9px 20px;">Book a demo</a>
+      </div>
     </div>
-    <div class="skit-nav-cta">
-      <span class="skit-lang">English (India)</span>
-      <a href="#" class="btn btn--primary" style="color:#fff;">Book a Demo</a>
-    </div>
-  </nav>
-</header>
+  </div>
+</nav>
 
 <section class="hero">
   <div class="skit-container hero-inner">
@@ -515,11 +573,11 @@
     <div class="trust-strip">
       <span class="eyebrow">Trusted by leading enterprises</span>
       <div class="trust-logos">
-        <span>IndusInd Bank</span>
         <span>Axis Bank</span>
-        <span>ICICI Bank</span>
-        <span>State Bank of India</span>
-        <span>IDFC FIRST Bank</span>
+        <span>Uown Leasing</span>
+        <span>Creditors&rsquo; Discount and Audit Company (CDAC)</span>
+        <span>SameDay Auto Finance</span>
+        <span>Southwest Recovery Services</span>
       </div>
     </div>
   </div>
@@ -587,16 +645,16 @@
     <span class="eyebrow" style="display:block;text-align:center;margin-bottom:24px;">Cumulative results across Skit.ai's India platform</span>
     <div class="stat-band">
       <div>
-        <div class="skit-stat num">₹600Cr+</div>
-        <div class="lbl">Total collections driven</div>
+        <div class="skit-stat num">2X</div>
+        <div class="lbl">Boost in connectivity rate</div>
       </div>
       <div>
-        <div class="skit-stat num">82%</div>
-        <div class="lbl">Liquidation rate achieved</div>
+        <div class="skit-stat num">24/7</div>
+        <div class="lbl">Customer support availability</div>
       </div>
       <div>
-        <div class="skit-stat num">100M+</div>
-        <div class="lbl">Voice calls placed</div>
+        <div class="skit-stat num">40%</div>
+        <div class="lbl">Potential reduction in collection cost</div>
       </div>
       <div>
         <div class="skit-stat num">10+</div>
@@ -650,16 +708,64 @@
 
 <section class="skit-section skit-section--alt">
   <div class="skit-container">
-    <div class="quote-block">
-      <div>
-        <blockquote class="skit-quote">&ldquo;We are very glad to have found an intelligent AI-powered assistant that has helped us create a positive &amp; better CX. The efficiency with which the team handled a large-scale deployment like ours is highly commendable.&rdquo;</blockquote>
-        <div class="quote-attrib">Neena Raheja<span>Portfolio Head – Digital Initiatives, IndusInd Bank</span></div>
+    <div class="section-head">
+      <span class="eyebrow">Case studies</span>
+      <h2>Proven collections outcomes, from India to the US.</h2>
+      <p>Real feedback from banks, NBFCs and collections agencies running Skit.ai in production.</p>
+    </div>
+    <div class="case-slider">
+      <button type="button" class="case-arrow" onclick="caseSliderMove(-1)" aria-label="Previous case study">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+      </button>
+      <div class="case-slider-viewport">
+        <div class="case-slider-track" id="caseSliderTrack">
+
+          <div class="case-slide">
+            <div class="quote-block case-card">
+              <span class="case-company">Axis Bank</span>
+              <blockquote class="skit-quote">&ldquo;One of the reasons why we wanted to partner with Skit.ai is because they are more agile. Voicebot capability is easier said than done. More importantly, the ability to connect with Axis Bank's core technology is complex and therefore we wanted a partner who is willing to be agile, flexible to work with us and develop this product to suit our environment.&rdquo;</blockquote>
+              <div class="quote-attrib">Ratan Kesh<span>EVP and Head – Retail Operations &amp; Service, Axis Bank</span></div>
+              <p class="case-highlight">270% increase in call handling capacity &middot; AXAA voice assistant, live since 2020</p>
+            </div>
+          </div>
+
+          <div class="case-slide">
+            <div class="quote-block case-card">
+              <span class="case-company">Uown Leasing</span>
+              <blockquote class="skit-quote">&ldquo;&hellip;were seeking a way to boost collections cost-effectively and without the need to add additional workforce&hellip;.&rdquo;</blockquote>
+              <div class="quote-attrib">Daniel Klein<span>CEO of Uown Leasing</span></div>
+            </div>
+          </div>
+
+          <div class="case-slide">
+            <div class="quote-block case-card">
+              <span class="case-company">Creditors&rsquo; Discount and Audit Company (CDAC)</span>
+              <blockquote class="skit-quote">&ldquo;&hellip;&hellip;.we&rsquo;ve been excited to be part of the AI transformation of the debt collection industry&hellip;&hellip;.&rdquo;</blockquote>
+              <div class="quote-attrib">Ken Armstrong<span>President and COO at Creditors&rsquo; Discount and Audit Company (CDAC)</span></div>
+            </div>
+          </div>
+
+          <div class="case-slide">
+            <div class="quote-block case-card">
+              <span class="case-company">SameDay Auto Finance</span>
+              <blockquote class="skit-quote">&ldquo;&hellip;&hellip;enables us to meet &mdash; and exceed &mdash; our targets regardless of staffing fluctuations and training gaps&hellip;.&rdquo;</blockquote>
+              <div class="quote-attrib">Russell Warden<span>COO at SameDay Auto Finance</span></div>
+            </div>
+          </div>
+
+          <div class="case-slide">
+            <div class="quote-block case-card">
+              <span class="case-company">Southwest Recovery Services</span>
+              <blockquote class="skit-quote">&ldquo;&hellip;..transformed our customer outreach, truly improved our engagement and efficiency&hellip;.&rdquo;</blockquote>
+              <div class="quote-attrib">Steven Dietz<span>CEO at Southwest Recovery Services</span></div>
+            </div>
+          </div>
+
+        </div>
       </div>
-      <div class="quote-stats">
-        <div><div class="skit-stat num">9</div><div class="lbl">Use cases automated</div></div>
-        <div><div class="skit-stat num">6</div><div class="lbl">Languages deployed</div></div>
-        <div><div class="skit-stat num">86%</div><div class="lbl">Resolution rate</div></div>
-      </div>
+      <button type="button" class="case-arrow" onclick="caseSliderMove(1)" aria-label="Next case study">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+      </button>
     </div>
   </div>
 </section>
@@ -676,16 +782,39 @@
         <span class="tag">RBI</span>
         <h3>RBI Fair Practices Code</h3>
         <p>Calling-hours discipline, no-harassment conversation design, and right-party verification before any collections dialogue begins.</p>
+        <div class="chip-row">
+          <span class="chip">Responsible outreach</span>
+          <span class="chip">RPV</span>
+        </div>
       </div>
       <div class="card compliance-card">
         <span class="tag">DPDP</span>
         <h3>DPDP Act, 2023 readiness</h3>
         <p>Consent capture, purpose limitation, and data-retention controls built into every call and SMS touchpoint — logged for audit, not just promised.</p>
+        <div class="chip-row">
+          <span class="chip">Consent</span>
+          <span class="chip">Purpose limitation</span>
+          <span class="chip">Audit trail</span>
+        </div>
       </div>
       <div class="card compliance-card">
         <span class="tag">TRAI</span>
         <h3>TRAI &amp; telecom compliance</h3>
         <p>Registered-sender and consent-based outreach patterns aligned to India's commercial-communication regulations.</p>
+        <div class="chip-row">
+          <span class="chip">Consent-based</span>
+          <span class="chip">Telecom controls</span>
+        </div>
+      </div>
+      <div class="card compliance-card">
+        <span class="tag">SECURITY</span>
+        <h3>Security &amp; auditability</h3>
+        <p>Enterprise-grade controls and conversation records designed to support secure, reviewable AI operations.</p>
+        <div class="chip-row">
+          <span class="chip">ISO 27001</span>
+          <span class="chip">PCI-DSS</span>
+          <span class="chip">SOC 2</span>
+        </div>
       </div>
     </div>
     <div class="cert-row">
@@ -734,7 +863,7 @@
       </details>
       <details class="faq-item" name="faq">
         <summary>Which Indian banks and lenders use Skit.ai?</summary>
-        <p>Skit.ai is trusted by 100+ enterprises, including named engagements such as IndusInd Bank and Axis Bank, alongside other leading banks and NBFCs. Skit.ai's platform has driven ₹600Cr+ in total collections at an 82% liquidation rate, and placed 100M+ voice calls.</p>
+        <p>Skit.ai is trusted by 100+ enterprises, including named engagements such as Axis Bank, alongside other leading banks and NBFCs. Skit.ai's platform has driven ₹600Cr+ in total collections at an 82% liquidation rate, and placed 100M+ voice calls.</p>
       </details>
       <details class="faq-item" name="faq">
         <summary>Is Skit.ai's use of AI disclosed to customers during a call?</summary>
@@ -806,6 +935,92 @@
     </div>
   </div>
 </footer>
+
+<script>
+(function () {
+  var track = document.getElementById('caseSliderTrack');
+  if (!track) return;
+
+  var realSlides = Array.prototype.slice.call(track.children);
+  var total = realSlides.length;
+  if (total === 0) return;
+
+  // Clone the first and last slide so the track can scroll seamlessly
+  // past either end, then snap invisibly back to the matching real slide.
+  var firstClone = realSlides[0].cloneNode(true);
+  var lastClone = realSlides[total - 1].cloneNode(true);
+  firstClone.setAttribute('aria-hidden', 'true');
+  lastClone.setAttribute('aria-hidden', 'true');
+  track.appendChild(firstClone);
+  track.insertBefore(lastClone, track.firstChild);
+
+  var current = 1; // index 1 = first real slide (0 is the cloned last slide)
+  var viewport = track.parentElement;
+
+  // Slides are narrower than the viewport (see .case-slide flex-basis) so the
+  // previous/next slides peek in slightly on either side of the active one.
+  function offsetFor(index) {
+    var slide = track.children[0];
+    var slideWidth = slide.getBoundingClientRect().width;
+    var gap = parseFloat(getComputedStyle(track).columnGap) || 0;
+    var step = slideWidth + gap;
+    var center = (viewport.getBoundingClientRect().width - slideWidth) / 2;
+    return center - index * step;
+  }
+
+  function render() {
+    track.style.transform = 'translateX(' + offsetFor(current) + 'px)';
+  }
+
+  track.style.transition = 'none';
+  render();
+
+  function goTo(index) {
+    current = index;
+    track.style.transition = '';
+    render();
+  }
+
+  function snapTo(index) {
+    current = index;
+    track.style.transition = 'none';
+    render();
+    track.offsetHeight; // force reflow so the next move re-enables the transition
+    track.style.transition = '';
+  }
+
+  window.addEventListener('resize', function () {
+    track.style.transition = 'none';
+    render();
+    track.offsetHeight;
+    track.style.transition = '';
+  });
+
+  track.addEventListener('transitionend', function (e) {
+    if (e.propertyName !== 'transform') return;
+    if (current === 0) {
+      snapTo(total);
+    } else if (current === total + 1) {
+      snapTo(1);
+    }
+  });
+
+  var timer;
+  function restartAutoplay() {
+    clearInterval(timer);
+    timer = setInterval(function () {
+      goTo(current + 1);
+    }, 3000);
+  }
+
+  window.caseSliderMove = function (direction) {
+    goTo(current + direction);
+    restartAutoplay();
+  };
+
+  restartAutoplay();
+})();
+</script>
 
 </body>
 </html>
