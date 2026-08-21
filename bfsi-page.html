@@ -975,10 +975,29 @@
   track.style.transition = 'none';
   render();
 
+  // While a move is animating, further moves are ignored until it settles.
+  // Without this lock, clicking (or autoplay ticking) faster than the CSS
+  // transition + clone-snap can resolve lets `current` run past the cloned
+  // slides at either end, landing the track on a translateX with no slide
+  // underneath it — that's the "slides disappear" bug.
+  var isAnimating = false;
+  var unlockFallback;
+
+  function unlock() {
+    isAnimating = false;
+    clearTimeout(unlockFallback);
+  }
+
   function goTo(index) {
+    if (isAnimating) return;
+    isAnimating = true;
     current = index;
     track.style.transition = '';
     render();
+    // Safety net: if transitionend never fires for any reason, don't leave
+    // the slider permanently locked.
+    clearTimeout(unlockFallback);
+    unlockFallback = setTimeout(unlock, 600);
   }
 
   function snapTo(index) {
@@ -1003,6 +1022,7 @@
     } else if (current === total + 1) {
       snapTo(1);
     }
+    unlock();
   });
 
   var timer;
