@@ -1516,9 +1516,29 @@ function initSkitSlider(trackId, moveFnName, subheadId) {
   var isAnimating = false;
   var unlockFallback;
 
-  function unlock() {
-    isAnimating = false;
+  function snapTo(index) {
+    current = index;
+    track.style.transition = 'none';
+    render();
+    track.offsetHeight; // force reflow so the next move re-enables the transition
+    track.style.transition = '';
+  }
+
+  // Snaps the clone slides back to their matching real slide and releases
+  // the lock. Runs from transitionend on a visible tab, but also from the
+  // fallback timer below — background tabs (demo left open in another tab,
+  // laptop asleep) suspend CSS transitions so transitionend stops firing,
+  // yet the autoplay interval keeps ticking. If only `isAnimating` were
+  // cleared without this snap, `current` would keep incrementing past the
+  // cloned slide indices with nothing rendered at that offset.
+  function settle() {
     clearTimeout(unlockFallback);
+    if (current === 0) {
+      snapTo(total);
+    } else if (current === total + 1) {
+      snapTo(1);
+    }
+    isAnimating = false;
   }
 
   function goTo(index) {
@@ -1527,18 +1547,8 @@ function initSkitSlider(trackId, moveFnName, subheadId) {
     current = index;
     track.style.transition = '';
     render();
-    // Safety net: if transitionend never fires for any reason, don't leave
-    // the slider permanently locked.
     clearTimeout(unlockFallback);
-    unlockFallback = setTimeout(unlock, 600);
-  }
-
-  function snapTo(index) {
-    current = index;
-    track.style.transition = 'none';
-    render();
-    track.offsetHeight; // force reflow so the next move re-enables the transition
-    track.style.transition = '';
+    unlockFallback = setTimeout(settle, 600);
   }
 
   window.addEventListener('resize', function () {
@@ -1550,12 +1560,7 @@ function initSkitSlider(trackId, moveFnName, subheadId) {
 
   track.addEventListener('transitionend', function (e) {
     if (e.propertyName !== 'transform') return;
-    if (current === 0) {
-      snapTo(total);
-    } else if (current === total + 1) {
-      snapTo(1);
-    }
-    unlock();
+    settle();
   });
 
   var timer;
