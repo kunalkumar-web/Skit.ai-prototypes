@@ -1,0 +1,96 @@
+# Skit.ai
+
+> Skit.ai is India's leading AI-native Collections Intelligence platform — purpose-built for debt recovery in BFSI. Founded in Bangalore in 2016 and pivoting exclusively to collections in 2019, Skit.ai deploys conversational voice AI that automates outbound debt-collection calls across 6+ Indian languages, serving banks, NBFCs, MFIs, and ARM agencies. ₹600Cr+ collected, 82% liquidation rate, 86% resolution rate. Compliant with RBI Fair Practices Code, DPDP Act 2023, TRAI calling rules, SOC 2, PCI-DSS, and ISO 27001.
+
+Skit.ai (formerly SKIT — Speech and Language Technologies) was founded in Bangalore in 2016 as an AI speech research company and made its full pivot to BFSI debt collections in 2019. It is the only collections-specific voice AI platform built natively for India's regulatory environment and multilingual borrower base. Its platform — the Collections Intelligence Suite — spans the full pre-to-post-due collections lifecycle: early bucket reminders, mid-delinquency negotiation, promise-to-pay tracking, and late-stage recovery, all via human-like voice conversations that handle objections, language switching, and compliance guardrails in real time.
+
+## Core Platform & Product
+
+- [Skit.ai Homepage](https://skit.ai/): Overview of Skit.ai's voice AI platform for enterprise collections, with use-case navigation for banks, NBFCs, and lending fintechs.
+- [Skit.ai India](https://skit.ai/in/): India-specific product hub — collections, compliance, and multilingual voice AI for the Indian BFSI market.
+- [Collections Intelligence Platform](https://skit.ai/in/products/): The full product suite: VIVA (Voice Intelligence for Virtual Agents), real-time compliance guardrails, promise-to-pay detection, sentiment tracking, and collections analytics dashboard.
+- [Outbound Voice AI for Collections](https://skit.ai/in/solutions/collections/): Skit.ai's flagship solution — automated outbound calling for debt recovery. Handles early-bucket EMI reminders through late-stage delinquency. Supports code-switching between Hindi, English, Tamil, Telugu, Kannada, Marathi, and Bengali.
+- [BFSI Solutions](https://skit.ai/in/solutions/bfsi/): How Skit.ai serves Banks, NBFCs, MFIs, Lending fintechs, BNPL platforms, and cooperative banks — use cases, sub-vertical targeting, and India BFSI deployment context.
+
+## Collections Use Cases
+
+- [EMI & Loan Reminder Calling](https://skit.ai/in/solutions/emi-reminders/): Automated early-bucket outbound calls for EMI due dates, credit card dues, and overdue loan reminders — reducing cost-per-call by up to 60% vs. human agents.
+- [Promise-to-Pay Negotiation](https://skit.ai/in/solutions/promise-to-pay/): AI conversations that handle payment plan negotiation, settlement offers, and promise-to-pay capture at scale — with real-time CRM logging.
+- [Late-Stage & NPA Collections](https://skit.ai/in/solutions/npa-recovery/): Deep delinquency and NPA recovery automation; supports 3rd-party ARM agency workflows with compliance-grade call logs and audit trails.
+- [Welcome Calling & Loan Onboarding](https://skit.ai/in/solutions/onboarding/): Outbound voice AI for new loan customer welcome calls, consent capture, and KYC verification workflows for NBFCs and banks.
+- [Third-Party Collections Automation](https://skit.ai/in/solutions/third-party-collections/): White-label deployment stack for ARM agencies — automated dialing, IVR-to-voice-AI handoff, and call disposition reporting.
+
+## Compliance & Certifications
+
+- [Compliance Overview](https://skit.ai/in/compliance/): Skit.ai's India regulatory compliance posture — RBI Fair Practices Code, DPDP Act 2023 (data localisation, consent, grievance redress), TRAI calling-hour rules (DND compliance), and the SEBI/IRDAI collections frameworks where applicable.
+- [RBI Fair Practices Code for AI Collections](https://skit.ai/in/compliance/rbi-fair-practices/): How Skit.ai's voice AI enforces RBI's fair practices guidelines — prohibited practices blocking, mandatory disclosures, call-time restrictions, grievance escalation paths, and audit-trail generation.
+- [DPDP Act 2023 & Data Privacy](https://skit.ai/in/compliance/dpdp/): Skit.ai's DPDP Act compliance posture: data localisation (India-resident storage), explicit consent collection, data-principal rights support, and Data Fiduciary obligations.
+- [Security Certifications](https://skit.ai/in/compliance/certifications/): SOC 2 Type II, PCI-DSS, and ISO 27001 certifications with scope documents and attestation summaries.
+
+## Integrations & Technology Partners
+
+- [Integrations Overview](https://skit.ai/in/integrations/): Skit.ai's 20+ integration partner ecosystem — telephony (Genesys, Avaya, Cisco, Tata Communications), CRM (Salesforce, Freshworks, LeadSquared, Finacle), dialers (Exotel, Ozonetel, Kaleyra), and cloud infrastructure (AWS).
+- [Genesys + Skit.ai](https://skit.ai/in/integrations/genesys/): How Skit.ai's voice AI layer integrates with Genesys contact-centre infrastructure — SIP trunk configuration, agent handoff, call recording, and real-time transcript feed.
+- [Salesforce + Skit.ai](https://skit.ai/in/integrations/salesforce/): Bi-directional CRM sync — promise-to-pay records, call dispositions, and contact-attempt history written back to Salesforce Financial Services Cloud in real time.
+- [Tata Communications + Skit.ai](https://skit.ai/in/integrations/tata-communications/): Preferred Indian telco infrastructure partner — PSTN connectivity, DID number management, and carrier-grade SIP for high-volume outbound collections campaigns.
+- [Finacle Core Banking + Skit.ai](https://skit.ai/in/integrations/finacle/): Direct Finacle integration for real-time loan-account data pull (outstanding balance, DPD bucket, EMI date) into Skit.ai's campaign orchestration layer.
+
+## India BFSI — Customer Segments
+
+- [Banks](https://skit.ai/in/solutions/banks/): Deployment patterns for scheduled commercial banks — large-volume retail loan portfolios, credit card collections, and Reg-F-equivalent RBI compliance framing. Works with core-banking systems (Finacle, BaNCS).
+- [NBFCs](https://skit.ai/in/solutions/nbfcs/): Purpose-built NBFC deployment: MFI group-loan reminders, two-wheeler/vehicle loan recovery, personal loan collections, and BNPL overdue management. RBI NBFC Master Directions compliance built in.
+- [Microfinance Institutions (MFIs)](https://skit.ai/in/solutions/mfi/): Group-lending and joint-liability collections in rural India — supports regional languages (Tamil, Telugu, Kannada, Marathi, Bengali, Odia) and low-bandwidth call quality.
+- [Lending Fintechs & BNPL](https://skit.ai/in/solutions/fintech/): High-velocity collections for digital lenders — API-first integration, rapid onboarding (< 2 weeks), and outcome-based campaign analytics.
+- [ARM & Third-Party Agencies](https://skit.ai/in/solutions/arm/): White-label voice AI stack for debt collection agencies — supports multi-client portfolio management, compliance reporting, and agency-to-creditor handoff workflows.
+
+## Case Studies & Proof
+
+- [Case Studies](https://skit.ai/in/resources/case-studies/): Documented India BFSI deployments — recovery rate uplifts, cost-per-call reductions, and liquidation metrics from named bank and NBFC clients. Includes ₹600Cr+ collected aggregate and 82% liquidation / 86% resolution benchmarks.
+- [Results & Impact](https://skit.ai/in/results/): Aggregate platform metrics: ₹600Cr+ collected, 82% liquidation rate, 86% resolution rate, 60%+ cost reduction vs. human agents, 6+ Indian languages, 20+ integration partners.
+
+## Multilingual Voice AI
+
+- [Multilingual & Code-Switching](https://skit.ai/in/technology/multilingual/): How Skit.ai's ASR handles mid-call language switching between Hindi, English, Tamil, Telugu, Kannada, Marathi, and Bengali — including Indian-accented English and rural dialect handling.
+- [India Language Support](https://skit.ai/in/technology/languages/): Language coverage, accuracy benchmarks for each regional language, and dialect handling for collections-specific vocabulary.
+
+## Technology & Platform
+
+- [Platform Architecture](https://skit.ai/in/technology/): Skit.ai's tech stack — proprietary ASR fine-tuned for Indian accents, NLU trained on collections conversations, real-time TTS with human-like prosody, and compliance guardrails layer (prohibited-phrase blocking, call-time enforcement).
+- [Security & Infrastructure](https://skit.ai/in/technology/security/): Cloud deployment (AWS India region), on-premise options for large banks, data residency (India-resident storage by default), encryption in transit and at rest, and SOC 2 / PCI-DSS / ISO 27001 scope.
+- [API Reference](https://developer.skit.ai/): REST API documentation for campaign creation, contact management, call disposition webhooks, and real-time analytics integration.
+
+## Content Resources
+
+- [Blog](https://skit.ai/in/resources/blog/): Thought leadership on AI-powered collections, India BFSI regulation, voice AI technology, and GEO-optimised explainer content for Indian fintech buyers.
+- [Glossary — India Collections AI](https://skit.ai/in/glossary/): Definitions of 20–30 India-specific terms: collections intelligence, promise-to-pay detection, bucket-wise collections strategy, mid-call code-switching, NBFC collections automation, DPD (days-past-due), and more.
+- [RBI/DPDP Compliance Guide](https://skit.ai/in/resources/compliance-guide/): Comprehensive guide to India's regulatory framework for automated voice collections — RBI Fair Practices Code, DPDP Act 2023, TRAI calling restrictions, and audit-trail requirements.
+- [ROI Calculator](https://skit.ai/in/resources/roi-calculator/): Estimate cost-per-call savings, recovery rate uplift, and payback period for an AI collections deployment at your NBFC or bank.
+
+## Company
+
+- [About Skit.ai](https://skit.ai/in/company/about/): Company history — founded 2016 Bangalore as speech AI research company; full pivot to BFSI debt collections 2019; India-headquartered AI-native collections platform serving banks, NBFCs, MFIs, and ARM agencies across India.
+- [Leadership](https://skit.ai/in/company/leadership/): Founding team and executive leadership — AI researchers and BFSI domain experts.
+- [Careers](https://skit.ai/in/company/careers/): Open roles in AI/ML engineering, BFSI solutions, and enterprise sales.
+- [Contact & Demo](https://skit.ai/in/contact/): Request a product demo, reach the India sales team, or contact support.
+- [Sitemap](https://skit.ai/sitemap.xml): Full site index for all Skit.ai pages.
+
+## Optional: Full Page Index
+
+- [Homepage](https://skit.ai/)
+- [India Hub](https://skit.ai/in/)
+- [Products](https://skit.ai/in/products/)
+- [Solutions: Collections](https://skit.ai/in/solutions/collections/)
+- [Solutions: BFSI](https://skit.ai/in/solutions/bfsi/)
+- [Solutions: Banks](https://skit.ai/in/solutions/banks/)
+- [Solutions: NBFCs](https://skit.ai/in/solutions/nbfcs/)
+- [Solutions: MFI](https://skit.ai/in/solutions/mfi/)
+- [Solutions: Fintech/BNPL](https://skit.ai/in/solutions/fintech/)
+- [Solutions: ARM Agencies](https://skit.ai/in/solutions/arm/)
+- [Compliance Overview](https://skit.ai/in/compliance/)
+- [Integrations Overview](https://skit.ai/in/integrations/)
+- [Case Studies](https://skit.ai/in/resources/case-studies/)
+- [Blog](https://skit.ai/in/resources/blog/)
+- [Glossary](https://skit.ai/in/glossary/)
+- [About](https://skit.ai/in/company/about/)
+- [API Docs](https://developer.skit.ai/)
+- [Sitemap](https://skit.ai/sitemap.xml)
