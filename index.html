@@ -466,6 +466,7 @@
 
   /* ===== Use cases (matches production card style) ===== */
   .usecase-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+  .usecase-grid--quad { grid-template-columns: repeat(4, 1fr); }
   .usecase-card { background: #ffffff; border: 1px solid var(--skit-border); }
   .usecase-card, .usecase-card:hover { box-shadow: var(--skit-shadow-sm); transform: none; }
   .usecase-icon-box {
@@ -474,6 +475,7 @@
     display: flex; align-items: center; justify-content: center; margin-bottom: 20px;
   }
   .usecase-icon-box img { width: 47px; height: 47px; }
+  #lifecycle-section .usecase-icon-box { border: none; background: transparent; }
   .usecase-card h3 {
     font-family: var(--skit-font-display); font-weight: 300; font-size: 22px;
     padding-bottom: 12px; margin-bottom: 16px; border-bottom: 2px solid var(--skit-teal); display: inline-block;
@@ -485,6 +487,18 @@
     content: "\2713"; position: absolute; left: 0; top: 8px; width: 16px; height: 16px;
     border: 1.5px solid var(--skit-accent); border-radius: 50%; color: var(--skit-accent);
     font-size: 10px; display: flex; align-items: center; justify-content: center; font-weight: 300;
+  }
+
+  /* Lifecycle section cards use the production dot-bullet list style, not the checkmark bullets above */
+  #lifecycle-section .usecase-card { padding: 10px 15px; }
+  #lifecycle-section .usecase-card ul { padding-left: 14px; }
+  #lifecycle-section .usecase-card ul li {
+    display: flex; align-items: center; gap: 10px;
+    padding: 5px 0px; font-size: 14.5px; color: #333;
+  }
+  #lifecycle-section .usecase-card ul li::before {
+    content: ""; position: static; width: 5px; height: 5px; border-radius: 50%;
+    background: var(--skit-navy); border: none; flex: 0 0 auto; display: block;
   }
 
   /* ===== Deployment workflow — dark, connected circular steps ===== */
@@ -737,6 +751,7 @@
   @media (max-width: 989px) {
     .compliance-grid { grid-template-columns: repeat(2, 1fr); }
     .stat-band, .usecase-grid { grid-template-columns: 1fr; }
+    .usecase-grid--quad { grid-template-columns: repeat(2, 1fr); }
     .integration-grid { grid-template-columns: repeat(2, 1fr); }
     .hero h1 { font-size: 34px; }
     .story-columns { grid-template-columns: 1fr; gap: 24px; }
@@ -747,6 +762,7 @@
   @media (max-width: 767px) {
     .nav-links { display: none; }
     .compliance-grid { grid-template-columns: 1fr; }
+    .usecase-grid--quad { grid-template-columns: 1fr; }
     .case-slider { gap: 8px; }
     .case-arrow { width: 36px; height: 36px; }
     .quote-block.case-card { padding: 32px 24px; min-height: 320px; }
@@ -765,7 +781,7 @@
         <li><a href="#">AI Platform <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg></a></li>
         <li><a href="#">Company <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg></a></li>
         <li><a href="#">Resources <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg></a></li>
-        <li><a href="bfsi-page.html">BFSI</a></li>
+        <li><a href="#">BFSI</a></li>
         <li><a href="comparison-alternatives.html">Comparison</a></li>
       </ul>
       <div class="nav-cta">
@@ -976,14 +992,14 @@
     </div>
     <div class="usecase-grid">
       <div class="card usecase-card">
-        <div class="usecase-icon-box"><img src="assets/icons/usecase-collections.svg" alt=""></div>
-        <h3>Collections</h3>
+        <div class="usecase-icon-box"><img src="assets/icons/usecase-marketing.svg" alt=""></div>
+        <h3>Marketing</h3>
         <ul>
-          <li>Payment reminders</li>
-          <li>PTP capture &amp; negotiations</li>
-          <li>Settlement offers</li>
-          <li>Right-party verification</li>
-          <li>Callback scheduling</li>
+          <li>Loan origination &amp; top-ups</li>
+          <li>Product cross-sell</li>
+          <li>Lead qualification</li>
+          <li>Renewal &amp; retention calls</li>
+          <li>Savings campaign outreach</li>
         </ul>
       </div>
       <div class="card usecase-card">
@@ -998,14 +1014,14 @@
         </ul>
       </div>
       <div class="card usecase-card">
-        <div class="usecase-icon-box"><img src="assets/icons/usecase-marketing.svg" alt=""></div>
-        <h3>Marketing</h3>
+        <div class="usecase-icon-box"><img src="assets/icons/usecase-collections.svg" alt=""></div>
+        <h3>Collections</h3>
         <ul>
-          <li>Loan origination &amp; top-ups</li>
-          <li>Product cross-sell</li>
-          <li>Lead qualification</li>
-          <li>Renewal &amp; retention calls</li>
-          <li>Savings campaign outreach</li>
+          <li>Payment reminders</li>
+          <li>PTP capture &amp; negotiations</li>
+          <li>Settlement offers</li>
+          <li>Right-party verification</li>
+          <li>Callback scheduling</li>
         </ul>
       </div>
     </div>
@@ -1204,6 +1220,61 @@
     </div>
   </div>
 </section>
+
+<!-- Set SHOW_LIFECYCLE_SECTION to false to hide this section -->
+<script>var SHOW_LIFECYCLE_SECTION = true;</script>
+<section class="skit-section skit-section--alt" id="lifecycle-section">
+  <div class="skit-container">
+    <div class="section-head">
+      <span class="eyebrow">Voice AI across the lifecycle</span>
+      <h2>One Voice AI agent, every stage of the customer journey.</h2>
+      <p>From first outreach to renewal — acquisition, onboarding, service and retention, inbound and outbound, all on one platform.</p>
+    </div>
+    <div class="usecase-grid usecase-grid--quad">
+      <div class="card usecase-card">
+        <div class="usecase-icon-box"><img src="assets/icons/lifecycle-acquisition.svg" alt=""></div>
+        <h3>Acquisition</h3>
+        <ul>
+          <li>Lead generation</li>
+          <li>Lead qualification</li>
+          <li>Product information</li>
+          <li>Document collection</li>
+        </ul>
+      </div>
+      <div class="card usecase-card">
+        <div class="usecase-icon-box"><img src="assets/icons/lifecycle-onboarding.svg" alt=""></div>
+        <h3>Onboarding</h3>
+        <ul>
+          <li>Welcome calls</li>
+          <li>Service activation</li>
+          <li>KYC verification</li>
+          <li>Account setup</li>
+        </ul>
+      </div>
+      <div class="card usecase-card">
+        <div class="usecase-icon-box"><img src="assets/icons/lifecycle-service.svg" alt=""></div>
+        <h3>Service</h3>
+        <ul>
+          <li>FAQ resolution</li>
+          <li>Balance inquiries</li>
+          <li>Complaint handling</li>
+          <li>Agent transfers</li>
+        </ul>
+      </div>
+      <div class="card usecase-card">
+        <div class="usecase-icon-box"><img src="assets/icons/lifecycle-retention.svg" alt=""></div>
+        <h3>Retention</h3>
+        <ul>
+          <li>Payment reminders</li>
+          <li>Renewal campaigns</li>
+          <li>Upsell / cross-sell</li>
+          <li>Feedback surveys</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+<script>if (!SHOW_LIFECYCLE_SECTION) { document.getElementById('lifecycle-section').remove(); }</script>
 
 <section class="skit-section">
   <div class="skit-container">
