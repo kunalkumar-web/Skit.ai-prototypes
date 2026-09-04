@@ -105,7 +105,7 @@
       "name": "What languages does Skit.ai support for Indian BFSI customers?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Skit.ai supports 10+ regional Indian languages, including Hindi, Tamil, Telugu, Kannada, Malayalam, Marathi, Gujarati, Bengali and Punjabi, and can switch languages mid-call based on the customer's preference."
+        "text": "Skit.ai supports 10+ regional Indian languages, including Hindi, Tamil, Telugu, Kannada, Malayalam, Marathi, Gujarati, Bengali and Punjabi, with 160+ dialect variations, and can switch languages mid-call based on the customer's preference."
       }
     },
     {
@@ -671,14 +671,14 @@
           <circle cx="360" cy="324" r="2.5" class="bfsi-orbit-3"></circle>
         </g>
 
-        <!-- side stat pill: total recovered -->
+        <!-- side stat pill: total collections driven -->
         <g>
           <line x1="214" y1="220" x2="256" y2="220" stroke="#93C5FD" stroke-width="1.5"></line>
           <circle cx="256" cy="220" r="3" fill="#60A5FA"></circle>
           <rect x="26" y="202" width="188" height="36" rx="18" fill="#0E0F13"></rect>
           <path d="M42 224l5-6 4 4 6-8" stroke="#6EE7B7" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" fill="none"></path>
           <path d="M53 210h4v4" stroke="#6EE7B7" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" fill="none"></path>
-          <text x="66" y="224.5" font-family="Inter, Helvetica Neue, sans-serif" font-size="12" font-weight="700" fill="#FFFFFF">&#8377;600Cr+ recovered</text>
+          <text x="66" y="224.5" font-family="Inter, Helvetica Neue, sans-serif" font-size="12" font-weight="700" fill="#FFFFFF">&#8377;600Cr+ driven</text>
         </g>
 
         <!-- extra floating stat: enterprises -->
@@ -891,14 +891,14 @@
     </div>
     <div class="usecase-grid">
       <div class="card usecase-card">
-        <div class="usecase-icon-box"><img src="assets/icons/usecase-collections.svg" alt=""></div>
-        <h3>Collections</h3>
+        <div class="usecase-icon-box"><img src="assets/icons/usecase-marketing.svg" alt=""></div>
+        <h3>Marketing</h3>
         <ul>
-          <li>Payment reminders</li>
-          <li>PTP capture &amp; negotiations</li>
-          <li>Settlement offers</li>
-          <li>Right-party verification</li>
-          <li>Callback scheduling</li>
+          <li>Loan origination &amp; top-ups</li>
+          <li>Product cross-sell</li>
+          <li>Lead qualification</li>
+          <li>Renewal &amp; retention calls</li>
+          <li>Savings campaign outreach</li>
         </ul>
       </div>
       <div class="card usecase-card">
@@ -913,14 +913,14 @@
         </ul>
       </div>
       <div class="card usecase-card">
-        <div class="usecase-icon-box"><img src="assets/icons/usecase-marketing.svg" alt=""></div>
-        <h3>Marketing</h3>
+        <div class="usecase-icon-box"><img src="assets/icons/usecase-collections.svg" alt=""></div>
+        <h3>Collections</h3>
         <ul>
-          <li>Loan origination &amp; top-ups</li>
-          <li>Product cross-sell</li>
-          <li>Lead qualification</li>
-          <li>Renewal &amp; retention calls</li>
-          <li>Savings campaign outreach</li>
+          <li>Payment reminders</li>
+          <li>PTP capture &amp; negotiations</li>
+          <li>Settlement offers</li>
+          <li>Right-party verification</li>
+          <li>Callback scheduling</li>
         </ul>
       </div>
     </div>
@@ -1069,7 +1069,7 @@
       </details>
       <details class="faq-item" name="faq">
         <summary>What languages does Skit.ai support for Indian BFSI customers?</summary>
-        <p>Skit.ai supports 10+ regional Indian languages, including Hindi, Tamil, Telugu, Kannada, Malayalam, Marathi, Gujarati, Bengali and Punjabi, and can switch languages mid-call based on the customer's preference.</p>
+        <p>Skit.ai supports 10+ regional Indian languages, including Hindi, Tamil, Telugu, Kannada, Malayalam, Marathi, Gujarati, Bengali and Punjabi, with 160+ dialect variations, and can switch languages mid-call based on the customer's preference.</p>
       </details>
       <details class="faq-item" name="faq">
         <summary>What systems can Skit.ai integrate with in a bank or NBFC's tech stack?</summary>
@@ -1217,9 +1217,29 @@
   var isAnimating = false;
   var unlockFallback;
 
-  function unlock() {
-    isAnimating = false;
+  function snapTo(index) {
+    current = index;
+    track.style.transition = 'none';
+    render();
+    track.offsetHeight; // force reflow so the next move re-enables the transition
+    track.style.transition = '';
+  }
+
+  // Snaps the clone slides back to their matching real slide and releases
+  // the lock. Runs from transitionend on a visible tab, but also from the
+  // fallback timer below — background tabs (demo left open in another tab,
+  // laptop asleep) suspend CSS transitions so transitionend stops firing,
+  // yet the autoplay interval keeps ticking. If only `isAnimating` were
+  // cleared without this snap, `current` would keep incrementing past the
+  // cloned slide indices with nothing rendered at that offset.
+  function settle() {
     clearTimeout(unlockFallback);
+    if (current === 0) {
+      snapTo(total);
+    } else if (current === total + 1) {
+      snapTo(1);
+    }
+    isAnimating = false;
   }
 
   function goTo(index) {
@@ -1228,18 +1248,8 @@
     current = index;
     track.style.transition = '';
     render();
-    // Safety net: if transitionend never fires for any reason, don't leave
-    // the slider permanently locked.
     clearTimeout(unlockFallback);
-    unlockFallback = setTimeout(unlock, 600);
-  }
-
-  function snapTo(index) {
-    current = index;
-    track.style.transition = 'none';
-    render();
-    track.offsetHeight; // force reflow so the next move re-enables the transition
-    track.style.transition = '';
+    unlockFallback = setTimeout(settle, 600);
   }
 
   window.addEventListener('resize', function () {
@@ -1251,12 +1261,7 @@
 
   track.addEventListener('transitionend', function (e) {
     if (e.propertyName !== 'transform') return;
-    if (current === 0) {
-      snapTo(total);
-    } else if (current === total + 1) {
-      snapTo(1);
-    }
-    unlock();
+    settle();
   });
 
   var timer;
