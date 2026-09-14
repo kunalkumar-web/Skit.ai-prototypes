@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48" fill="none">
+  <g transform="translate(24 24) scale(0.8889) translate(-24.0 -24.0)" stroke-width="1.688">
+    <circle cx="24" cy="24" r="17" stroke="#2A3545" stroke-linecap="round" stroke-linejoin="round"></circle>
+    <path d="M24 14v10l7 5" stroke="#2A3545" stroke-linecap="round" stroke-linejoin="round"></path>
+  </g>
+</svg>
