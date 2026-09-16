@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Skit.ai vs Alternatives — Compare Collections AI Platforms | Skit.ai</title>
-<meta name="description" content="How does Skit.ai compare to Gnani.ai, Yellow.ai, Sarvam.ai, and Haptik for voice AI debt collections in India? An honest, first-party comparison.">
+<title>Skit.ai vs Alternatives — Compare Conversational AI for BFSI | Skit.ai</title>
+<meta name="description" content="How does Skit.ai compare to a typical voice AI vendor for banking, fintech and insurance in India? An honest, first-party comparison.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Merriweather:wght@300;400;700&display=swap" rel="stylesheet">
@@ -60,7 +60,6 @@ body {
 section { padding: 140px 0; }
 section.alt { background: var(--skit-bg-alt); }
 section.dark { background: var(--skit-near-black); color: #fff; }
-section.mint { background: var(--skit-tint-mint); }
 
 h1, h2, h3, h4 {
   font-family: var(--skit-font-body);
@@ -81,12 +80,6 @@ h1, h2, h3, h4 {
 }
 .label--teal { color: var(--skit-primary); }
 .label--white { color: #ffffff; }
-
-.stat-num {
-  font-family: var(--skit-font-display);
-  font-weight: 300;
-  color: var(--skit-teal);
-}
 
 .btn {
   display: inline-block;
@@ -231,7 +224,7 @@ footer .nav-logo-img { height: 32px; }
 }
 
 /* ===== comparison hero graphic ===== */
-.cmp-hero-wrap { margin: 56px auto 0; max-width: 760px; }
+.cmp-hero-wrap { margin: 40px auto 0; max-width: 600px; }
 .cmp-orbit-graphic { position: relative; width: 100%; aspect-ratio: 1.08; }
 
 .cmp-orbit-dotgrid {
@@ -258,171 +251,151 @@ footer .nav-logo-img { height: 32px; }
 
 .cmp-orbit-center {
   position: absolute; left: 50%; top: 50%; transform: translate(-50%,-50%);
-  width: 27%; aspect-ratio: 1; min-width: 150px; border-radius: 50%;
+  width: 27%; aspect-ratio: 1; min-width: 118px; border-radius: 50%;
   background: rgba(255,255,255,.97); border: 1px solid var(--skit-border);
   box-shadow: 0 24px 60px rgba(11,18,32,.12), 0 0 0 14px rgba(225,240,237,.55);
   display: flex; flex-direction: column; align-items: center; justify-content: center;
   text-align: center; z-index: 3; padding: 8px;
 }
 .cmp-orbit-center-icon {
-  width: 42px; height: 42px; border-radius: var(--skit-radius);
+  width: 44px; height: 44px;
   display: flex; align-items: center; justify-content: center;
-  background: var(--skit-tint-mint); color: var(--skit-teal); margin-bottom: 10px;
+  margin-bottom: 8px;
 }
-.cmp-orbit-center-icon svg { width: 22px; height: 22px; }
-.cmp-orbit-center strong { font-size: 16px; letter-spacing: -.01em; color: var(--skit-primary); font-weight: 700; }
-.cmp-orbit-center small { font-size: 11px; color: var(--skit-text-muted); margin-top: 4px; }
+.cmp-orbit-center-icon svg { width: 44px; height: 44px; }
+.cmp-orbit-center-logotype { height: 20px; width: auto; display: block; }
 
 .cmp-orbit-connector {
-  position: absolute; left: 50%; top: 50%; width: 50%; height: 1px;
+  position: absolute; left: 50%; top: 50%; width: 34%; height: 1px;
   transform-origin: left center;
   background: linear-gradient(90deg, rgba(29,122,107,.26), rgba(29,122,107,.03));
   z-index: 1;
 }
-.cmp-orbit-connector--1 { transform: rotate(-28deg); }
-.cmp-orbit-connector--2 { transform: rotate(28deg); }
-.cmp-orbit-connector--3 { transform: rotate(148deg); }
-.cmp-orbit-connector--4 { transform: rotate(212deg); }
-.cmp-orbit-connector--5 { transform: rotate(-92deg); }
-.cmp-orbit-connector--6 { transform: rotate(88deg); }
-
-.cmp-orbit-pulse {
-  position: absolute; left: 50%; top: 50%; width: 10px; height: 10px;
-  transform: translate(-50%,-50%); border-radius: 50%; background: var(--skit-teal);
-  box-shadow: 0 0 0 0 rgba(29,122,107,.4); animation: cmpOrbitPulse 2.4s infinite; z-index: 5;
-}
+.cmp-orbit-connector--1 { transform: rotate(-30deg); }
+.cmp-orbit-connector--2 { transform: rotate(30deg); }
+.cmp-orbit-connector--3 { transform: rotate(150deg); }
+.cmp-orbit-connector--4 { transform: rotate(210deg); }
+.cmp-orbit-connector--5 { transform: rotate(-90deg); }
+.cmp-orbit-connector--6 { transform: rotate(90deg); }
 
 .cmp-orbit-metric {
-  position: absolute; width: 190px; min-height: 100px; padding: 15px 16px;
+  position: absolute; width: 184px; height: 96px; padding: 14px 16px;
+  display: flex; flex-direction: column; justify-content: center; gap: 8px;
   background: rgba(255,255,255,.98); border: 1px solid var(--skit-border);
   border-radius: var(--skit-radius-lg); box-shadow: var(--skit-shadow-lg);
   z-index: 4; animation: cmpOrbitFloat 5s ease-in-out infinite;
 }
-.cmp-orbit-top { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+.cmp-orbit-top { display: flex; align-items: center; gap: 10px; }
 .cmp-orbit-icon {
   width: 30px; height: 30px; border-radius: 50%; flex-shrink: 0;
   background: var(--skit-tint-mint); display: flex; align-items: center; justify-content: center; color: var(--skit-teal);
 }
 .cmp-orbit-icon svg { width: 16px; height: 16px; }
-.cmp-orbit-live { font-size: 10px; color: var(--skit-teal); font-weight: 700; letter-spacing: .04em; }
-.cmp-orbit-value { font-size: 26px; line-height: 1; font-weight: 700; letter-spacing: -.02em; margin: 10px 0 4px; color: var(--skit-primary); font-family: var(--skit-font-body); }
-.cmp-orbit-label { color: var(--skit-text-muted); font-size: 12px; line-height: 1.3; }
+.cmp-orbit-value { font-size: 22px; line-height: 1; font-weight: 700; letter-spacing: -.02em; margin: 0; color: var(--skit-primary); font-family: var(--skit-font-body); }
+.cmp-orbit-label { color: var(--skit-text-muted); font-size: 11px; line-height: 1.35; margin: 0; }
 
-.cmp-orbit-m1 { left: 1%; top: 12%; animation-delay: 0s; }
-.cmp-orbit-m2 { right: 0; top: 8%; animation-delay: -1s; }
-.cmp-orbit-m3 { right: -1%; top: 58%; animation-delay: -2.1s; }
-.cmp-orbit-m4 { left: 3%; bottom: 4%; animation-delay: -.6s; }
-.cmp-orbit-m5 { left: 33%; bottom: -3%; animation-delay: -3s; }
-.cmp-orbit-m6 { left: 34%; top: -2%; animation-delay: -1.7s; }
+.cmp-orbit-m1 { left: 16%; top: 32%; transform: translate(-50%,-50%); animation-delay: 0s; }
+.cmp-orbit-m2 { left: 84%; top: 32%; transform: translate(-50%,-50%); animation-delay: -1s; }
+.cmp-orbit-m3 { left: 84%; top: 68%; transform: translate(-50%,-50%); animation-delay: -2.1s; }
+.cmp-orbit-m4 { left: 16%; top: 68%; transform: translate(-50%,-50%); animation-delay: -.6s; }
+.cmp-orbit-m5 { left: 50%; top: 88%; transform: translate(-50%,-50%); animation-delay: -3s; }
+.cmp-orbit-m6 { left: 50%; top: 12%; transform: translate(-50%,-50%); animation-delay: -1.7s; }
 
-.cmp-orbit-signal {
-  position: absolute; right: 12%; bottom: 14%; width: 165px; height: 58px; padding: 9px 12px;
-  background: rgba(255,255,255,.92); border: 1px solid var(--skit-border);
-  border-radius: var(--skit-radius); box-shadow: var(--skit-shadow-md); z-index: 5;
+@keyframes cmpOrbitFloat {
+  0%, 100% { transform: translate(-50%,-50%) translateY(0); }
+  50% { transform: translate(-50%,-50%) translateY(-6px); }
 }
-.cmp-orbit-signal-row { display: flex; justify-content: space-between; align-items: center; }
-.cmp-orbit-signal span { font-size: 9.5px; color: var(--skit-text-muted); }
-.cmp-orbit-signal-active { color: var(--skit-teal); font-weight: 700; }
-.cmp-orbit-bars { height: 26px; display: flex; align-items: flex-end; gap: 3px; margin-top: 5px; }
-.cmp-orbit-bars i {
-  width: 4px; border-radius: 5px 5px 1px 1px; background: var(--skit-teal); opacity: .7;
-  animation: cmpOrbitBar 1.4s ease-in-out infinite alternate;
-}
-.cmp-orbit-bars i:nth-child(1) { height: 7px; }
-.cmp-orbit-bars i:nth-child(2) { height: 16px; animation-delay: -.4s; }
-.cmp-orbit-bars i:nth-child(3) { height: 11px; animation-delay: -.8s; }
-.cmp-orbit-bars i:nth-child(4) { height: 22px; animation-delay: -.2s; }
-.cmp-orbit-bars i:nth-child(5) { height: 14px; animation-delay: -.6s; }
-.cmp-orbit-bars i:nth-child(6) { height: 25px; animation-delay: -.9s; }
-.cmp-orbit-bars i:nth-child(7) { height: 17px; animation-delay: -.3s; }
-.cmp-orbit-bars i:nth-child(8) { height: 21px; animation-delay: -.7s; }
-.cmp-orbit-bars i:nth-child(9) { height: 12px; animation-delay: -.1s; }
-.cmp-orbit-bars i:nth-child(10) { height: 19px; animation-delay: -.5s; }
-
-@keyframes cmpOrbitFloat { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-6px); } }
-@keyframes cmpOrbitPulse { 70% { box-shadow: 0 0 0 14px rgba(29,122,107,0); } 100% { box-shadow: 0 0 0 0 rgba(29,122,107,0); } }
-@keyframes cmpOrbitBar { to { transform: scaleY(.45); opacity: .35; } }
 
 @media (prefers-reduced-motion: reduce) {
-  .cmp-orbit-metric, .cmp-orbit-pulse, .cmp-orbit-bars i { animation: none; }
+  .cmp-orbit-metric { animation: none; }
 }
 @media (max-width: 767px) {
   .cmp-hero-wrap { display: none; }
 }
 
-/* ── CATEGORY FRAMING ── */
-.framing-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 24px;
+/* ── COMPARISON TABLE (v2) ── */
+.cmp2-table {
   margin-top: 40px;
-}
-.framing-card {
   border: 1px solid var(--skit-border);
   border-radius: var(--skit-radius-lg);
-  padding: 32px;
+  overflow: hidden;
   background: var(--skit-bg);
-  box-shadow: var(--skit-shadow-sm);
+  box-shadow: var(--skit-shadow-md);
 }
-.framing-card.featured {
-  border-color: var(--skit-teal);
-  background: var(--skit-tint-mint);
-  box-shadow: 0 0 0 1px var(--skit-teal), var(--skit-shadow-md);
+.cmp2-row {
+  display: grid;
+  grid-template-columns: 220px 1.15fr 1fr;
+  border-top: 1px solid var(--skit-border);
 }
-.framing-card h3 { font-size: 20px; margin-bottom: 12px; color: var(--skit-primary); }
-.framing-card p { color: #444; font-size: 15px; line-height: 1.7; }
-.framing-card ul { margin: 14px 0 0 18px; }
-.framing-card ul li { font-size: 15px; color: #444; margin-bottom: 6px; }
-.framing-card.featured p, .framing-card.featured li { color: #1d3d38; }
-.badge {
-  display: inline-block;
-  font-size: 11px;
+.cmp2-row:first-child { border-top: 0; }
+.cmp2-row > div { padding: 20px 26px; }
+.cmp2-cap {
   font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: .06em;
-  padding: 3px 10px;
-  border-radius: var(--skit-radius-pill);
-  margin-bottom: 14px;
-}
-.badge-teal { background: var(--skit-teal); color: #fff; }
-.badge-gray { background: var(--skit-bg-alt); color: var(--skit-text-muted); border: 1px solid var(--skit-border); }
-
-/* ── COMPARISON TABLE ── */
-.table-wrap { overflow-x: auto; margin-top: 40px; border-radius: var(--skit-radius-lg); border: 1px solid var(--skit-border); box-shadow: var(--skit-shadow-md); }
-table { width: 100%; border-collapse: collapse; font-size: 14px; min-width: 880px; }
-thead th {
-  padding: 16px 20px;
-  text-align: left;
-  font-size: 13px;
-  font-weight: 700;
-  background: var(--skit-near-black);
-  color: #fff;
-  border-bottom: 2px solid rgba(255,255,255,.1);
-}
-thead th:first-child { border-radius: var(--skit-radius-lg) 0 0 0; }
-thead th:last-child { border-radius: 0 var(--skit-radius-lg) 0 0; }
-thead th.skit-col { background: var(--skit-teal); }
-tbody tr { border-bottom: 1px solid var(--skit-border); }
-tbody tr:last-child { border-bottom: none; }
-tbody tr:hover { background: var(--skit-bg-alt); }
-tbody td {
-  padding: 16px 20px;
-  vertical-align: top;
-  color: #333;
-  line-height: 1.55;
-  background: var(--skit-bg);
-}
-tbody td:first-child {
-  font-weight: 600;
+  font-size: 14.5px;
+  line-height: 1.35;
   color: var(--skit-primary);
-  font-size: 13px;
-  white-space: nowrap;
+  background: var(--skit-bg);
   border-right: 1px solid var(--skit-border);
+  display: flex;
+  align-items: flex-start;
 }
-tbody td.skit-col { background: rgba(29,122,107,.05); border-left: 2px solid var(--skit-teal); border-right: 2px solid var(--skit-teal); }
-.check { color: var(--skit-teal); font-weight: 700; }
-.cross { color: #ccc; }
-.partial { color: #d97706; }
+.cmp2-skit {
+  background: rgba(29,122,107,.05);
+  border-left: 2px solid var(--skit-teal);
+  border-right: 2px solid var(--skit-teal);
+  color: var(--skit-primary);
+  font-size: 14.5px;
+  line-height: 1.6;
+}
+.cmp2-skit b { font-weight: 700; }
+.cmp2-other { color: #555; font-size: 14.5px; line-height: 1.6; }
+.cmp2-thead {
+  display: grid;
+  grid-template-columns: 220px 1.15fr 1fr;
+  background: var(--skit-near-black);
+}
+.cmp2-thead > div { padding: 18px 26px; font-family: var(--skit-font-body); }
+.cmp2-th-cap { font-weight: 700; font-size: 12.5px; color: rgba(255,255,255,.55); text-transform: uppercase; letter-spacing: .05em; display: flex; align-items: center; }
+.cmp2-th-skit { background: var(--skit-teal); color: #fff; font-weight: 700; font-size: 23px; letter-spacing: -.01em; display: flex; align-items: center; }
+.cmp2-th-other { font-weight: 700; font-size: 15px; color: rgba(255,255,255,.7); display: flex; align-items: center; }
+.cmp2-mark {
+  flex: 0 0 auto; width: 18px; height: 18px; border-radius: 50%;
+  display: inline-flex; align-items: center; justify-content: center;
+  margin-top: 3px; margin-right: 12px;
+}
+.cmp2-mark svg { width: 10px; height: 10px; }
+.cmp2-mark.yes { background: var(--skit-teal); }
+.cmp2-mark.no { background: transparent; border: 1.5px solid var(--skit-border-med); }
+.cmp2-cell { display: flex; }
+.cmp2-foot {
+  margin-top: 24px;
+  display: flex; flex-wrap: wrap; gap: 20px; align-items: center; justify-content: space-between;
+  padding: 28px 32px;
+  border: 1px solid var(--skit-border); border-radius: var(--skit-radius-lg);
+  background: var(--skit-bg);
+}
+.cmp2-foot p { margin: 0; font-size: 16px; color: var(--skit-primary); font-weight: 500; max-width: 56ch; line-height: 1.55; }
+.cmp2-foot .btn { white-space: nowrap; }
+
+@media (max-width: 767px) {
+  .cmp2-thead { display: none; }
+  .cmp2-table { border: 0; border-radius: 0; background: transparent; box-shadow: none; }
+  .cmp2-row {
+    display: block; border: 1px solid var(--skit-border); border-radius: var(--skit-radius-lg);
+    overflow: hidden; margin-bottom: 14px; background: var(--skit-bg);
+  }
+  .cmp2-row > div { padding: 16px 18px; }
+  .cmp2-cap { border-right: 0; border-bottom: 1px solid var(--skit-border); font-size: 14px; }
+  .cmp2-skit { border-left: 0; border-right: 0; font-size: 14px; }
+  .cmp2-skit::before, .cmp2-other::before {
+    display: block; font-family: var(--skit-font-body);
+    font-size: 11px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; margin-bottom: 7px;
+  }
+  .cmp2-skit::before { content: "Skit.ai"; color: var(--skit-teal); }
+  .cmp2-other::before { content: "Typical voice AI vendor"; color: var(--skit-text-muted); }
+  .cmp2-other { border-top: 1px solid var(--skit-border); font-size: 14px; }
+  .cmp2-foot { padding: 22px; }
+}
 
 /* ── DIFFERENTIATORS ── */
 .diff-grid {
@@ -455,22 +428,6 @@ tbody td.skit-col { background: rgba(29,122,107,.05); border-left: 2px solid var
 .diff-card h3 { font-size: 18px; margin-bottom: 10px; }
 .diff-card p { font-size: 15px; color: #444; line-height: 1.7; }
 
-/* ── PROOF BAND ── */
-.proof-band {
-  background: var(--skit-near-black);
-  color: #fff;
-  padding: 64px 0;
-}
-.proof-band-inner {
-  display: flex;
-  gap: 0;
-  justify-content: space-around;
-  flex-wrap: wrap;
-}
-.proof-item { text-align: center; padding: 16px 24px; }
-.proof-item .stat-num { font-size: 52px; color: #ffffff; }
-.proof-item .stat-label { font-size: 14px; color: rgba(255,255,255,.6); margin-top: 4px; }
-
 /* ── FAQ — matches production ── */
 .faq-head { text-align: center; max-width: 700px; margin: 0 auto 40px; }
 .faq-head h2 { font-family: var(--skit-font-display); font-weight: 300; font-size: 46px; color: var(--skit-primary); }
@@ -478,7 +435,7 @@ tbody td.skit-col { background: rgba(29,122,107,.05); border-left: 2px solid var
 .faq-item {
   background: #ffffff;
   border-radius: var(--skit-radius-lg);
-  box-shadow: var(--skit-shadow-sm);
+  box-shadow: 0 4px 16px rgba(11,18,32,.08), 0 1px 3px rgba(11,18,32,.06);
   padding: 22px 28px;
 }
 .faq-item summary {
@@ -514,12 +471,11 @@ tbody td.skit-col { background: rgba(29,122,107,.05); border-left: 2px solid var
 
 /* ── CTA SECTION ── */
 .cta-section {
-  background: #ffffff;
   text-align: center;
   padding: 140px 0;
 }
 .cta-section h2 { font-family: var(--skit-font-display); font-weight: 300; font-size: 46px; margin-bottom: 16px; color: var(--skit-primary); max-width: 100%; margin-left: auto; margin-right: auto; }
-.cta-section p { font-family: var(--skit-font-body); font-size: 20px; font-weight: 300; color: var(--skit-text-muted); max-width: 100%; margin: 0 auto 32px; }
+.cta-section p { font-family: var(--skit-font-body); font-size: 20px; font-weight: 300; color: var(--skit-primary); max-width: 100%; margin: 0 auto 32px; }
 .cta-btns { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; align-items: center; }
 
 /* ── FOOTER — matches production ── */
@@ -564,7 +520,6 @@ footer {
 .footer-bottom a:hover { color: rgba(255,255,255,.8); }
 
 @media (max-width: 989px) {
-  .framing-grid { grid-template-columns: 1fr; }
   .diff-grid { grid-template-columns: 1fr 1fr; }
   .nav-links { display: none; }
 }
@@ -572,8 +527,6 @@ footer {
   section { padding: 56px 0; }
   .hero { padding: 64px 0 52px; }
   .diff-grid { grid-template-columns: 1fr; }
-  .proof-band-inner { gap: 8px; }
-  .proof-item .stat-num { font-size: 36px; }
 }
 </style>
 </head>
@@ -602,9 +555,9 @@ footer {
 <!-- HERO -->
 <section class="hero">
   <div class="container">
-    <span class="hero-eyebrow">Comparison Guide · India Collections AI</span>
+    <span class="hero-eyebrow">Comparison Guide · Conversational AI for India BFSI</span>
     <h1>How Skit.ai compares to <em>the alternatives</em></h1>
-    <p class="hero-sub">A transparent, first-party breakdown of what makes Skit.ai different — and where each competitor is strongest. We believe buyers deserve honest comparisons, not marketing spin.</p>
+    <p class="hero-sub">A transparent, first-party breakdown of what makes Skit.ai different for banking, fintech and insurance teams in India. We believe buyers deserve honest comparisons, not marketing spin.</p>
     <div style="display:flex;gap:16px;flex-wrap:wrap;justify-content:center;">
       <a href="#comparison-table" class="btn btn-primary">See full comparison</a>
     </div>
@@ -626,251 +579,132 @@ footer {
 
         <div class="cmp-orbit-center">
           <div class="cmp-orbit-center-icon">
-            <svg viewBox="0 0 25 25" fill="none"><path d="M7 15.8c-1.2-.7-2-2-2-3.5C5 10 6.8 8.2 9.1 8.2h.8c.9-2 2.8-3.4 5.1-3.4 3.1 0 5.6 2.5 5.6 5.6v.5c1.2.7 2 2 2 3.5 0 2.3-1.8 4.1-4.1 4.1H9.1c-1.2 0-2.1-.5-2.1-1.3 0-.5.3-1 .8-1.4L7 15.8Z" stroke="currentColor" stroke-width="1.6"></path><path d="M10 12.4h6M12 15h3.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"></path></svg>
+            <svg viewBox="4 6 238 243" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="cmpCenterLogoGrad" x1="-395.77" y1="-513.65" x2="-193.47" y2="-333.52" gradientTransform="translate(429.86 -274.95) scale(1 -1)" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#0a508b"></stop><stop offset=".31" stop-color="#2d83c5"></stop><stop offset=".6" stop-color="#43bded"></stop><stop offset="1" stop-color="#80c267"></stop></linearGradient></defs><path fill="url(#cmpCenterLogoGrad)" d="M237.98,125.74c0-63.48-51.46-114.94-114.94-114.94S8.1,62.26,8.1,125.74s51.46,114.94,114.94,114.94c17.94,0,34.91-4.11,50.03-11.44h0c5.04-2.25,12.5-4.71,21.64-4.75,24.09-.1,40.03,16.73,43.27,20.31v-114.82l-.11.17c.06-1.46.11-2.93.11-4.41ZM122.59,138.74c-5.2,0-8.55,16.05-16.28,16.05-8.53,0-12.01-16.05-17.62-16.05-7.88,0-15.41,19.51-23.28,19.51-9.88,0-18.4-30.44-33.59-30.44,15.19,0,23.71-30.44,33.59-30.44,7.87,0,15.4,19.51,23.28,19.51,5.61,0,9.09-16.05,17.62-16.05,7.73,0,11.08,16.05,16.28,16.05,15.2,0,18.52-71.19,33.97-71.19,17.61,0,13.83,82.12,53.68,82.12-39.85,0-36.07,82.12-53.68,82.12-15.45,0-18.77-71.19-33.97-71.19"></path></svg>
           </div>
-          <strong>Skit.ai</strong>
-          <small>always-on collections AI</small>
+          <svg class="cmp-orbit-center-logotype" viewBox="272 13 708 226" xmlns="http://www.w3.org/2000/svg"><g fill="#162a44"><path d="M571.77,19.9c14.06,0,25.06,11.31,25.06,25.36s-11,24.75-25.06,24.75-25.05-11.31-25.05-24.75c-.01-14.05,11.3-25.36,25.05-25.36Z"></path><path d="M479.19,147.56l57.17,81.07h-46.36l-27.21-39.35c-5.04-7.28-15.5-8.09-21.59-1.66h0c-2.46,2.59-3.83,6.03-3.83,9.6v31.42h-37.83V31.32h37.83v109.42l48.36-52.06h49.49l-56.03,58.88Z"></path><rect x="552.85" y="88.68" width="37.83" height="139.95"></rect><path d="M672.03,88.68h28.16v33.57h-28.16v58.6c0,12.23,5.69,16.21,16.5,16.21,4.55,0,9.67-.57,11.66-1.14v31.29c-3.41,1.42-10.24,3.41-21.33,3.41-27.31,0-44.38-16.21-44.38-43.24v-65.13h-25.32v-33.57h7.11c14.79,0,21.62-9.67,21.62-22.19v-19.63h34.13v41.82Z"></path><path d="M749.68,178.85c14.51,0,26.17,11.66,26.17,25.89s-11.66,25.88-26.17,25.88-25.88-11.66-25.88-25.88,11.66-25.89,25.88-25.89Z"></path><path d="M854.88,88.41c43.15,0,59.19,24.34,59.19,51.72v66.94c0,7.19-.02,21.57-.02,21.57h-33.69s.24-11.06.24-16.32c-6.91,10.79-19.91,20.19-40.11,20.19-29.04,0-46.74-19.64-46.74-40.94,0-24.34,17.98-37.89,40.66-41.21l33.47-4.98c7.75-1.11,10.24-4.98,10.24-9.68,0-9.68-7.47-17.7-22.96-17.7l-49.65.4v-30h49.37M878.12,173.6v-6.09l-30.7,4.7c-9.4,1.38-16.87,6.64-16.87,17.15,0,8.02,5.81,15.77,17.7,15.77,15.48.01,29.87-7.46,29.87-31.53Z"></path><path d="M950.69,19.28c13.09,0,23.33,10.52,23.33,23.61s-10.24,23.04-23.33,23.04-23.32-10.53-23.32-23.04,10.52-23.61,23.32-23.61ZM931.92,228.63V88.68h37.83v139.95h-37.83Z"></path><path d="M382.44,186.25c0-19.57-13.32-35.61-39.69-41.05l-19.03-4.08c-7.34-1.36-12.23-5.44-12.23-11.96,0-7.61,7.61-13.32,17.12-13.32h53.82v-27.46h-54.78v.02c-28.46.32-49.33,20.02-49.33,43.75,0,18.76,11.69,34.25,37.51,39.96l17.67,4.08c10.33,2.17,14.41,7.07,14.41,13.05,0,7.07-5.71,13.32-17.67,13.32h0s-51.92.01-51.92.01v27.72h52.52c34.85-.15,51.6-22.36,51.6-44.04Z"></path></g></svg>
         </div>
-        <div class="cmp-orbit-pulse"></div>
 
         <div class="cmp-orbit-metric cmp-orbit-m1">
           <div class="cmp-orbit-top">
             <div class="cmp-orbit-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 7 13.5 15.5 8.5 10.5 2 17"></path><path d="M16 7h6v6"></path></svg></div>
-            <span class="cmp-orbit-live">LIVE</span>
+            <div class="cmp-orbit-value">43%</div>
           </div>
-          <div class="cmp-orbit-value">82%</div>
-          <div class="cmp-orbit-label">Liquidation rate<br>across live portfolios</div>
+          <div class="cmp-orbit-label">Higher collection rate<br>vs. manual outreach</div>
         </div>
 
         <div class="cmp-orbit-metric cmp-orbit-m2">
           <div class="cmp-orbit-top">
             <div class="cmp-orbit-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3.5 2"></path></svg></div>
+            <div class="cmp-orbit-value">&lt;3s</div>
           </div>
-          <div class="cmp-orbit-value">&lt;3s</div>
           <div class="cmp-orbit-label">Human escalation<br>on detected distress</div>
         </div>
 
         <div class="cmp-orbit-metric cmp-orbit-m3">
           <div class="cmp-orbit-top">
             <div class="cmp-orbit-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><line x1="3" y1="12" x2="21" y2="12"></line><path d="M12 3a13 13 0 0 1 0 18a13 13 0 0 1 0-18"></path></svg></div>
+            <div class="cmp-orbit-value">10+</div>
           </div>
-          <div class="cmp-orbit-value">10+</div>
           <div class="cmp-orbit-label">Indian languages<br>160+ dialects</div>
         </div>
 
         <div class="cmp-orbit-metric cmp-orbit-m4">
           <div class="cmp-orbit-top">
             <div class="cmp-orbit-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1.5"></rect><rect x="14" y="3" width="7" height="7" rx="1.5"></rect><rect x="3" y="14" width="7" height="7" rx="1.5"></rect><rect x="14" y="14" width="7" height="7" rx="1.5"></rect></svg></div>
+            <div class="cmp-orbit-value">20+</div>
           </div>
-          <div class="cmp-orbit-value">20+</div>
           <div class="cmp-orbit-label">Pre-built integrations<br>core banking &amp; CRM</div>
         </div>
 
         <div class="cmp-orbit-metric cmp-orbit-m5">
           <div class="cmp-orbit-top">
             <div class="cmp-orbit-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v6c0 5-3 8.5-7 9.5C8 20.5 5 17 5 12V6l7-3Z"></path><path d="m9 12 2 2 4-4"></path></svg></div>
+            <div class="cmp-orbit-value">100%</div>
           </div>
-          <div class="cmp-orbit-value">100%</div>
           <div class="cmp-orbit-label">RBI, DPDP &amp; TRAI<br>compliant by design</div>
         </div>
 
         <div class="cmp-orbit-metric cmp-orbit-m6">
           <div class="cmp-orbit-top">
             <div class="cmp-orbit-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="2"></rect><line x1="16" y1="3" x2="16" y2="7"></line><line x1="8" y1="3" x2="8" y2="7"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg></div>
+            <div class="cmp-orbit-value">7+</div>
           </div>
-          <div class="cmp-orbit-value">7+</div>
-          <div class="cmp-orbit-label">Years building<br>collections AI &mdash; only</div>
+          <div class="cmp-orbit-label">Years building<br>conversational AI for BFSI</div>
         </div>
-
-        <div class="cmp-orbit-signal">
-          <div class="cmp-orbit-signal-row">
-            <span>Voice intelligence</span>
-            <span class="cmp-orbit-signal-active">ACTIVE</span>
-          </div>
-          <div class="cmp-orbit-bars">
-            <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- CATEGORY FRAMING -->
-<section>
-  <div class="container">
-    <span class="label">Why category matters</span>
-    <h2 style="font-family:'Merriweather',serif;font-weight:300;font-size:46px;color:var(--skit-primary);text-align:center;max-width:100%;margin:10px auto 16px;">Collections AI isn't conversational AI with a collections module</h2>
-    <p style="font-family:'Inter',sans-serif;font-weight:300;font-size:20px;color:var(--skit-primary);text-align:center;max-width:100%;margin:0 auto;line-height:1.6;">The platforms you'll compare Skit.ai against fall into two categories. Which one you choose shapes everything — from compliance posture to liquidation rates.</p>
-    <div class="framing-grid">
-      <div class="framing-card featured">
-        <span class="badge badge-teal">Purpose-built</span>
-        <h3>Collections Intelligence platforms</h3>
-        <p>Built from day one for regulated debt recovery. Every model, every workflow, every compliance decision is tuned for collections — not retrofitted.</p>
-        <ul>
-          <li>FDCPA / TCPA / Reg F / UDAAP compliance built into the action layer</li>
-          <li>Promise-to-Pay detection, propensity scoring, treatment strategy</li>
-          <li>Mid-call language switching for India's multilingual borrower base</li>
-          <li>SOC2 · PCI-DSS · ISO 27001 · RBI Fair Practices Code</li>
-        </ul>
-        <p style="margin-top:14px;font-weight:600;color:var(--skit-teal);">→ Skit.ai, Gnani.ai</p>
-      </div>
-      <div class="framing-card">
-        <span class="badge badge-gray">General-purpose</span>
-        <h3>Horizontal / enterprise CX platforms</h3>
-        <p>Broad conversational AI platforms where collections is one of 10–20 supported use cases. The underlying model is not tuned for debt recovery conversations.</p>
-        <ul>
-          <li>Generic NLU and dialog management</li>
-          <li>No collections-specific compliance documentation</li>
-          <li>No Promise-to-Pay or delinquency-bucket workflows out of the box</li>
-          <li>Enterprise CX metrics (CSAT, AHT) — not liquidation rate or PTP kept</li>
-        </ul>
-        <p style="margin-top:14px;font-weight:600;color:var(--skit-text-muted);">→ Yellow.ai, Haptik, Sarvam.ai</p>
       </div>
     </div>
   </div>
 </section>
 
 <!-- COMPARISON TABLE -->
-<section id="comparison-table" class="alt">
+<section id="comparison-table">
   <div class="container">
     <span class="label">Feature comparison</span>
-    <h2 style="font-family:'Merriweather',serif;font-weight:300;font-size:46px;color:var(--skit-primary);text-align:center;max-width:100%;margin:10px auto 16px;">Skit.ai vs. leading alternatives</h2>
-    <p style="font-family:'Inter',sans-serif;font-weight:300;font-size:20px;color:var(--skit-primary);text-align:center;max-width:100%;margin:0 auto;">All data based on publicly available information and Skit.ai's internal product documentation. Last updated August 2026.</p>
-    <div class="table-wrap">
-      <table>
-        <thead>
-          <tr>
-            <th style="width:200px;">Capability</th>
-            <th class="skit-col" style="width:200px;">✦ Skit.ai</th>
-            <th>Gnani.ai</th>
-            <th>Yellow.ai</th>
-            <th>Sarvam.ai</th>
-            <th>Haptik (Jio)</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Primary focus</td>
-            <td class="skit-col"><strong>Debt collections AI — 100% vertical</strong><br><span style="font-size:13px;color:#444;">Every feature is tuned for regulated recovery</span></td>
-            <td>Indian voice AI — BFSI-primary, multi-use</td>
-            <td>Enterprise omnichannel CX — horizontal, 21+ use cases</td>
-            <td>Sovereign Indian language AI — infrastructure / model layer</td>
-            <td>Enterprise CX + agentic AI — collections is one module</td>
-          </tr>
-          <tr>
-            <td>Collections specialisation</td>
-            <td class="skit-col"><span class="check">✔</span> Purpose-built since 2019</td>
-            <td><span class="check">✔</span> Dedicated collections voice AI vertical</td>
-            <td><span class="partial">◑</span> One of many use cases</td>
-            <td><span class="cross">—</span> Not collections-specific</td>
-            <td><span class="partial">◑</span> Dedicated collections module within CX suite</td>
-          </tr>
-          <tr>
-            <td>US ARM-grade compliance<br><small style="font-weight:400;color:#666;">(FDCPA · TCPA · Reg F · UDAAP)</small></td>
-            <td class="skit-col"><span class="check">✔</span> Full — enforced at the action layer, not logging</td>
-            <td><span class="cross">—</span> India RBI-framed; no US ARM documentation</td>
-            <td><span class="cross">—</span> Enterprise SaaS compliance only</td>
-            <td><span class="cross">—</span> Not applicable</td>
-            <td><span class="cross">—</span> Not documented</td>
-          </tr>
-          <tr>
-            <td>India regulatory compliance</td>
-            <td class="skit-col"><span class="check">✔</span> RBI Fair Practices Code · TRAI · DPDP Act<br>SOC2 · PCI-DSS · ISO 27001</td>
-            <td><span class="check">✔</span> RBI-framed; TRAI DND compliance</td>
-            <td><span class="partial">◑</span> ISO/GDPR/CCPA — no RBI-specific documentation</td>
-            <td><span class="cross">—</span> Model-level compliance only</td>
-            <td><span class="check">✔</span> RBI Fair Practices Code · DPDP Act · ISO/FIPS 140-2</td>
-          </tr>
-          <tr>
-            <td>Indian language support</td>
-            <td class="skit-col"><strong>10+ Indian languages, 160+ dialects</strong><br>Mid-call language switching (real-time)</td>
-            <td>10+ Indian languages, strong speech benchmarks</td>
-            <td>100+ languages globally; India regional support</td>
-            <td>All major Indian languages (foundation model); highest raw accuracy benchmarks</td>
-            <td>10+ Indian languages, Hinglish / code-switching NLU</td>
-          </tr>
-          <tr>
-            <td>Promise-to-Pay (PTP) detection</td>
-            <td class="skit-col"><span class="check">✔</span> Real-time PTP intent scoring + negotiation</td>
-            <td><span class="check">✔</span> PTP workflows</td>
-            <td><span class="cross">—</span> Not documented</td>
-            <td><span class="cross">—</span> Not applicable</td>
-            <td><span class="check">✔</span> Pre-approved PTP restructuring options</td>
-          </tr>
-          <tr>
-            <td>Propensity-to-pay scoring</td>
-            <td class="skit-col"><span class="check">✔</span> ML-based delinquency propensity models</td>
-            <td><span class="partial">◑</span> Not prominently documented</td>
-            <td><span class="cross">—</span> Not documented</td>
-            <td><span class="cross">—</span> Not applicable</td>
-            <td><span class="cross">—</span> Not documented</td>
-          </tr>
-          <tr>
-            <td>Omnichannel (voice + SMS + email + chat)</td>
-            <td class="skit-col"><span class="check">✔</span> Outbound voice, inbound, SMS, email, chat</td>
-            <td><span class="check">✔</span> Voice primary; other channels available</td>
-            <td><span class="check">✔</span> Full omnichannel — strong WhatsApp, chat</td>
-            <td><span class="partial">◑</span> API/model layer — channels via integration</td>
-            <td><span class="check">✔</span> Voice, WhatsApp, chat — strong omnichannel</td>
-          </tr>
-          <tr>
-            <td>Proven collections outcomes</td>
-            <td class="skit-col"><strong>₹600Cr collected</strong><br>82% liquidation · 86% resolution</td>
-            <td>$1B loanbook, 25.6× ROI, 59% OpEx saved<br><small>Bank of Baroda, Muthoot Finance</small></td>
-            <td>Enterprise CX metrics (CSAT, deflection) — not collections-specific</td>
-            <td>Foundation model benchmarks — not collections outcome data</td>
-            <td>30% recovery lift claimed within 60 days<br><small>ICICI Bank, HDFC, Axis Bank</small></td>
-          </tr>
-          <tr>
-            <td>Deployment model</td>
-            <td class="skit-col">Cloud (AWS/Azure) · on-premise available · API + SDK integrations</td>
-            <td>Cloud + on-premise</td>
-            <td>Cloud SaaS — enterprise deployment</td>
-            <td>API / model-as-a-service</td>
-            <td>Cloud SaaS — enterprise deployment</td>
-          </tr>
-          <tr>
-            <td>Backing / scale signal</td>
-            <td class="skit-col">AI-native (2016); NY + Bangalore; VC-backed</td>
-            <td>India-native voice AI startup; Series A funded</td>
-            <td>1,000+ G2 reviews; Gartner recognised; 100+ languages</td>
-            <td>Khosla Ventures-backed; Indic AI category-creator</td>
-            <td>Reliance Jio-owned (2019); 15B+ conversations; 500+ enterprise accounts</td>
-          </tr>
-        </tbody>
-      </table>
+    <h2 style="font-family:'Merriweather',serif;font-weight:300;font-size:46px;color:var(--skit-primary);text-align:center;max-width:100%;margin:10px auto 16px;">Skit.ai vs. a typical voice AI vendor</h2>
+    <p style="font-family:'Inter',sans-serif;font-weight:300;font-size:20px;color:var(--skit-primary);text-align:center;max-width:100%;margin:0 auto;">In India, Skit.ai is a conversational AI platform for banking, fintech and insurance — not a single-purpose debt-collection bot. Here's what that means in practice.</p>
+
+    <div class="cmp2-table">
+      <div class="cmp2-thead">
+        <div class="cmp2-th-cap">Capability</div>
+        <div class="cmp2-th-skit">Skit.ai</div>
+        <div class="cmp2-th-other">Typical voice AI vendor</div>
+      </div>
+
+      <div class="cmp2-row">
+        <div class="cmp2-cap">What it's built for</div>
+        <div class="cmp2-skit"><span class="cmp2-cell"><span class="cmp2-mark yes"><svg viewBox="0 0 12 12" fill="none"><path d="M1.5 6.2 4.4 9 10.5 2.8" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span>Conversational AI for the full BFSI customer lifecycle — service, collections, onboarding and renewals — across banking, fintech and insurance in India.</span></span></div>
+        <div class="cmp2-other"><span class="cmp2-cell"><span class="cmp2-mark no"></span><span>A general-purpose voice bot, with financial services treated as one script among many industries.</span></span></div>
+      </div>
+
+      <div class="cmp2-row">
+        <div class="cmp2-cap">Channels</div>
+        <div class="cmp2-skit"><span class="cmp2-cell"><span class="cmp2-mark yes"><svg viewBox="0 0 12 12" fill="none"><path d="M1.5 6.2 4.4 9 10.5 2.8" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span>Voice, SMS, email and chat on one platform, so a customer never repeats themselves switching channels.</span></span></div>
+        <div class="cmp2-other"><span class="cmp2-cell"><span class="cmp2-mark no"></span><span>Voice only, with every other channel sold and managed as a separate product.</span></span></div>
+      </div>
+
+      <div class="cmp2-row">
+        <div class="cmp2-cap">Indian language support</div>
+        <div class="cmp2-skit"><span class="cmp2-cell"><span class="cmp2-mark yes"><svg viewBox="0 0 12 12" fill="none"><path d="M1.5 6.2 4.4 9 10.5 2.8" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span>10+ Indian languages and 160+ dialects, with real-time mid-call language switching.</span></span></div>
+        <div class="cmp2-other"><span class="cmp2-cell"><span class="cmp2-mark no"></span><span>English and Hindi only, with regional languages unsupported or added later.</span></span></div>
+      </div>
+
+      <div class="cmp2-row">
+        <div class="cmp2-cap">Use case coverage</div>
+        <div class="cmp2-skit"><span class="cmp2-cell"><span class="cmp2-mark yes"><svg viewBox="0 0 12 12" fill="none"><path d="M1.5 6.2 4.4 9 10.5 2.8" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span>One platform for KYC and onboarding, payment reminders and collections, policy renewals, claims updates and cross-sell.</span></span></div>
+        <div class="cmp2-other"><span class="cmp2-cell"><span class="cmp2-mark no"></span><span>Built for a single workflow, usually support or lead generation, with collections or renewals needing a separate tool.</span></span></div>
+      </div>
+
+      <div class="cmp2-row">
+        <div class="cmp2-cap">Time to go live</div>
+        <div class="cmp2-skit"><span class="cmp2-cell"><span class="cmp2-mark yes"><svg viewBox="0 0 12 12" fill="none"><path d="M1.5 6.2 4.4 9 10.5 2.8" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span>Live in under 48 hours on your existing banking, lending or insurance systems.</span></span></div>
+        <div class="cmp2-other"><span class="cmp2-cell"><span class="cmp2-mark no"></span><span>Multi-month integration before the first call goes out.</span></span></div>
+      </div>
+
+      <div class="cmp2-row">
+        <div class="cmp2-cap">Compliance</div>
+        <div class="cmp2-skit"><span class="cmp2-cell"><span class="cmp2-mark yes"><svg viewBox="0 0 12 12" fill="none"><path d="M1.5 6.2 4.4 9 10.5 2.8" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span>Calling-window, DND and consent rules enforced before a call goes out, aligned to RBI, TRAI and the DPDP Act.</span></span></div>
+        <div class="cmp2-other"><span class="cmp2-cell"><span class="cmp2-mark no"></span><span>Compliance reviewed after the call, once the customer has already been contacted.</span></span></div>
+      </div>
+
+      <div class="cmp2-row">
+        <div class="cmp2-cap">Proven outcomes</div>
+        <div class="cmp2-skit"><span class="cmp2-cell"><span class="cmp2-mark yes"><svg viewBox="0 0 12 12" fill="none"><path d="M1.5 6.2 4.4 9 10.5 2.8" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span>2X connectivity, 43% higher collection rate, 35% call containment and 300,000+ claim queries resolved on live BFSI portfolios.</span></span></div>
+        <div class="cmp2-other"><span class="cmp2-cell"><span class="cmp2-mark no"></span><span>Generic CX metrics like CSAT or handle time, with no financial-services outcome data.</span></span></div>
+      </div>
+
+      <div class="cmp2-row">
+        <div class="cmp2-cap">Integration</div>
+        <div class="cmp2-skit"><span class="cmp2-cell"><span class="cmp2-mark yes"><svg viewBox="0 0 12 12" fill="none"><path d="M1.5 6.2 4.4 9 10.5 2.8" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span>Plugs into your existing core banking, LMS and CRM systems.</span></span></div>
+        <div class="cmp2-other"><span class="cmp2-cell"><span class="cmp2-mark no"></span><span>Requires migrating workflows onto the vendor's own platform.</span></span></div>
+      </div>
+    </div>
+
+    <div class="cmp2-foot">
+      <p>Every engagement starts with a pilot on your own accounts. You see the numbers before you commit to anything.</p>
+      <a href="#demo" class="btn btn-primary">Try Skit.ai today</a>
     </div>
   </div>
 </section>
-
-<!-- PROOF BAND -->
-<div class="proof-band">
-  <div class="container">
-    <div class="proof-band-inner">
-      <div class="proof-item">
-        <span class="stat-num">₹600Cr</span>
-        <p class="stat-label">collected for Indian lenders</p>
-      </div>
-      <div class="proof-item">
-        <span class="stat-num">82%</span>
-        <p class="stat-label">liquidation rate</p>
-      </div>
-      <div class="proof-item">
-        <span class="stat-num">86%</span>
-        <p class="stat-label">resolution rate</p>
-      </div>
-      <div class="proof-item">
-        <span class="stat-num">160+</span>
-        <p class="stat-label">Indian dialects supported</p>
-      </div>
-      <div class="proof-item">
-        <span class="stat-num">7+</span>
-        <p class="stat-label">years in collections only</p>
-      </div>
-    </div>
-  </div>
-</div>
 
 <!-- DIFFERENTIATORS -->
 <section class="alt">
@@ -882,59 +716,24 @@ footer {
       <div class="diff-card">
         <div class="diff-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m16 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"></path><path d="m2 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"></path><path d="M7 21h10"></path><path d="M12 3v18"></path><path d="M3 7h2c2 0 5-1 7-2 2 1 5 2 7 2h2"></path></svg></div>
         <h3>Compliance at the action layer</h3>
-        <p>Most platforms log compliance. Skit.ai enforces it in the moment — stopping a prohibited action before it happens, not flagging it afterward. FDCPA, TCPA, Reg F, UDAAP, RBI Fair Practices Code, TRAI calling-hour limits, and DPDP Act data-principal obligations are each wired into the AI's decision tree, not a post-call audit module.</p>
+        <p>Most platforms log compliance. Skit.ai enforces it in the moment — stopping a prohibited action before it happens, not flagging it afterward. RBI Fair Practices Code, TRAI calling-hour limits, and DPDP Act data-principal obligations are each wired into the AI's decision tree, not a post-call audit module.</p>
       </div>
       <div class="diff-card">
         <div class="diff-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="2"></rect><rect x="9" y="9" width="6" height="6"></rect><path d="M15 2v2"></path><path d="M15 20v2"></path><path d="M2 15h2"></path><path d="M2 9h2"></path><path d="M20 15h2"></path><path d="M20 9h2"></path><path d="M9 2v2"></path><path d="M9 20v2"></path></svg></div>
-        <h3>Collections-native AI models</h3>
-        <p>A general conversational AI model learns from support tickets, lead-gen forms, and booking flows. Skit.ai's models are trained exclusively on debt recovery conversations — promise-to-pay negotiations, objection handling, hardship detection, and payment-plan structuring. Seven years of collections-only training produces outcomes that a fine-tuned horizontal model cannot match.</p>
+        <h3>BFSI-native AI models</h3>
+        <p>A general conversational AI model learns from support tickets, lead-gen forms, and booking flows. Skit.ai's models are trained on regulated banking, fintech and insurance conversations — payment reminders, policy renewals, claims and onboarding. Seven years of BFSI-only training produces outcomes a fine-tuned horizontal model cannot match.</p>
       </div>
       <div class="diff-card">
         <div class="diff-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m5 8 6 6"></path><path d="m4 14 6-6 2-3"></path><path d="M2 5h12"></path><path d="M7 2h1"></path><path d="m22 22-5-10-5 10"></path><path d="M14 18h6"></path></svg></div>
         <h3>Mid-call language switching</h3>
-        <p>India's borrower base doesn't stay in one language. Skit.ai detects and responds to real-time language shifts — a borrower who starts in English and moves to Telugu mid-sentence gets a seamless, uninterrupted conversation. 10+ Indian languages and 160+ dialects, switching at the word level without a restart.</p>
+        <p>India's customer base doesn't stay in one language. Skit.ai detects and responds to real-time language shifts — a customer who starts in English and moves to Telugu mid-sentence gets a seamless, uninterrupted conversation. 10+ Indian languages and 160+ dialects, switching at the word level without a restart.</p>
       </div>
-    </div>
-  </div>
-</section>
-
-<!-- INDIVIDUAL COMPETITOR CONTEXT -->
-<section>
-  <div class="container">
-    <span class="label">Competitor context</span>
-    <h2 style="font-family:'Merriweather',serif;font-weight:300;font-size:46px;color:var(--skit-primary);text-align:center;max-width:100%;margin:10px auto 32px;">When each alternative makes sense</h2>
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;">
-
-      <div style="border:1px solid var(--skit-border);border-radius:var(--skit-radius-lg);padding:28px;background:var(--skit-bg);">
-        <div style="font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--skit-text-muted);margin-bottom:10px;">vs Gnani.ai</div>
-        <h3 style="font-size:18px;margin-bottom:10px;">Skit.ai's closest technical peer</h3>
-        <p style="font-size:15px;color:#444;line-height:1.7;">Gnani.ai is India's strongest voice AI alternative for collections. Where Gnani leads: Indian-language speech recognition benchmarks and a strong public case-study library (Bank of Baroda, Muthoot Finance). Where Skit.ai leads: US ARM-grade compliance (FDCPA/TCPA/Reg F) for cross-border deployments, end-to-end collections decisioning (not just voice), and India + US deployment under a single compliance regime.</p>
-      </div>
-
-      <div style="border:1px solid var(--skit-border);border-radius:var(--skit-radius-lg);padding:28px;background:var(--skit-bg);">
-        <div style="font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--skit-text-muted);margin-bottom:10px;">vs Yellow.ai</div>
-        <h3 style="font-size:18px;margin-bottom:10px;">Full omnichannel CX, not collections-first</h3>
-        <p style="font-size:15px;color:#444;line-height:1.7;">Yellow.ai is the right choice if your primary need is broad customer experience automation — WhatsApp bot, live-chat, onboarding — with collections as a secondary module. If collections is your primary ROI driver and you need a liquidation-rate guarantee, Skit.ai's single-vertical depth and collections-specific compliance posture will outperform a horizontal platform on your most important metric.</p>
-      </div>
-
-      <div style="border:1px solid var(--skit-border);border-radius:var(--skit-radius-lg);padding:28px;background:var(--skit-bg);">
-        <div style="font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--skit-text-muted);margin-bottom:10px;">vs Sarvam.ai</div>
-        <h3 style="font-size:18px;margin-bottom:10px;">Model layer vs. applications layer</h3>
-        <p style="font-size:15px;color:#444;line-height:1.7;">Sarvam.ai is an Indian language AI foundation model provider, not a collections product. If you're building your own voice AI system and need best-in-class Indic ASR/TTS, Sarvam may be the right model layer. If you need a complete collections AI platform — with call management, compliance, Promise-to-Pay workflows, and analytics — Skit.ai is an end-to-end product, not a building block.</p>
-      </div>
-
-      <div style="border:1px solid var(--skit-border);border-radius:var(--skit-radius-lg);padding:28px;background:var(--skit-bg);">
-        <div style="font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--skit-text-muted);margin-bottom:10px;">vs Haptik (Jio Haptik)</div>
-        <h3 style="font-size:18px;margin-bottom:10px;">Jio distribution vs. collections depth</h3>
-        <p style="font-size:15px;color:#444;line-height:1.7;">Haptik's Jio backing is a real advantage — warm introductions at ICICI, HDFC, and Axis, with 500+ enterprise accounts already in orbit. If you're an existing Jio enterprise customer exploring automation broadly, Haptik is a natural first call. If you need a collections-specialist — with propensity scoring, ARM-grade compliance documentation, and seven years of collections model training — Skit.ai's single-vertical focus outperforms a CX suite that added collections as a product line.</p>
-      </div>
-
     </div>
   </div>
 </section>
 
 <!-- FAQ -->
-<section class="alt">
+<section>
   <div class="container">
     <div class="faq-head">
       <h2>Frequently Asked Questions</h2>
@@ -942,13 +741,13 @@ footer {
     <div class="faq-list">
 
       <details class="faq-item" name="faq">
-        <summary>Is Skit.ai RBI compliant for outbound collections calls in India?</summary>
-        <p>Yes. Skit.ai's India deployments follow the RBI Fair Practices Code for loan recovery — calling only within TRAI-mandated windows (8 AM–7 PM), maintaining full call recordings and audit trails, respecting DND registry requirements, and adhering to DPDP Act 2023 borrower-data obligations. Compliance rules are enforced in the AI's action layer — the system will not initiate a prohibited action, not merely flag it post-call. SOC2 Type II, PCI-DSS, and ISO 27001 certifications are available for enterprise due-diligence reviews.</p>
+        <summary>Is Skit.ai RBI and TRAI compliant for outbound calls in India?</summary>
+        <p>Yes. Skit.ai's India deployments follow the RBI Fair Practices Code — calling only within TRAI-mandated windows (8 AM–7 PM), maintaining full call recordings and audit trails, respecting DND registry requirements, and adhering to DPDP Act 2023 data-principal obligations. Compliance rules are enforced in the AI's action layer — the system will not initiate a prohibited action, not merely flag it after the fact. SOC2 Type II, PCI-DSS, and ISO 27001 certifications are available for enterprise due-diligence reviews.</p>
       </details>
 
       <details class="faq-item" name="faq">
-        <summary>How does Skit.ai handle Hindi–English code-switching in collections calls?</summary>
-        <p>Skit.ai's multilingual NLU engine detects mid-sentence language shifts and responds in kind — no restart, no "please repeat in English." A borrower who begins in English and moves to Hindi, Tamil, or Telugu mid-conversation gets uninterrupted service. The platform supports 10+ Indian languages and 160+ regional dialects, with real-time switching engineered specifically for India's code-switching patterns in collections contexts (e.g., borrowers switching to their native language when discussing financial distress).</p>
+        <summary>How does Skit.ai handle Hindi–English code-switching on customer calls?</summary>
+        <p>Skit.ai's multilingual NLU engine detects mid-sentence language shifts and responds in kind — no restart, no "please repeat in English." A customer who begins in English and moves to Hindi, Tamil, or Telugu mid-conversation gets uninterrupted service. The platform supports 10+ Indian languages and 160+ regional dialects, with real-time switching built for how Indian customers actually speak — across banking, lending and insurance conversations alike.</p>
       </details>
 
       <details class="faq-item" name="faq">
@@ -957,17 +756,17 @@ footer {
       </details>
 
       <details class="faq-item" name="faq">
-        <summary>How does Skit.ai compare to Gnani.ai for Indian BFSI collections?</summary>
-        <p>Gnani.ai is Skit.ai's closest India-based peer — both are purpose-built voice AI platforms with collections focus and Indian language depth. Gnani leads on public speech-accuracy benchmarks and has a strong case-study library (Bank of Baroda, Muthoot Finance, 25.6× ROI documented). Skit.ai leads on US ARM-grade compliance (FDCPA/TCPA/Reg F) for lenders with cross-border portfolios, a full end-to-end collections intelligence layer (propensity scoring, treatment strategy, PTP decisioning), and India + US deployment under a single regulatory framework. Buyers choosing between them typically run a parallel pilot and compare liquidation rates on matched portfolios.</p>
+        <summary>What industries and use cases does Skit.ai support in India?</summary>
+        <p>Skit.ai serves banks, NBFCs, fintech lenders and insurers across the full customer lifecycle — KYC and onboarding, payment reminders and collections, policy renewals, claims status updates, and cross-sell — on voice, SMS, email and chat. The same platform that runs a payment reminder can also handle a policy renewal call or a claims update, so BFSI teams don't need a separate vendor for every workflow.</p>
       </details>
 
       <details class="faq-item" name="faq">
-        <summary>Does Skit.ai work for MFI (microfinance) and cooperative bank collections?</summary>
-        <p>Yes. Skit.ai's India deployments span banks, NBFCs, MFIs, fintechs, BNPL lenders, and ARM agencies. MFI deployments typically run in regional Indian languages (Hindi, Tamil, Telugu, Marathi, Kannada, Bengali) with empathetic conversation design suited to borrowers in financial hardship. The platform supports low-data environments for rural borrower connectivity and integrates with microfinance-specific LMS systems. Cooperative bank deployments benefit from the same RBI compliance framework with customisable calling scripts aligned to fair-practice standards.</p>
+        <summary>Does Skit.ai work for MFI (microfinance) and cooperative bank use cases?</summary>
+        <p>Yes. Skit.ai's India deployments span banks, NBFCs, MFIs, fintechs, and BNPL lenders. MFI deployments typically run in regional Indian languages (Hindi, Tamil, Telugu, Marathi, Kannada, Bengali) with empathetic conversation design suited to customers in financial hardship. The platform supports low-data environments for rural connectivity and integrates with microfinance-specific LMS systems. Cooperative bank deployments benefit from the same RBI compliance framework with customisable calling scripts aligned to fair-practice standards.</p>
       </details>
 
       <details class="faq-item" name="faq">
-        <summary>What happens when a borrower is in genuine financial distress?</summary>
+        <summary>What happens when a customer is in genuine financial distress?</summary>
         <p>Skit.ai's AI detects distress signals in real-time — tone, language patterns, and explicit statements of hardship — and immediately adapts the conversation. Depending on your configuration, this can mean: switching to a more empathetic conversation path, offering a payment deferral or restructured plan from pre-approved options, or escalating to a human agent with full context in under 3 seconds. The system never uses escalating pressure tactics when distress is detected. This is a compliance requirement we've built into the model, not an optional feature.</p>
       </details>
 
@@ -976,10 +775,10 @@ footer {
 </section>
 
 <!-- CTA -->
-<section class="cta-section" id="demo">
+<section class="cta-section alt" id="demo">
   <div class="container">
-    <h2>See Skit.ai on your portfolio</h2>
-    <p>We'll run a live demo on a sample of your actual delinquent accounts and show you projected liquidation and resolution rates before you commit.</p>
+    <h2>See Skit.ai on your accounts</h2>
+    <p>We'll run a live demo on a sample of your actual customer records and show you projected outcomes before you commit.</p>
     <div class="cta-btns">
       <a href="#" class="btn btn-primary">Book a demo</a>
     </div>
