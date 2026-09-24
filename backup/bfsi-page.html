@@ -670,9 +670,6 @@
   }
   .pl-foot::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: var(--pl-ink); flex-shrink: 0; }
   .pl-card--upsell .pl-foot { padding-top: 24px; }
-  a.pl-foot { color: var(--pl-ink); font-weight: 500; }
-  a.pl-foot:hover { text-decoration: underline; }
-  a.pl-foot:focus-visible { outline: 2px solid var(--skit-accent); outline-offset: 3px; border-radius: 4px; }
 
   /* ===== Case studies (condensed slides) ===== */
   .cs-card {
@@ -709,8 +706,15 @@
   .cs-client strong { color: var(--skit-primary); font-weight: 600; }
 
   .cs-brief { margin-top: 28px; border-top: 1px solid var(--skit-border); }
-  .cs-brief > div { padding: 16px 0; border-bottom: 1px solid var(--skit-border); }
-  .cs-brief dt { font-size: 13px; font-weight: 600; line-height: 1.5; color: var(--skit-teal); margin-bottom: 4px; }
+  .cs-brief > div {
+    display: grid;
+    grid-template-columns: 112px 1fr;
+    gap: 20px;
+    padding: 18px 0;
+    border-bottom: 1px solid var(--skit-border);
+  }
+  .cs-brief dt { font-size: 13.5px; font-weight: 600; color: var(--skit-teal); padding-top: 2px; }
+  .cs-brief dt.cs-brief-problem { color: #8a6d3b; }
   .cs-brief dd { font-size: 15px; line-height: 1.65; color: #374151; }
 
   .cs-actions { margin-top: auto; padding-top: 32px; display: flex; align-items: center; gap: 18px; flex-wrap: wrap; }
@@ -766,8 +770,8 @@
   .js-anim .is-in .cs-bar-fill { transform: scaleX(1); }
 
   .cs-flow2 { list-style: none; margin-top: 16px; }
-  .cs-flow2 li { display: grid; grid-template-columns: 28px 1fr; gap: 14px; align-items: center; position: relative; height: 54px; font-size: 14.5px; line-height: 1.4; color: #ffffff; }
-  .cs-flow2 li:not(:last-child)::after { content: ""; position: absolute; left: 13.5px; top: 41px; height: 26px; width: 1px; background: rgba(143,216,198,.3); }
+  .cs-flow2 li { display: grid; grid-template-columns: 28px 1fr; gap: 14px; align-items: center; position: relative; padding: 7px 0; font-size: 14.5px; color: #ffffff; }
+  .cs-flow2 li:not(:last-child)::after { content: ""; position: absolute; left: 13.5px; top: 33px; bottom: -7px; width: 1px; background: rgba(143,216,198,.3); }
   .cs-flow2 i {
     width: 28px; height: 28px; border-radius: 50%;
     border: 1.5px solid #8fd8c6; color: #8fd8c6;
@@ -820,6 +824,10 @@
     letter-spacing: -.01em;
   }
   .why2-stat span { display: block; font-size: 15px; line-height: 1.6; color: #4b5563; margin-top: 16px; }
+  .why2-list { list-style: none; display: grid; grid-template-columns: 1fr 1fr; gap: 26px 64px; margin-top: 56px; }
+  .why2-list li { position: relative; padding-left: 24px; font-size: 16.5px; line-height: 1.65; color: #374151; }
+  .why2-list li::before { content: ""; position: absolute; left: 0; top: 10px; width: 7px; height: 7px; border-radius: 50%; background: var(--skit-teal); }
+  .why2-list strong { color: var(--skit-primary); font-weight: 600; }
   /* ===== Languages ===== */
   .lx-panel {
     background: #ffffff;
@@ -874,62 +882,49 @@
 
   /* ===== Case study slider ===== */
   .cs-nav {
-    position: relative;
     display: flex;
-    align-items: flex-end;
+    align-items: stretch;
     justify-content: space-between;
-    gap: 32px;
-    margin-bottom: 32px;
+    gap: 24px;
+    margin-bottom: 28px;
   }
-  .cs-nav::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 1px; background: var(--skit-border); }
-  .cs-tabs { display: flex; align-items: stretch; }
+  .cs-tabs {
+    display: flex;
+    gap: 6px;
+    padding: 6px;
+    background: #e3f1ed;
+    border: 1px solid var(--skit-border);
+    border-radius: 16px;
+  }
   .cs-tabbtn {
-    position: relative;
-    display: block;
-    padding: 0 40px 18px 0;
-    border: 0;
-    background: none;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 3px;
+    padding: 12px 22px;
+    border: 1px solid transparent;
+    border-radius: 11px;
+    background: transparent;
     font-family: var(--skit-font-body);
     text-align: left;
     cursor: pointer;
+    transition: background .2s ease, box-shadow .2s ease, border-color .2s ease;
   }
-  .cs-tabbtn + .cs-tabbtn { padding-left: 40px; }
-  .cs-tabbtn + .cs-tabbtn::after {
-    content: "";
-    position: absolute;
-    left: 0; top: 4px; bottom: 22px;
-    width: 1px;
-    background: var(--skit-border);
+  .cs-tabbtn:hover { background: rgba(255,255,255,.6); }
+  .cs-tabbtn-k { font-size: 12.5px; color: var(--skit-text-muted); }
+  .cs-tabbtn-t { font-size: 15px; font-weight: 600; color: #475569; }
+  .cs-tabbtn.is-active {
+    background: #ffffff;
+    border-color: var(--skit-border);
+    box-shadow: 0 1px 2px rgba(0,0,0,.05), 0 6px 16px -8px rgba(11,18,32,.18);
   }
-  .cs-tabbtn::before {
-    content: "";
-    position: absolute;
-    left: 0; right: 40px; bottom: 0;
-    height: 2px;
-    background: var(--skit-teal);
-    transform: scaleX(0);
-    transform-origin: left center;
-    transition: transform .5s cubic-bezier(.16,1,.3,1);
-    z-index: 1;
-  }
-  .cs-tabbtn + .cs-tabbtn::before { left: 40px; }
-  .cs-tabbtn.is-active::before { transform: scaleX(1); }
-  .cs-tabbtn-body { display: flex; flex-direction: column; gap: 4px; }
-  .cs-tabbtn-k { font-size: 13px; line-height: 1.5; color: var(--skit-text-muted); transition: color .2s ease; }
-  .cs-tabbtn-t {
-    font-family: var(--skit-font-display);
-    font-size: 21px;
-    font-weight: 300;
-    line-height: 1.35;
-    color: #64748b;
-    transition: color .2s ease;
-  }
-  .cs-tabbtn:hover .cs-tabbtn-t { color: var(--skit-primary); }
   .cs-tabbtn.is-active .cs-tabbtn-k { color: var(--skit-teal); }
   .cs-tabbtn.is-active .cs-tabbtn-t { color: var(--skit-primary); }
-  .cs-arrows { display: flex; align-items: center; gap: 10px; padding-bottom: 14px; }
+  .cs-arrows { display: flex; align-items: center; gap: 10px; }
+  .cs-count { font-size: 14px; color: var(--skit-text-muted); margin-right: 6px; font-variant-numeric: tabular-nums; }
+  .cs-count b { color: var(--skit-primary); font-weight: 600; }
   .cs-arrow {
-    width: 44px; height: 44px;
+    width: 46px; height: 46px;
     border-radius: 50%;
     border: 1px solid var(--skit-border-med);
     background: #ffffff;
@@ -962,20 +957,17 @@
 
 
   @media (prefers-reduced-motion: reduce) {
-    .cs-track, .cs-viewport, .cs-slide, .cs-tabbtn::before { transition: none; }
+    .cs-track, .cs-viewport, .cs-slide { transition: none; }
   }
   @media (max-width: 989px) {
+    .cs-nav { flex-direction: column; }
+    .cs-arrows { justify-content: flex-end; }
   }
   @media (max-width: 767px) {
-    .cs-arrows { display: none; }
-    .cs-tabs { width: 100%; }
-    .cs-tabbtn { flex: 1 1 0; min-width: 0; padding: 0 16px 14px 0; }
-    .cs-tabbtn + .cs-tabbtn { padding-left: 16px; }
-    .cs-tabbtn::before { right: 16px; }
-    .cs-tabbtn + .cs-tabbtn::before { left: 16px; right: 0; }
-    .cs-tabbtn + .cs-tabbtn::after { bottom: 18px; }
-    .cs-tabbtn-k { font-size: 12px; }
-    .cs-tabbtn-t { font-size: 16px; }
+    .cs-tabbtn { flex: 1 1 0; min-width: 0; padding: 10px 12px; }
+    .cs-tabbtn-k { font-size: 11.5px; }
+    .cs-tabbtn-t { font-size: 13.5px; line-height: 1.3; }
+    .cs-count { margin-right: auto; }
     .cs-track { gap: 24px; }
   }
 
@@ -997,12 +989,14 @@
     .pl-modes { grid-template-columns: 1fr; }
     .pl-figure b { font-size: 32px; }
     .cs-main h3 { font-size: 24px; }
+    .cs-brief > div { grid-template-columns: 1fr; gap: 4px; }
     .cs-kpi b { font-size: 30px; }
     .cs-kpi { padding: 18px 16px; }
     .why2-stat { padding: 28px 20px; }
     .why2-stat b { font-size: 32px; }
     .why2-stat span { font-size: 14px; }
-      .why2-head h2 { font-size: 30px; }
+    .why2-list { grid-template-columns: 1fr; gap: 18px; }
+    .why2-head h2 { font-size: 30px; }
   }
   /* ===== Blog ===== */
   .blog-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr); gap: 24px; align-items: stretch; }
@@ -1090,114 +1084,6 @@
     .blog-list { padding: 4px 20px; }
     .blog-list b { font-size: 16px; }
   }
-  /* ===== Why banks choose Skit.ai (lead + four) ===== */
-  .wb-grid {
-    display: grid;
-    grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr) minmax(0, 1fr);
-    grid-template-rows: 1fr 1fr;
-    gap: 24px;
-  }
-  .wb-lead, .wb-card {
-    border-radius: 20px;
-    padding: 36px;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-  }
-  .wb-lead { grid-row: span 2; background: var(--skit-navy); color: #ffffff; }
-  .wb-card {
-    background: #ffffff;
-    border: 1px solid var(--skit-border);
-    box-shadow: 0 1px 2px rgba(0,0,0,.04), 0 16px 32px -24px rgba(11,18,32,.14);
-  }
-  .wb-ico {
-    width: 48px; height: 48px;
-    border-radius: 14px;
-    background: var(--skit-tint-mint);
-    color: var(--skit-teal);
-    display: flex; align-items: center; justify-content: center;
-    margin-bottom: 24px;
-    flex-shrink: 0;
-  }
-  .wb-lead .wb-ico { background: rgba(143,216,198,.12); color: #8fd8c6; }
-  .wb-lead h3, .wb-card h3 { font-family: var(--skit-font-display); font-weight: 300; line-height: 1.35; }
-  .wb-lead h3 { font-size: 28px; margin-bottom: 14px; max-width: 18ch; }
-  .wb-card h3 { font-size: 20px; margin-bottom: 10px; }
-  .wb-lead > p { font-size: 15.5px; line-height: 1.7; color: rgba(255,255,255,.72); }
-  .wb-card > p { font-size: 15px; line-height: 1.65; color: #4b5563; }
-
-  .wb-compare-k { width: 100%; margin-top: auto; padding-top: 32px; font-size: 13px; font-weight: 600; line-height: 1.5; color: #8fd8c6; margin-bottom: 14px; }
-  .wb-compare { list-style: none; width: 100%; display: flex; flex-direction: column; gap: 22px; }
-  .wb-compare li { position: relative; }
-  .wb-compare li + li::before {
-    content: "";
-    position: absolute;
-    top: -17px; left: 50%;
-    width: 12px; height: 12px;
-    margin-left: -6px;
-    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%238fd8c6' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E") center / contain no-repeat;
-    opacity: .7;
-  }
-  .wb-compare li {
-    padding: 16px 18px;
-    border-radius: 12px;
-    border: 1px solid rgba(255,255,255,.1);
-  }
-  .wb-compare b { display: block; font-size: 13px; font-weight: 600; line-height: 1.5; color: rgba(255,255,255,.5); margin-bottom: 2px; }
-  .wb-compare span { display: block; font-size: 14.5px; line-height: 1.6; color: rgba(255,255,255,.6); }
-  .wb-compare .is-skit { background: rgba(143,216,198,.1); border-color: rgba(143,216,198,.35); }
-  .wb-compare .is-skit b { color: #8fd8c6; }
-  .wb-compare .is-skit span { color: #ffffff; }
-
-  .wb-foot { width: 100%; min-height: 52px; margin-top: auto; padding-top: 20px; border-top: 1px solid var(--skit-border); align-items: center; }
-  .wb-card > p { margin-bottom: 24px; }
-  .wb-chips { list-style: none; display: flex; flex-wrap: wrap; gap: 8px; align-content: center; }
-  .wb-chips li {
-    font-size: 13px;
-    line-height: 1.4;
-    padding: 5px 12px;
-    border-radius: var(--skit-radius-pill);
-    background: var(--skit-bg-alt);
-    border: 1px solid #dcefe9;
-    color: #166555;
-  }
-  .wb-link { display: flex; align-items: center; justify-content: space-between; gap: 12px; font-size: 14.5px; font-weight: 500; color: var(--skit-accent-hover); }
-  .wb-link svg { flex-shrink: 0; transition: transform .2s ease; }
-  .wb-link:hover svg { transform: translateX(3px); }
-  .wb-link:focus-visible { outline: 2px solid var(--skit-accent); outline-offset: 4px; border-radius: 4px; }
-
-  @media (max-width: 1100px) {
-    .wb-grid { grid-template-columns: 1fr 1fr; grid-template-rows: none; }
-    .wb-lead { grid-row: auto; grid-column: 1 / -1; }
-    .wb-lead h3 { max-width: none; }
-  }
-  @media (max-width: 767px) {
-    .wb-grid { grid-template-columns: 1fr; gap: 16px; }
-    .wb-lead, .wb-card { padding: 28px 22px; }
-    .wb-lead h3 { font-size: 24px; }
-  }
-
-  .cs-side { padding: 48px 44px; }
-  .cs-inside li:last-child a { padding-bottom: 0; }
-  .cs-uc { list-style: none; display: flex; flex-wrap: wrap; gap: 8px; margin-top: 4px; }
-  .cs-uc li { font-size: 13px; line-height: 1.4; padding: 5px 11px; border-radius: var(--skit-radius-pill); background: var(--skit-bg-alt); border: 1px solid #dcefe9; color: #166555; }
-  .cs-guard-note { display: flex; gap: 10px; align-items: flex-start; margin-top: 24px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,.12); font-size: 13.5px; line-height: 1.6; color: rgba(255,255,255,.72); }
-  .cs-guard-note svg { color: #8fd8c6; flex-shrink: 0; margin-top: 3px; }
-  /* why: title beside icon, tighter spacing */
-  .wb-head h3 { text-wrap: balance; }
-  .wb-head { display: flex; align-items: flex-start; gap: 16px; width: 100%; margin-bottom: 14px; }
-  .wb-head .wb-ico { margin-bottom: 0; }
-  .wb-card .wb-head h3 { margin: calc((48px - 1.35em) / 2) 0 0; }
-  .wb-lead .wb-head h3 { margin: calc((48px - 1.35em) / 2) 0 0; font-size: 26px; max-width: none; }
-  .wb-lead, .wb-card { padding: 32px; }
-  .wb-card > p { margin-bottom: 20px; }
-  .wb-foot { min-height: 0; padding-top: 0; border-top: 0; }
-  .wb-compare-k { padding-top: 24px; margin-bottom: 12px; }
-  .wb-grid { grid-template-rows: auto auto; }
-  @media (max-width: 767px) {
-    .wb-lead, .wb-card { padding: 24px 20px; }
-    .wb-lead .wb-head h3 { font-size: 22px; }
-  }
 </style>
 </head>
 <body>
@@ -1212,6 +1098,8 @@
         <li><a href="#">Resources <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg></a></li>
         <!-- <li><a href="banking-page.html">Banking</a></li> -->
         <li><a href="bfsi-page.html">BFSI</a></li>
+        <li><a href="marketing-page.html">Marketing</a></li>
+        <li><a href="comparison-alternatives.html">Comparison</a></li>
       </ul>
       <div class="nav-cta">
         <a href="#" class="btn btn--primary">Try Skit.ai Today</a>
@@ -1370,7 +1258,7 @@
     <div class="section-head">
       <span class="eyebrow">What Our Voice Agents Do</span>
       <h2>Three Pillars. One GenAI Voice Platform.</h2>
-      <p>GenAI voice agents that hold real, two-way conversations with bank customers in Hindi, English and Hinglish, at national scale, across three pillars.</p>
+      <p>GenAI voice agents that hold real, two-way conversations in Hindi, English and Hinglish. Unlike a menu-driven IVR or a scripted NLP bot, the agent understands intent, handles objections, and guides multi-step journeys.</p>
     </div>
 
     <div class="pl-bento">
@@ -1379,6 +1267,7 @@
           <div class="pl-icon"><img src="assets/icons/usecase-marketing.svg" alt=""></div>
           <div>
             <h3>Marketing &amp; Upsell</h3>
+            <span class="pl-kind">Outbound campaigns</span>
           </div>
         </div>
         <p class="pl-desc">Outbound campaigns that turn a bank's pre-approved offers into booked applications: credit cards, loans, top-ups and cross-sell.</p>
@@ -1403,7 +1292,7 @@
           <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Savings campaigns</li>
           <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Top-up campaigns</li>
         </ul>
-        <a class="pl-foot" href="#case-studies">See how one bank runs these, in the case study below</a>
+        <p class="pl-foot">Hindi and English live, with a regional-language rollout underway</p>
       </article>
 
       <article class="pl-card pl-card--collections">
@@ -1411,9 +1300,10 @@
           <div class="pl-icon"><img src="assets/icons/usecase-collections.svg" alt=""></div>
           <div>
             <h3>Collections</h3>
+            <span class="pl-kind">Outbound recovery</span>
           </div>
         </div>
-        <p class="pl-desc">Outbound recovery conversations across delinquency buckets, from early-bucket reminders to later-stage recovery.</p>
+        <p class="pl-desc">Outbound recovery conversations across delinquency buckets, from early-bucket reminders to later-stage recovery, with A and B voice selection across circles.</p>
         <div class="pl-track" aria-label="Covers delinquency buckets from early-bucket reminders to later-stage recovery">
           <div class="pl-track-bar"></div>
           <div class="pl-track-labels">
@@ -1429,9 +1319,10 @@
           <div class="pl-icon"><img src="assets/icons/usecase-servicing.svg" alt=""></div>
           <div>
             <h3>Inbound Servicing</h3>
+            <span class="pl-kind">Call center automation</span>
           </div>
         </div>
-        <p class="pl-desc">Automated call-center conversations and agent assist: FAQs, account queries, routing, and helping human agents in real time.</p>
+        <p class="pl-desc">Automated call-center conversations for customers who call in, plus agent assist that helps human agents in real time.</p>
         <div class="pl-modes">
           <div class="pl-mode">
             <b>Automated</b>
@@ -1439,7 +1330,7 @@
           </div>
           <div class="pl-mode">
             <b>Agent assist</b>
-            <p>Supports the human agent in real time, during the call.</p>
+            <p>The bot supports a human agent in real time.</p>
           </div>
         </div>
         <p class="pl-foot">Deployed with several leading banks</p>
@@ -1448,52 +1339,28 @@
   </div>
 </section>
 
-<section class="skit-section skit-section--alt" id="scale">
-  <div class="skit-container">
-    <div class="why2-head">
-      <span class="why2-eyebrow">Proven at national scale</span>
-      <h2>The Numbers Behind Every Conversation</h2>
-      <p>Skit.ai runs GenAI voice agents for India's largest banks, at a scale and accuracy that holds up under enterprise scrutiny. The bottom row comes from one large private-sector bank; the case studies below show how.</p>
-    </div>
-
-    <div class="why2-stats">
-      <div class="why2-stat"><b>3M+</b><span>Calls dialed per day on the India platform</span></div>
-      <div class="why2-stat"><b>99.95%</b><span>Platform uptime</span></div>
-      <div class="why2-stat"><b>10+</b><span>Years in production with large banks</span></div>
-      <div class="why2-stat"><b>94.7%</b><span>Bot accuracy, weighted across use cases</span></div>
-      <div class="why2-stat"><b>12.3M</b><span>Credit card leads handled on the LLM agent</span></div>
-      <div class="why2-stat"><b>~39</b><span>Bots moving from NLP to LLM voice agents</span></div>
-      <div class="why2-stat"><b>10.6 lakh</b><span>Customers reached by gold loan balance transfer calls in a recent month</span></div>
-      <div class="why2-stat"><b>&#8377;35.76 Cr</b><span>Gold loan balance transfer disbursal value across FY26</span></div>
-    </div>
-  </div>
-</section>
-
-<section class="skit-section" id="case-studies">
+<section class="skit-section skit-section--alt" id="case-studies">
   <div class="skit-container">
     <div class="section-head">
       <span class="eyebrow">Case Studies</span>
       <h2>How Large Indian Banks Run on Skit.ai Voice Agents</h2>
-      <p>Two live deployments: outbound upsell across dozens of use cases at a large private-sector bank, and voice-first loan journeys at one of India's largest public-sector banks. Outcome figures come from production data.</p>
+      <p>Two live deployments: outbound upsell at national scale, and voice-led loan journeys that bring customers back to finish. Outcome figures come from production data.</p>
     </div>
 
     <div class="cs-slider" id="cs-slider" role="region" aria-roledescription="carousel" aria-label="Case studies">
       <div class="cs-nav">
         <div class="cs-tabs" role="tablist" aria-label="Choose a case study">
           <button type="button" class="cs-tabbtn is-active" role="tab" id="cs-tab-1" aria-controls="cs-slide-1" aria-selected="true" data-cs-go="0">
-            <span class="cs-tabbtn-body">
-              <span class="cs-tabbtn-k">Large private-sector bank</span>
-              <span class="cs-tabbtn-t">Marketing &amp; upsell at scale</span>
-            </span>
+            <span class="cs-tabbtn-k">Large private-sector bank</span>
+            <span class="cs-tabbtn-t">Marketing &amp; upsell at scale</span>
           </button>
           <button type="button" class="cs-tabbtn" role="tab" id="cs-tab-2" aria-controls="cs-slide-2" aria-selected="false" tabindex="-1" data-cs-go="1">
-            <span class="cs-tabbtn-body">
-              <span class="cs-tabbtn-k">Large public-sector bank</span>
-              <span class="cs-tabbtn-t">Voice-first loan journeys</span>
-            </span>
+            <span class="cs-tabbtn-k">Large public-sector bank</span>
+            <span class="cs-tabbtn-t">Voice-led loan journeys</span>
           </button>
         </div>
         <div class="cs-arrows">
+          <span class="cs-count" aria-live="polite"><b data-cs-current>1</b> of 2</span>
           <button type="button" class="cs-arrow" data-cs-prev aria-label="Previous case study" disabled><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M11 18l-6-6 6-6"/></svg></button>
           <button type="button" class="cs-arrow" data-cs-next aria-label="Next case study"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
         </div>
@@ -1511,19 +1378,18 @@
               <span class="cs-label">NLP to LLM migration</span>
             </div>
             <h3>Turning a very large pre-approved base into booked applications, month after month</h3>
-            <p class="cs-client"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 21h18M3 10h18M5 10v11M19 10v11M9 10v11M15 10v11M12 3l9 7H3z"/></svg><span><strong>Client:</strong> a large Indian private-sector bank</span></p>
+            <p class="cs-client">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 21h18M3 10h18M5 10v11M19 10v11M9 10v11M15 10v11M12 3l9 7H3z"/></svg>
+              <span><strong>Client:</strong> a large Indian private-sector bank</span>
+            </p>
             <dl class="cs-brief">
               <div>
-                <dt>What the bank needed</dt>
-                <dd>Turn a very large pre-approved base into booked applications, month after month, across many products and languages, with clear analytics and control over the conversation.</dd>
+                <dt class="cs-brief-problem">The problem</dt>
+                <dd>Convert a very large pre-approved base across 30 to 38 live use cases and several languages, while the older NLP bot was cut off in its opening line.</dd>
               </div>
               <div>
-                <dt>What Skit.ai does</dt>
-                <dd>Runs outbound GenAI voice agents end to end: presents pre-approved offers, captures genuine intent, handles objections, and routes interested customers to booking or application. Live in Hindi and English, with regional rollout planned for Tamil, Telugu, Kannada, Bengali, and Marathi.</dd>
-              </div>
-              <div>
-                <dt>Use cases touched: 30 to 38 live</dt>
-                <dd><ul class="cs-uc"><li>Credit cards</li><li>Card upgrades</li><li>Gold loan BT</li><li>Business instalment loan</li><li>Home loan BT</li><li>Loan against property</li><li>Car refinance</li><li>FD cross-sell</li><li>Loan on credit card</li><li>Corporate salary</li><li>Savings &amp; top-ups</li></ul></dd>
+                <dt>What we did</dt>
+                <dd>Moved around 39 bots from NLP to LLM voice agents that present the offer, handle objections and route interested customers straight to booking.</dd>
               </div>
             </dl>
             <div class="cs-actions">
@@ -1535,14 +1401,12 @@
           </div>
 
           <div class="cs-side">
-            <p class="cs-side-k">NLP bot vs. LLM agent, production data</p>
+            <p class="cs-side-k">Results on production data</p>
             <div class="cs-kpis">
-              <div class="cs-kpi"><b>6.8<small>x</small></b><span>Qualified card leads, 15,616 to 105,416</span></div>
-              <div class="cs-kpi"><b>+21<small>%</small></b><span>Conversion of an engaged card call</span></div>
-              <div class="cs-kpi"><b>&minus;38<small>%</small></b><span>Dials per lead on business loans, 4.98 to 3.10</span></div>
-              <div class="cs-kpi"><b>2.6<small>x</small></b><span>Business loan calls running past 40 seconds</span></div>
-              <div class="cs-kpi"><b>+44<small>%</small></b><span>Engagement over connected business loan calls</span></div>
-              <div class="cs-kpi"><b>93.2<small>%</small></b><span>Bot accuracy on gold loan balance transfer</span></div>
+              <div class="cs-kpi"><b>12.3M</b><span>Credit card leads handled on the LLM agent</span></div>
+              <div class="cs-kpi"><b>6.8<small>x</small></b><span>More qualified card leads</span></div>
+              <div class="cs-kpi"><b>+21<small>%</small></b><span>Conversion on engaged credit card calls</span></div>
+              <div class="cs-kpi"><b>94.7<small>%</small></b><span>Bot accuracy, weighted across use cases</span></div>
             </div>
 
             <div class="cs-mini cs-anim-target">
@@ -1554,8 +1418,8 @@
             <div class="cs-inside">
               <p class="cs-inside-k">Inside the full case study</p>
               <ul>
-                <li><a href="case-study-private-bank-upsell.html#metrics">Every metric, NLP vs. LLM<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></li>
-                <li><a href="case-study-private-bank-upsell.html#gold-loan">Gold loan BT: leading with value, not rate<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></li>
+                <li><a href="case-study-private-bank-upsell.html#metrics">NLP vs. LLM, metric by metric<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></li>
+                <li><a href="case-study-private-bank-upsell.html#gold-loan">Gold loan balance transfer spotlight<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></li>
               </ul>
             </div>
           </div>
@@ -1571,53 +1435,49 @@
               <span class="cs-label">Voice-first loan journeys</span>
             </div>
             <h3>Guiding customers through a long digital loan application, starting with a voice call</h3>
-            <p class="cs-client"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 21h18M3 10h18M5 10v11M19 10v11M9 10v11M15 10v11M12 3l9 7H3z"/></svg><span><strong>Client:</strong> one of India's largest public-sector banks</span></p>
+            <p class="cs-client">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 21h18M3 10h18M5 10v11M19 10v11M9 10v11M15 10v11M12 3l9 7H3z"/></svg>
+              <span><strong>Client:</strong> one of India's largest public-sector banks</span>
+            </p>
             <dl class="cs-brief">
               <div>
-                <dt>What the bank needed</dt>
-                <dd>Automate pre-approved loan outreach, guide customers through a long application on the bank's app, and recover those who cannot finish in one sitting.</dd>
+                <dt class="cs-brief-problem">The problem</dt>
+                <dd>Move pre-approved customers through a long application on the bank's app, and win back those who can't finish in one sitting, inside strict compliance rules.</dd>
               </div>
               <div>
-                <dt>What Skit.ai does</dt>
-                <dd>The voice AI agent confirms the right party, plays the disclosure, presents the pre-approved offer, captures intent, and routes the customer to the best completion path—SMS, video, scheduled call, or a warm handoff. Calling first to capture intent is more relevant to the customer and higher-value for the bank than a blind message.</dd>
-              </div>
-              <div>
-                <dt>Use cases touched</dt>
-                <dd><ul class="cs-uc"><li>Pre-approved personal loan journey</li><li>Pre-approved credit campaign</li><li>Collections</li><li>Inbound servicing</li><li>Agent assist</li></ul></dd>
+                <dt>What we did</dt>
+                <dd>A voice agent calls first to capture genuine intent, then routes each customer to the completion path that fits. More relevant for the customer than a blind message.</dd>
               </div>
             </dl>
             <div class="cs-actions">
               <a href="case-study-public-bank-loan-journeys.html" class="btn btn--primary">Read the full case study
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
               </a>
-              <span class="cs-actions-note">Every use case in the engagement inside</span>
+              <span class="cs-actions-note">Every use case live in the engagement</span>
             </div>
           </div>
 
           <div class="cs-side">
-            <div class="cs-kpis">
-              <div class="cs-kpi"><b>10M<small>+</small></b><span>Customers reached through AI-powered voice engagement</span></div>
-              <div class="cs-kpi"><b>15M<small>+</small></b><span>Outbound and inbound conversations handled</span></div>
-              <div class="cs-kpi"><b>85%<small>+</small></b><span>Customer intent accurately captured</span></div>
-              <div class="cs-kpi"><b>30%<small>+</small></b><span>Incomplete digital journeys recovered</span></div>
-              <div class="cs-kpi"><b>70%<small>+</small></b><span>Interactions automated end-to-end</span></div>
-              <div class="cs-kpi"><b>2.5<small>x</small></b><span>Higher engagement through voice-first outreach</span></div>
-            </div>
-        
+            <p class="cs-side-k">How each call runs</p>
+            <ol class="cs-flow2">
+              <li><i>1</i>Calls the customer</li>
+              <li><i>2</i>Confirms the right party</li>
+              <li><i>3</i>Plays the recording disclosure</li>
+              <li><i>4</i>Presents the pre-approved offer</li>
+              <li><i>5</i>Captures genuine intent</li>
+            </ol>
             <p class="cs-paths2-k">Then routes each customer to</p>
             <ul class="cs-paths2">
-              <li>Step-by-step DLT SMS</li>
+              <li>Step-by-step SMS</li>
               <li>Guided video</li>
               <li>Scheduled completion call</li>
               <li>Agent or branch handoff</li>
             </ul>
-            <p class="cs-guard-note"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg><span>Every call runs on the bank's approved telemarketing numbers within TRAI hours, and never asks for OTPs, MPINs, passwords or full card numbers.</span></p>
-
 
             <div class="cs-inside">
               <p class="cs-inside-k">Inside the full case study</p>
               <ul>
-                <li><a href="case-study-public-bank-loan-journeys.html#use-cases">Every use case across lending, collections and servicing<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></li>
+                <li><a href="case-study-public-bank-loan-journeys.html#use-cases">Lending, collections and servicing use cases<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></li>
                 <li><a href="case-study-public-bank-loan-journeys.html#compliance">The compliance guardrails on every call<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></li>
               </ul>
             </div>
@@ -1631,69 +1491,36 @@
   </div>
 </section>
 
-
-
-<section class="skit-section skit-section--alt" id="why-skit">
+<section class="skit-section" id="why-skit">
   <div class="skit-container">
-    <div class="section-head">
-      <span class="eyebrow">Why Banks Choose Skit.ai</span>
-      <h2>A Voice AI Company Built for BFSI</h2>
-      <p>Skit.ai runs GenAI voice agents for large enterprise banks in India. Here are the five reasons they choose it.</p>
+    <div class="why2-head">
+      <span class="why2-eyebrow">Why banks choose Skit.ai</span>
+      <h2>The Numbers Behind Every Conversation</h2>
+      <p>Skit.ai runs GenAI voice agents for India's largest banks, at a scale and accuracy that holds up under enterprise scrutiny.</p>
     </div>
 
-    <div class="wb-grid">
-      <article class="wb-lead">
-        <div class="wb-head">
-          <span class="wb-ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2M12 19v3"/></svg></span>
-          <h3>Voice AI depth, not a generic chatbot</h3>
-        </div>
-        <p>The agent qualifies intent, handles objections and guides multi-step journeys end to end, then hands off to an agent or branch when a person is needed.</p>
-        <p class="wb-compare-k">What changes on the call</p>
-        <ul class="wb-compare">
-          <li><b>Menu-driven IVR</b><span>Reads a fixed menu.</span></li>
-          <li><b>Scripted NLP bot</b><span>Follows a script, and was often cut off in its opening line.</span></li>
-          <li class="is-skit"><b>Skit.ai GenAI voice agent</b><span>Understands what the customer says, answers in context and adapts the conversation.</span></li>
-        </ul>
-      </article>
-
-      <article class="wb-card">
-        <div class="wb-head">
-          <span class="wb-ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 21h18M3 10h18M5 10v11M19 10v11M9 10v11M15 10v11M12 3l9 7H3z"/></svg></span>
-          <h3>BFSI domain expertise</h3>
-        </div>
-        <p>More than 10 years in production with large banks, across all three pillars of bank conversations. </p>
-        <ul class="wb-foot wb-chips"><li>Upsell</li><li>Collections</li><li>Servicing</li></ul>
-      </article>
-
-      <article class="wb-card">
-        <div class="wb-head">
-          <span class="wb-ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></span>
-          <h3>India compliance built in</h3>
-        </div>
-        <p>TRAI, DLT and bank information-security standards, with dedicated cloud where required. Skit.ai has cleared large-bank security reviews that smaller vendors cannot.</p>
-        <a class="wb-foot wb-link" href="#compliance">See how compliance is built in <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-      </article>
-
-      <article class="wb-card">
-        <div class="wb-head">
-          <span class="wb-ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 1l4 4-4 4"/><path d="M3 11V9a4 4 0 0 1 4-4h14M7 23l-4-4 4-4"/><path d="M21 13v2a4 4 0 0 1-4 4H3"/></svg></span>
-          <h3>Migration leadership</h3>
-        </div>
-        <p>Skit.ai moves banks from older NLP bots to LLM voice agents, with gains measured on live production data.</p>
-        <a class="wb-foot wb-link" href="#case-studies">See the NLP to LLM results <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-      </article>
-
-      <article class="wb-card">
-        <div class="wb-head">
-          <span class="wb-ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="6" cy="12" r="3"/><circle cx="18" cy="6" r="3"/><circle cx="18" cy="18" r="3"/><path d="m8.6 10.5 6.8-3M8.6 13.5l6.8 3"/></svg></span>
-          <h3>A partnership model</h3>
-        </div>
-        <p>Skit.ai works with system integrators and telephony partners, including on some of its largest bank programmes.</p>
-        <ul class="wb-foot wb-chips"><li>Teleperformance</li><li>Cisco</li><li>Genesys</li></ul>
-      </article>
+    <div class="why2-stats">
+      <div class="why2-stat"><b>3M+</b><span>Calls dialed per day on the India platform</span></div>
+      <div class="why2-stat"><b>99.95%</b><span>Platform uptime</span></div>
+      <div class="why2-stat"><b>10+</b><span>Years in production with large banks</span></div>
+      <div class="why2-stat"><b>94.7%</b><span>Bot accuracy, weighted across use cases</span></div>
+      <div class="why2-stat"><b>12.3M</b><span>Credit card leads handled on LLM at one large bank</span></div>
+      <div class="why2-stat"><b>+52%</b><span>Connectivity lift after moving from NLP to LLM</span></div>
+      <div class="why2-stat"><b>+21%</b><span>Conversion lift on engaged credit card calls</span></div>
+      <div class="why2-stat"><b>30&ndash;38</b><span>Live outbound use cases at a single bank</span></div>
     </div>
+
+    <ul class="why2-list">
+      <li><strong>Voice AI depth, not a generic chatbot.</strong> The agent qualifies intent, handles objections, and guides journeys end to end.</li>
+      <li><strong>BFSI domain expertise</strong> built over 10+ years in production with large banks.</li>
+      <li><strong>Security and India compliance built in:</strong> TRAI, DLT, bank information-security standards, and dedicated cloud where required.</li>
+      <li><strong>Enterprise scrutiny passed repeatedly.</strong> Skit.ai has cleared large-bank security reviews that smaller vendors cannot.</li>
+      <li><strong>A partnership model</strong> with system integrators and telephony partners such as Teleperformance, Cisco and Genesys.</li>
+      <li><strong>Migration leadership:</strong> moving banks from older NLP bots to LLM voice agents, with <a href="#case-studies" style="color:var(--skit-accent)">measured gains</a>.</li>
+    </ul>
   </div>
 </section>
+
 
 <section class="skit-section skit-section--dark" id="compliance">
   <div class="skit-container">
@@ -1820,7 +1647,7 @@
         </div>
         <ul class="lx-tiles lx-tiles--three">
           <li class="lx-tile"><div class="lx-native" lang="hi">हिन्दी</div><div class="lx-en">Hindi</div></li>
-          <li class="lx-tile"><div class="lx-native">English</div></li>
+          <li class="lx-tile"><div class="lx-native">English</div><div class="lx-en">English</div></li>
           <li class="lx-tile"><div class="lx-native">Hinglish</div><div class="lx-en">Hindi and English, mixed</div></li>
         </ul>
       </div>
@@ -2000,7 +1827,7 @@
     });
     prev.disabled = index === 0;
     next.disabled = index === slides.length - 1;
-    if (countEl) countEl.textContent = index + 1;
+    countEl.textContent = index + 1;
     position(0);
     sizeViewport();
     if (opts && opts.scroll) {
