@@ -58,7 +58,29 @@
   .bfsi-foot .footer-bottom { border-top: 1px solid rgba(255,255,255,.1); padding: 22px 0; display: flex; justify-content: space-between; align-items: center; font-size: 13px; color: rgba(255,255,255,.4); flex-wrap: wrap; gap: 12px; }
   .bfsi-foot .footer-bottom a { color: rgba(255,255,255,.4); margin-left: 18px; }
   .bfsi-foot .footer-bottom a:hover { color: rgba(255,255,255,.8); }
-  @media (max-width: 767px) { .bfsi-nav .nav-links { display: none; } }
+  @media (max-width: 767px) {
+    .bfsi-nav .nav-links { display: none; }
+    .bfsi-nav .skit-container, .bfsi-foot .skit-container { padding: 0 24px; }
+    .bfsi-nav .nav-inner { height: 56px; }
+    .bfsi-nav .skit-logo-img { height: 26px; }
+    .bfsi-nav .nav-cta { gap: 12px; }
+    .bfsi-nav .btn { font-size: 13px; padding: 6px 14px; white-space: nowrap; }
+    .bfsi-nav .nav-globe { width: 22px; height: 22px; }
+
+    .bfsi-foot .footer-main { padding: 56px 0; }
+    .bfsi-foot .footer-inner { flex-direction: column; gap: 32px; }
+    .bfsi-foot .footer-brand p { max-width: none; }
+    .bfsi-foot .footer-col { min-width: 0; }
+    .bfsi-foot .footer-bottom { flex-direction: column; align-items: flex-start; }
+    .bfsi-foot .footer-bottom span:last-child { display: flex; flex-wrap: wrap; gap: 8px 18px; }
+    .bfsi-foot .footer-bottom a { margin-left: 0; }
+  }
+  @media (max-width: 600px) {
+    .bfsi-nav .skit-container, .bfsi-foot .skit-container { padding: 0 20px; }
+  }
+  @media (max-width: 380px) {
+    .bfsi-nav .nav-globe { display: none; }
+  }
 </style>
 <nav class="bfsi-nav">
   <div class="skit-container">
@@ -277,6 +299,7 @@
   @media (max-width: 600px) {
     .skit-bo { padding: 72px 18px; }
     .skit-bo__grid { grid-template-columns: 1fr; }
+    .skit-bo__card { padding: 22px 20px; }
     .skit-bo__metrics { grid-template-columns: repeat(2, 1fr); }
     .skit-bo__metrics div { border-bottom: 1px solid var(--line); }
     .skit-bo__metrics div:nth-child(odd) { border-right: 1px solid var(--line); }
@@ -464,7 +487,8 @@
       gap: 18px;
       align-items: start;
     }
-    .skit-eff__track { padding: 28px 22px 22px; }
+    .skit-eff__track { padding: 22px 18px 18px; }
+    .skit-eff__card { padding: 20px 18px; }
     .skit-eff__footer {
       flex-direction: column;
       align-items: flex-start;
@@ -857,7 +881,8 @@
     }
   }
   @media (max-width: 600px) {
-    .skit-scale__figures { grid-template-columns: 1fr; }
+    .skit-scale__figures { grid-template-columns: 1fr; gap: 12px; }
+    .skit-scale__fig { min-height: 0; padding: 24px 22px; }
   }
 
   /* ========== CASE STUDIES ========== */
@@ -1240,6 +1265,13 @@
     font-weight: 400;
     line-height: 1.5;
   }
+  @media (max-width: 989px) {
+    .skit-cs .skit-ss-quote { padding: 32px 48px; }
+  }
+  @media (max-width: 767px) {
+    .skit-cs .skit-ss-quote { margin-top: 40px; padding: 28px 22px; }
+    .skit-india-blocks .skit-cs .skit-ss-quote p { font-size: 16px !important; line-height: 1.7 !important; }
+  }
 
   /* ========== END TO END VOICE ========== */
   .skit-e2e {
@@ -1453,7 +1485,8 @@
   @media (max-width: 850px) {
     .skit-comp { padding: 80px 24px; }
     .skit-comp__grid { grid-template-columns: 1fr; }
-    .skit-comp__card { min-height: 0; }
+    .skit-comp__card { min-height: 0; padding: 24px 22px; }
+    .skit-comp__grid { gap: 16px; }
   }
 
   /* ========== INTEGRATES ========== */
@@ -1895,6 +1928,79 @@
     .skit-india-blocks .skit-hero__eyebrow { font-size: 16px !important; }
     .skit-india-blocks .skit-hero__lead { font-size: 16px !important; line-height: 1.45 !important; }
     .skit-hero-wrap { margin-top: 12px; }
+  }
+
+  /* ========== MOBILE TYPE SCALE (matches bfsi-page.html) ========== */
+  @media (max-width: 850px) {
+    .skit-india-blocks .skit-bo__header h2,
+    .skit-india-blocks .skit-eff__header h2,
+    .skit-india-blocks .skit-cx__heading h2,
+    .skit-india-blocks .skit-scale__heading h2,
+    .skit-india-blocks .skit-cs .section-head h2,
+    .skit-india-blocks .skit-e2e__header h2,
+    .skit-india-blocks .skit-comp__header h2,
+    .skit-india-blocks .skit-int__header h2 { font-size: 34px !important; }
+  }
+  @media (max-width: 767px) {
+    /* hero */
+    .skit-india-blocks .skit-hero__eyebrow { font-size: 14px !important; }
+    .skit-india-blocks .skit-hero h1 { font-size: 30px !important; line-height: 1.22 !important; }
+    .skit-india-blocks .skit-hero__lead { font-size: 16px !important; line-height: 1.45 !important; }
+
+    /* section headings */
+    .skit-india-blocks .skit-bo__header h2,
+    .skit-india-blocks .skit-eff__header h2,
+    .skit-india-blocks .skit-cx__heading h2,
+    .skit-india-blocks .skit-scale__heading h2,
+    .skit-india-blocks .skit-cs .section-head h2,
+    .skit-india-blocks .skit-e2e__header h2,
+    .skit-india-blocks .skit-comp__header h2,
+    .skit-india-blocks .skit-int__header h2 { font-size: 30px !important; line-height: 1.22 !important; }
+    .skit-india-blocks .skit-faq__inner > h2,
+    .skit-india-blocks .skit-cta h2 { font-size: 32px !important; line-height: 1.22 !important; }
+
+    /* section intros */
+    .skit-bo__header p,
+    .skit-eff__header p,
+    .skit-cx__heading p,
+    .skit-scale__heading p,
+    .skit-india-blocks .skit-cs .section-head p,
+    .skit-india-blocks .skit-e2e__header p,
+    .skit-india-blocks .skit-comp__header p,
+    .skit-india-blocks .skit-int__header p { font-size: 16px !important; line-height: 1.6 !important; }
+
+    /* eyebrows */
+    .skit-cs .section-head .eyebrow { font-size: 12px; }
+    .skit-india-blocks .skit-comp__header .skit-comp__label,
+    .skit-india-blocks .skit-int__header .skit-int__label { font-size: 12px !important; letter-spacing: .08em !important; }
+
+    /* card titles */
+    .skit-bo__card h4 { font-size: 20px; }
+    .skit-eff__track h3 { font-size: 26px; }
+    .skit-cx__step h3 { font-size: 22px; }
+    .skit-cx__footer p { font-size: 22px; }
+    .skit-scale__fig b { font-size: 30px; }
+    .skit-india-blocks .skit-e2e__card h3 { font-size: 20px !important; }
+    .skit-india-blocks .skit-comp__card h3 { font-size: 19px !important; }
+    .skit-india-blocks .skit-int__more h3 { font-size: 24px !important; }
+
+    /* body copy */
+    .skit-cx__step p,
+    .skit-eff__track-head > p { font-size: 15px; }
+    .skit-india-blocks .skit-cta p { font-size: 18px !important; line-height: 1.5 !important; }
+  }
+  @media (max-width: 380px) {
+    .skit-india-blocks .skit-hero h1,
+    .skit-india-blocks .skit-bo__header h2,
+    .skit-india-blocks .skit-eff__header h2,
+    .skit-india-blocks .skit-cx__heading h2,
+    .skit-india-blocks .skit-scale__heading h2,
+    .skit-india-blocks .skit-cs .section-head h2,
+    .skit-india-blocks .skit-e2e__header h2,
+    .skit-india-blocks .skit-comp__header h2,
+    .skit-india-blocks .skit-int__header h2,
+    .skit-india-blocks .skit-faq__inner > h2,
+    .skit-india-blocks .skit-cta h2 { font-size: 27px !important; }
   }
 </style>
 

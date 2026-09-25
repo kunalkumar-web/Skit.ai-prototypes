@@ -1198,6 +1198,119 @@
     .wb-lead, .wb-card { padding: 24px 20px; }
     .wb-lead .wb-head h3 { font-size: 22px; }
   }
+
+  /* ===== Responsive: tablet + phone (spacing mirrors index.html) ===== */
+  @media (max-width: 1100px) {
+    .cs-side { padding: 40px 36px; }
+  }
+  @media (max-width: 989px) {
+    .cs-side { padding: 36px 32px; }
+  }
+  @media (max-width: 850px) {
+    .skit-section { padding: 80px 0; }
+    .skit-container { padding: 0 24px; }
+    .section-head, .why2-head { margin-bottom: 40px; }
+    .section-head h2, .why2-head h2 { font-size: 34px; }
+  }
+  @media (max-width: 767px) {
+    /* nav */
+    .nav-inner { height: 56px; }
+    .skit-logo-img { height: 26px; }
+    .nav-cta { gap: 12px; }
+    .nav-cta .btn { font-size: 13px; padding: 6px 14px; }
+    .nav-globe { width: 22px; height: 22px; }
+
+    /* hero */
+    .hero { padding: 56px 0 48px; }
+    .hero-inner .eyebrow { font-size: 14px; }
+    .hero h1 { font-size: 30px; line-height: 1.22; margin: 12px 0 16px; }
+    .hero h1 br { display: none; }
+    .hero h1 em { display: block; margin-top: 6px; }
+    .hero p.lead { font-size: 16px; line-height: 1.45; margin-bottom: 28px; }
+
+    /* section headings */
+    .section-head { margin-bottom: 36px; }
+    .section-head .eyebrow { font-size: 12px; }
+    .section-head h2, .why2-head h2 { font-size: 30px; }
+    .section-head p, .why2-head p { font-size: 16px; line-height: 1.6; }
+    .why2-head { margin-bottom: 36px; }
+    .why2-eyebrow { font-size: 14px; margin-bottom: 10px; }
+
+    /* pillars */
+    .pl-bento { gap: 16px; }
+    .pl-card { border-radius: 16px; }
+    .pl-card h3 { font-size: 22px; }
+    .pl-desc { font-size: 15px; }
+    .pl-figure { flex-direction: column; gap: 8px; padding: 18px; margin: 22px 0 20px; }
+
+    /* scale numbers */
+    .why2-stats { border-radius: 16px; }
+    .why2-stat b { font-size: 28px; }
+
+    /* case studies */
+    .cs-card { border-radius: 16px; }
+    .cs-side { padding: 28px 22px; }
+    .cs-actions { padding-top: 24px; }
+    .cs-actions .btn { width: 100%; justify-content: center; }
+    .cs-flow2 li { height: auto; min-height: 54px; padding: 6px 0; }
+
+    /* why banks */
+    .wb-lead, .wb-card { border-radius: 16px; }
+
+    /* compliance */
+    .compliance-grid-6 { gap: 16px; margin-top: 32px; }
+    .compliance-card-dark { padding: 24px 20px; }
+    .compliance-certs-strip { gap: 10px; margin-top: 32px; padding-top: 28px; }
+    .cert-chip { padding: 6px 14px; font-size: 12.5px; }
+
+    /* blog */
+    .blog-feature { border-radius: 16px; }
+    .blog-list { border-radius: 16px; }
+    .blog-all { margin-top: 32px; }
+
+    /* languages */
+    .lx-panel { border-radius: 16px; }
+    .lx-row-head { padding: 20px 22px; }
+    .lx-tile { padding: 22px 20px; }
+    .lx-native { font-size: 24px; }
+    .lx-tiles .lx-tile:last-child:nth-child(odd) { grid-column: 1 / -1; }
+
+    /* faq */
+    .faq-head { margin-bottom: 32px; }
+    .faq-head h2 { font-size: 32px; }
+    .faq-list { gap: 12px; }
+    .faq-item { padding: 18px 20px; }
+    .faq-item summary { font-size: 15px; }
+    .faq-item p { font-size: 15px; margin-right: 0; max-width: none; }
+
+    /* cta */
+    .cta-band h2 { font-size: 32px; line-height: 1.22; }
+    .cta-band p { font-size: 18px; line-height: 1.5; margin-bottom: 28px; }
+
+    /* footer */
+    .footer-main { padding: 56px 0; }
+    .footer-inner { flex-direction: column; gap: 32px; }
+    .footer-brand p { max-width: none; }
+    .footer-col { min-width: 0; }
+    .footer-bottom { flex-direction: column; align-items: flex-start; }
+    .footer-bottom span:last-child { display: flex; flex-wrap: wrap; gap: 8px 18px; }
+    .footer-bottom a { margin-left: 0; }
+
+    .back-to-top { right: 16px; bottom: 16px; width: 42px; height: 42px; }
+  }
+  @media (max-width: 600px) {
+    .skit-container { padding: 0 20px; }
+    .why2-stats { grid-template-columns: 1fr 1fr; }
+    .why2-stat { padding: 22px 16px; }
+    .why2-stat b { font-size: 24px; }
+    .why2-stat span { font-size: 13px; margin-top: 10px; }
+    .lx-tiles, .lx-tiles--three { grid-template-columns: 1fr 1fr; }
+  }
+  @media (max-width: 380px) {
+    .nav-globe { display: none; }
+    .hero h1 { font-size: 27px; }
+    .section-head h2, .why2-head h2, .faq-head h2, .cta-band h2 { font-size: 27px; }
+  }
 </style>
 </head>
 <body>
