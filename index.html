@@ -9,80 +9,112 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Merriweather:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet" />
   <style>
     html, body { margin: 0; padding: 0; background: #fff; }
+
+    /* ===== Header + footer shared with bfsi-page.html (scoped to .bfsi-chrome) ===== */
+    .bfsi-chrome {
+      --skit-primary: #000000;
+      --skit-accent: #4678ee;
+      --skit-near-black: #0e0f13;
+      --skit-border: #ebebeb;
+      --skit-container-max: 1310px;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      color: var(--skit-primary);
+      -webkit-font-smoothing: antialiased;
+      line-height: 1.5;
+    }
+    .bfsi-chrome *, .bfsi-chrome *::before, .bfsi-chrome *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    .bfsi-chrome img, .bfsi-chrome svg { max-width: 100%; display: block; }
+    .bfsi-chrome a { color: inherit; text-decoration: none; }
+    .bfsi-chrome ul { list-style: none; }
+    .bfsi-chrome .skit-container { width: 100%; max-width: var(--skit-container-max); margin: 0 auto; padding: 0 50px; }
+    .bfsi-chrome .btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-family: inherit; font-weight: 500; font-size: 14px;
+      padding: 6px 18px; border-radius: 5px; cursor: pointer;
+      transition: all .2s ease; border: 1px solid transparent;
+    }
+    .bfsi-chrome .btn--primary { background: var(--skit-near-black); color: #ffffff; border-color: var(--skit-near-black); }
+    .bfsi-chrome .btn--primary:hover { background: #23252c; }
+
+    nav.bfsi-chrome { background: #fff; border-bottom: 1px solid var(--skit-border); position: sticky; top: 0; z-index: 100; }
+    .bfsi-chrome .nav-inner { display: flex; align-items: center; justify-content: space-between; height: 60px; position: relative; }
+    .bfsi-chrome .skit-logo { display: inline-flex; align-items: center; text-decoration: none; }
+    .bfsi-chrome .skit-logo-img { height: 31px; width: auto; display: block; }
+    footer.bfsi-chrome .skit-logo-img { height: 32px; }
+    .bfsi-chrome .nav-links { display: flex; align-items: center; gap: 36px; list-style: none; position: absolute; left: 235px; }
+    .bfsi-chrome .nav-links a { display: inline-flex; align-items: center; gap: 5px; font-size: 15px; font-weight: 300; color: var(--skit-primary); text-decoration: none; }
+    .bfsi-chrome .nav-links a:hover { color: var(--skit-accent); }
+    .bfsi-chrome .nav-links .chev { width: 18px; height: 18px; opacity: .55; }
+    .bfsi-chrome .nav-cta { display: flex; gap: 18px; align-items: center; }
+    .bfsi-chrome .nav-globe { width: 26px; height: 26px; color: var(--skit-primary); flex-shrink: 0; }
+
+    footer.bfsi-chrome { background: var(--skit-near-black); color: #fff; }
+    .bfsi-chrome .footer-main { padding: 80px 0; }
+    .bfsi-chrome .footer-inner { display: flex; flex-wrap: wrap; gap: 40px; }
+    .bfsi-chrome .footer-brand p { font-size: 14.5px; color: rgba(255,255,255,.55); margin-top: 16px; line-height: 1.7; max-width: 300px; }
+    .bfsi-chrome .footer-col { min-width: 250px; }
+    .bfsi-chrome .footer-addr h5 { font-size: 14px; font-weight: 300; color: #fff; margin: 22px 0 8px; }
+    .bfsi-chrome .footer-addr p { font-size: 14px; color: #ffffff; line-height: 1.6; margin: 0; max-width: none; }
+    .bfsi-chrome .footer-social { display: flex; gap: 10px; margin-top: 22px; }
+    .bfsi-chrome .footer-social a {
+      width: 36px; height: 36px; border-radius: 8px; background: rgba(255,255,255,.08);
+      display: flex; align-items: center; justify-content: center; transition: background .2s ease;
+    }
+    .bfsi-chrome .footer-social a:hover { background: rgba(255,255,255,.18); }
+    .bfsi-chrome .footer-social svg { width: 16px; height: 16px; color: #fff; }
+    .bfsi-chrome .footer-col h4 { font-size: 13px; font-weight: 300; text-transform: uppercase; letter-spacing: .06em; color: rgba(255,255,255,.4); margin-bottom: 18px; }
+    .bfsi-chrome .footer-col ul li { margin-bottom: 5px; }
+    .bfsi-chrome .footer-col ul li a { font-size: 14.5px; color: #ffffff; text-decoration: none; }
+    .bfsi-chrome .footer-col ul li a:hover { color: #fff; text-decoration: underline; }
+    .bfsi-chrome .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,.1); padding: 22px 0;
+      display: flex; justify-content: space-between; align-items: center;
+      font-size: 13px; color: rgba(255,255,255,.4); flex-wrap: wrap; gap: 12px;
+    }
+    .bfsi-chrome .footer-bottom a { color: rgba(255,255,255,.4); margin-left: 18px; text-decoration: none; }
+    .bfsi-chrome .footer-bottom a:hover { color: rgba(255,255,255,.8); }
+
+    .back-to-top {
+      position: fixed; right: 24px; bottom: 24px; width: 46px; height: 46px;
+      border-radius: 5px; background: #0e0f13; color: #ffffff; border: 1px solid #f1faf8;
+      display: flex; align-items: center; justify-content: center; cursor: pointer;
+      box-shadow: 0 8px 20px rgba(0,0,0,.18);
+      opacity: 0; visibility: hidden; transform: translateY(8px);
+      transition: opacity .2s ease, transform .2s ease, background .2s ease, color .2s ease;
+      z-index: 999;
+    }
+    .back-to-top.is-visible { opacity: 1; visibility: visible; transform: translateY(0); }
+    .back-to-top:hover { background: #f1faf8; color: #0e0f13; }
+
+    @media (max-width: 850px) {
+      .bfsi-chrome .skit-container { padding: 0 24px; }
+    }
+    @media (max-width: 767px) {
+      .bfsi-chrome .nav-links { display: none; }
+      .bfsi-chrome .nav-inner { height: 56px; }
+      .bfsi-chrome .skit-logo-img { height: 26px; }
+      .bfsi-chrome .nav-cta { gap: 12px; }
+      .bfsi-chrome .nav-cta .btn { font-size: 13px; padding: 6px 14px; }
+      .bfsi-chrome .nav-globe { width: 22px; height: 22px; }
+      .bfsi-chrome .footer-main { padding: 56px 0; }
+      .bfsi-chrome .footer-inner { flex-direction: column; gap: 32px; }
+      .bfsi-chrome .footer-brand p { max-width: none; }
+      .bfsi-chrome .footer-col { min-width: 0; }
+      .bfsi-chrome .footer-bottom { flex-direction: column; align-items: flex-start; }
+      .bfsi-chrome .footer-bottom span:last-child { display: flex; flex-wrap: wrap; gap: 8px 18px; }
+      .bfsi-chrome .footer-bottom a { margin-left: 0; }
+      .back-to-top { right: 16px; bottom: 16px; width: 42px; height: 42px; }
+    }
+    @media (max-width: 600px) {
+      .bfsi-chrome .skit-container { padding: 0 20px; }
+    }
+    @media (max-width: 380px) {
+      .bfsi-chrome .nav-globe { display: none; }
+    }
   </style>
 </head>
 <body>
-<style>
-  /* Header + footer, copied from bfsi-page.html and scoped to .bfsi-nav / .bfsi-foot */
-  .bfsi-nav, .bfsi-foot {
-    --skit-primary: #000000; --skit-accent: #4678ee; --skit-near-black: #0e0f13; --skit-border: #ebebeb;
-    --skit-font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-    font-family: var(--skit-font-body); line-height: 1.5; -webkit-font-smoothing: antialiased;
-  }
-  .bfsi-nav *, .bfsi-foot * { margin: 0; padding: 0; box-sizing: border-box; }
-  .bfsi-nav img, .bfsi-nav svg, .bfsi-foot img, .bfsi-foot svg { max-width: 100%; display: block; }
-  .bfsi-nav a, .bfsi-foot a { color: inherit; text-decoration: none; }
-  .bfsi-nav ul, .bfsi-foot ul { list-style: none; }
-  .bfsi-nav .skit-container, .bfsi-foot .skit-container { width: 100%; max-width: 1310px; margin: 0 auto; padding: 0 50px; }
-
-  .bfsi-nav { background: #fff; border-bottom: 1px solid var(--skit-border); position: sticky; top: 0; z-index: 100; }
-  .bfsi-nav .nav-inner { display: flex; align-items: center; justify-content: space-between; height: 60px; position: relative; }
-  .bfsi-nav .skit-logo, .bfsi-foot .skit-logo { display: inline-flex; align-items: center; }
-  .bfsi-nav .skit-logo-img { height: 31px; width: auto; display: block; }
-  .bfsi-foot .skit-logo-img { height: 32px; width: auto; display: block; }
-  .bfsi-nav .nav-links { display: flex; align-items: center; gap: 36px; position: absolute; left: 235px; }
-  .bfsi-nav .nav-links a { display: inline-flex; align-items: center; gap: 5px; font-size: 15px; font-weight: 300; color: var(--skit-primary); }
-  .bfsi-nav .nav-links a:hover { color: var(--skit-accent); }
-  .bfsi-nav .nav-links .chev { width: 18px; height: 18px; opacity: .55; }
-  .bfsi-nav .nav-cta { display: flex; gap: 18px; align-items: center; }
-  .bfsi-nav .nav-globe { width: 26px; height: 26px; color: var(--skit-primary); flex-shrink: 0; }
-  .bfsi-nav .btn { display: inline-flex; align-items: center; gap: 8px; font-family: var(--skit-font-body); font-weight: 500; font-size: 14px; padding: 6px 18px; border-radius: 5px; cursor: pointer; transition: all .2s ease; border: 1px solid transparent; }
-  .bfsi-nav .btn--primary { background: var(--skit-near-black); color: #ffffff; border-color: var(--skit-near-black); }
-  .bfsi-nav .btn--primary:hover { background: #23252c; }
-
-  .bfsi-foot { background: var(--skit-near-black); color: #fff; }
-  .bfsi-foot .footer-main { padding: 80px 0; }
-  .bfsi-foot .footer-inner { display: flex; flex-wrap: wrap; gap: 40px; }
-  .bfsi-foot .footer-brand p { font-size: 14.5px; color: rgba(255,255,255,.55); margin-top: 16px; line-height: 1.7; max-width: 300px; }
-  .bfsi-foot .footer-col { min-width: 250px; }
-  .bfsi-foot .footer-addr h5 { font-size: 14px; font-weight: 300; color: #fff; margin: 22px 0 8px; }
-  .bfsi-foot .footer-addr p { font-size: 14px; color: #ffffff; line-height: 1.6; margin: 0; max-width: none; }
-  .bfsi-foot .footer-social { display: flex; gap: 10px; margin-top: 22px; }
-  .bfsi-foot .footer-social a { width: 36px; height: 36px; border-radius: 8px; background: rgba(255,255,255,.08); display: flex; align-items: center; justify-content: center; transition: background .2s ease; }
-  .bfsi-foot .footer-social a:hover { background: rgba(255,255,255,.18); }
-  .bfsi-foot .footer-social svg { width: 16px; height: 16px; color: #fff; }
-  .bfsi-foot .footer-col h4 { font-size: 13px; font-weight: 300; text-transform: uppercase; letter-spacing: .06em; color: rgba(255,255,255,.4); margin-bottom: 18px; }
-  .bfsi-foot .footer-col ul li { margin-bottom: 5px; }
-  .bfsi-foot .footer-col ul li a { font-size: 14.5px; color: #ffffff; }
-  .bfsi-foot .footer-col ul li a:hover { color: #fff; text-decoration: underline; }
-  .bfsi-foot .footer-bottom { border-top: 1px solid rgba(255,255,255,.1); padding: 22px 0; display: flex; justify-content: space-between; align-items: center; font-size: 13px; color: rgba(255,255,255,.4); flex-wrap: wrap; gap: 12px; }
-  .bfsi-foot .footer-bottom a { color: rgba(255,255,255,.4); margin-left: 18px; }
-  .bfsi-foot .footer-bottom a:hover { color: rgba(255,255,255,.8); }
-  @media (max-width: 767px) {
-    .bfsi-nav .nav-links { display: none; }
-    .bfsi-nav .skit-container, .bfsi-foot .skit-container { padding: 0 24px; }
-    .bfsi-nav .nav-inner { height: 56px; }
-    .bfsi-nav .skit-logo-img { height: 26px; }
-    .bfsi-nav .nav-cta { gap: 12px; }
-    .bfsi-nav .btn { font-size: 13px; padding: 6px 14px; white-space: nowrap; }
-    .bfsi-nav .nav-globe { width: 22px; height: 22px; }
-
-    .bfsi-foot .footer-main { padding: 56px 0; }
-    .bfsi-foot .footer-inner { flex-direction: column; gap: 32px; }
-    .bfsi-foot .footer-brand p { max-width: none; }
-    .bfsi-foot .footer-col { min-width: 0; }
-    .bfsi-foot .footer-bottom { flex-direction: column; align-items: flex-start; }
-    .bfsi-foot .footer-bottom span:last-child { display: flex; flex-wrap: wrap; gap: 8px 18px; }
-    .bfsi-foot .footer-bottom a { margin-left: 0; }
-  }
-  @media (max-width: 600px) {
-    .bfsi-nav .skit-container, .bfsi-foot .skit-container { padding: 0 20px; }
-  }
-  @media (max-width: 380px) {
-    .bfsi-nav .nav-globe { display: none; }
-  }
-</style>
-<nav class="bfsi-nav">
+<nav class="bfsi-chrome">
   <div class="skit-container">
     <div class="nav-inner">
       <a href="index.html" class="skit-logo"><img src="assets/icons/skit-logo-black.svg" alt="Skit.ai" class="skit-logo-img"></a>
@@ -90,6 +122,7 @@
         <li><a href="#">AI Platform <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg></a></li>
         <li><a href="#">Company <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg></a></li>
         <li><a href="#">Resources <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg></a></li>
+        <!-- <li><a href="banking-page.html">Banking</a></li> -->
         <li><a href="bfsi-page.html">BFSI</a></li>
       </ul>
       <div class="nav-cta">
@@ -101,7 +134,7 @@
 </nav>
 <!--
   Skit.ai India — paste this entire file into an Enfold Code Block
-  Suggested placement: at the top of the India page (hero, then Scale).
+  Suggested placement: at the top of the India page (hero, then Collections, then Marketing, then Inbound Servicing, then Compliance Highlights).
 -->
 <style>
   .skit-india-blocks {
@@ -120,6 +153,7 @@
     --line-dark: rgba(255, 255, 255, 0.10);
     --shadow: 0 2px 16px rgba(29, 50, 30, 0.06), 0 1px 3px rgba(0, 0, 0, 0.03);
     --radius: 16px;
+    --stick: 88px;
     --serif: Merriweather, Georgia, "Times New Roman", serif;
     --sans: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
     box-sizing: border-box;
@@ -132,6 +166,14 @@
   @media (prefers-reduced-motion: reduce) {
     .skit-india-blocks * {
       animation: none !important;
+    }
+    .skit-india-blocks .skit-col__scene.is-map .n0,
+    .skit-india-blocks .skit-col__scene.is-map .n1,
+    .skit-india-blocks .skit-col__scene.is-map .n2,
+    .skit-india-blocks .skit-col__scene.is-map .n3,
+    .skit-india-blocks .skit-col__scene.is-map .n4 {
+      opacity: 1 !important;
+      transform: none !important;
     }
   }
   .skit-india-blocks *,
@@ -149,351 +191,6 @@
     color: inherit;
     letter-spacing: normal;
     text-transform: none;
-  }
-
-  /* ========== BUSINESS OUTCOMES ========== */
-  .skit-bo {
-    background: var(--mint);
-    padding: 110px 24px;
-  }
-  .skit-bo__inner {
-    width: min(1180px, 100%);
-    margin: 0 auto;
-  }
-  .skit-bo__header {
-    max-width: 760px;
-    margin: 0 auto 52px;
-    text-align: center;
-  }
-  .skit-bo__eyebrow {
-    display: inline-block;
-    margin-bottom: 18px;
-    color: var(--teal);
-    font-family: var(--sans);
-    font-size: 12px;
-    font-weight: 700;
-    letter-spacing: 0.16em;
-  }
-  .skit-india-blocks .skit-bo__header h2 {
-    margin: 0 !important;
-    color: var(--ink) !important;
-    font-family: var(--serif) !important;
-    font-size: clamp(36px, 4.6vw, 52px) !important;
-    font-weight: 300 !important;
-    line-height: 1.18 !important;
-    letter-spacing: 0.5px !important;
-  }
-  .skit-bo__header h2 span {
-    color: var(--teal);
-  }
-  .skit-bo__header p {
-    max-width: 640px;
-    margin: 22px auto 0;
-    color: var(--muted);
-    font-family: var(--sans);
-    font-size: 17px;
-    font-weight: 400;
-    line-height: 1.7;
-  }
-  .skit-bo__metrics {
-    display: grid;
-    grid-template-columns: repeat(6, 1fr);
-    margin-bottom: 28px;
-    border-top: 1px solid var(--line);
-    border-bottom: 1px solid var(--line);
-    background: rgba(255, 255, 255, 0.45);
-  }
-  .skit-bo__metrics div {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-    padding: 18px 10px;
-    border-right: 1px solid var(--line);
-    color: var(--navy);
-    font-size: 14px;
-  }
-  .skit-bo__metrics div:last-child { border-right: 0; }
-  .skit-bo__metrics strong { font-weight: 600; }
-  .skit-bo__metrics span {
-    color: var(--teal);
-    font-size: 16px;
-    font-weight: 700;
-  }
-  .skit-bo__grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 18px;
-  }
-  .skit-bo__card {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    min-height: 270px;
-    padding: 28px;
-    background: var(--white);
-    border: 0;
-    border-radius: var(--radius);
-    box-shadow: var(--shadow);
-    transition: transform 220ms ease, box-shadow 220ms ease;
-  }
-  .skit-bo__card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 12px 28px rgba(29, 50, 30, 0.10);
-  }
-  .skit-bo__card.is-featured {
-    background: var(--dark);
-    color: #fff;
-    box-shadow: none;
-  }
-  .skit-bo__icon {
-    display: grid;
-    place-items: center;
-    width: 42px;
-    height: 42px;
-    margin-bottom: 26px;
-    border-radius: 12px;
-    background: #e8f4f1;
-    color: var(--teal);
-    font-size: 18px;
-    font-weight: 700;
-  }
-  .skit-bo__card.is-featured .skit-bo__icon {
-    background: rgba(29, 122, 107, 0.22);
-    color: #8ee0d2;
-  }
-  .skit-bo__card h3 {
-    margin: 0 0 8px;
-    color: var(--teal);
-    font-family: var(--sans) !important;
-    font-size: 12px;
-    font-weight: 700 !important;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-  }
-  .skit-bo__card h4 {
-    margin: 0 0 12px;
-    color: var(--navy);
-    font-family: var(--serif) !important;
-    font-size: 22px;
-    font-weight: 300 !important;
-    line-height: 1.3;
-  }
-  .skit-bo__card.is-featured h4 { color: #fff; }
-  .skit-bo__card p {
-    margin: 0;
-    color: var(--muted);
-    font-size: 14px;
-    line-height: 1.65;
-  }
-  .skit-bo__card.is-featured p { color: rgba(255, 255, 255, 0.72); }
-  .skit-bo__card p strong { color: var(--teal); font-weight: 600; }
-  .skit-bo__card.is-featured p strong { color: #8ee0d2; }
-
-  @media (max-width: 900px) {
-    .skit-bo__grid { grid-template-columns: repeat(2, 1fr); }
-    .skit-bo__metrics { grid-template-columns: repeat(3, 1fr); }
-    .skit-bo__metrics div:nth-child(3) { border-right: 0; }
-    .skit-bo__metrics div:nth-child(-n+3) { border-bottom: 1px solid var(--line); }
-  }
-  @media (max-width: 600px) {
-    .skit-bo { padding: 72px 18px; }
-    .skit-bo__grid { grid-template-columns: 1fr; }
-    .skit-bo__card { padding: 22px 20px; }
-    .skit-bo__metrics { grid-template-columns: repeat(2, 1fr); }
-    .skit-bo__metrics div { border-bottom: 1px solid var(--line); }
-    .skit-bo__metrics div:nth-child(odd) { border-right: 1px solid var(--line); }
-    .skit-bo__metrics div:nth-child(even) { border-right: 0; }
-    .skit-bo__metrics div:nth-last-child(-n+2) { border-bottom: 0; }
-  }
-
-  /* ========== EFFICIENCY ========== */
-  .skit-eff {
-    overflow: hidden;
-    padding: 110px 7vw;
-    background: var(--dark);
-    color: #f4f4f0;
-  }
-  .skit-eff__header {
-    margin-bottom: 56px;
-  }
-  .skit-eff__label {
-    display: block;
-    margin-bottom: 18px;
-    color: #8ee0d2;
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: 0.2em;
-  }
-  .skit-eff__heading {
-    display: grid;
-    grid-template-columns: 1.35fr 0.65fr;
-    gap: 6vw;
-    align-items: end;
-  }
-  .skit-india-blocks .skit-eff__header h2 {
-    max-width: 720px;
-    margin: 0 !important;
-    color: #fff !important;
-    font-family: var(--serif) !important;
-    font-size: clamp(36px, 5vw, 52px) !important;
-    font-weight: 300 !important;
-    line-height: 1.18 !important;
-    letter-spacing: 0.4px !important;
-  }
-  .skit-eff__header h2 span { color: #8ee0d2; }
-  .skit-eff__header p {
-    max-width: 390px;
-    margin: 0;
-    color: rgba(255, 255, 255, 0.62);
-    font-size: 16px;
-    line-height: 1.7;
-  }
-  .skit-eff__tracks {
-    display: flex;
-    flex-direction: column;
-    gap: 18px;
-  }
-  .skit-eff__track {
-    padding: 36px 36px 32px;
-    border: 1px solid var(--line-dark);
-    border-radius: var(--radius);
-    background: #16181d;
-  }
-  .skit-eff__track-head {
-    display: grid;
-    grid-template-columns: 1.2fr 0.8fr;
-    gap: 4vw;
-    align-items: end;
-    margin-bottom: 28px;
-  }
-  .skit-eff__kicker {
-    display: flex;
-    align-items: center;
-    gap: 14px;
-    margin-bottom: 16px;
-    color: rgba(255, 255, 255, 0.45);
-    font-size: 11px;
-    letter-spacing: 0.16em;
-  }
-  .skit-eff__kicker i {
-    display: inline-block;
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    background: radial-gradient(circle at 35% 30%, #ffffff, #1d7a6b 40%, #0a2a24 80%);
-    box-shadow: 0 0 12px rgba(29, 122, 107, 0.45);
-  }
-  .skit-eff__track h3 {
-    margin: 0;
-    color: #fff;
-    font-family: var(--serif) !important;
-    font-size: clamp(32px, 4vw, 44px);
-    font-weight: 300 !important;
-    line-height: 1.1;
-  }
-  .skit-eff__track h3 em {
-    color: #8ee0d2;
-    font-style: italic;
-    font-weight: 300;
-  }
-  .skit-eff__track-head > p {
-    max-width: 420px;
-    margin: 0;
-    color: rgba(255, 255, 255, 0.62);
-    font-size: 15px;
-    line-height: 1.7;
-  }
-  .skit-eff__cards {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 14px;
-    align-items: stretch;
-  }
-  .skit-eff__card {
-    display: flex;
-    flex-direction: column;
-    min-height: 168px;
-    padding: 24px 22px 22px;
-    border-radius: 14px;
-    background: #0e0f13;
-    border: 1px solid var(--line-dark);
-    transition: border-color 220ms ease, transform 220ms ease;
-  }
-  .skit-eff__card:hover {
-    transform: translateY(-3px);
-    border-color: rgba(142, 224, 210, 0.32);
-  }
-  .skit-eff__card h4 {
-    margin: 0 0 10px !important;
-    color: #fff !important;
-    font-family: var(--sans) !important;
-    font-size: 16px !important;
-    font-weight: 600 !important;
-    line-height: 1.35 !important;
-    letter-spacing: 0 !important;
-    text-transform: none !important;
-  }
-  .skit-eff__card p {
-    margin: 0 !important;
-    color: rgba(255, 255, 255, 0.58) !important;
-    font-size: 14px !important;
-    font-weight: 400 !important;
-    line-height: 1.65 !important;
-  }
-  .skit-eff__close {
-    display: flex;
-    flex-direction: column;
-    gap: 18px;
-    padding-top: 32px;
-  }
-  .skit-eff__footer {
-    display: flex;
-    justify-content: space-between;
-    align-items: baseline;
-    gap: 24px;
-    padding-top: 0;
-  }
-  .skit-eff__footer span {
-    color: rgba(255, 255, 255, 0.4);
-    font-size: 11px;
-    letter-spacing: 0.16em;
-  }
-  .skit-eff__footer strong {
-    color: #8ee0d2;
-    font-family: var(--serif);
-    font-size: 20px;
-    font-weight: 300;
-  }
-  .skit-eff__note {
-    max-width: 780px;
-    margin: 0;
-    padding: 0;
-    color: rgba(255, 255, 255, 0.45);
-    font-size: 13px;
-    line-height: 1.7;
-  }
-
-  @media (max-width: 980px) {
-    .skit-eff__cards { grid-template-columns: 1fr; }
-    .skit-eff__card { min-height: 0; }
-  }
-  @media (max-width: 850px) {
-    .skit-eff { padding: 80px 24px; }
-    .skit-eff__header { margin-bottom: 40px; }
-    .skit-eff__heading,
-    .skit-eff__track-head {
-      grid-template-columns: 1fr;
-      gap: 18px;
-      align-items: start;
-    }
-    .skit-eff__track { padding: 22px 18px 18px; }
-    .skit-eff__card { padding: 20px 18px; }
-    .skit-eff__footer {
-      flex-direction: column;
-      align-items: flex-start;
-      gap: 12px;
-    }
   }
 
   /* ========== CUSTOMER EXPERIENCE ========== */
@@ -775,114 +472,6 @@
       transform: none !important;
       transition: none !important;
     }
-  }
-
-  /* ========== SCALE ========== */
-  .skit-scale {
-    overflow: hidden;
-    padding: 110px 7vw;
-    background: var(--dark);
-    color: #f4f4f0;
-  }
-  .skit-scale__header {
-    margin-bottom: 64px;
-  }
-  .skit-scale__label {
-    display: block;
-    margin-bottom: 18px;
-    color: #8ee0d2;
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: 0.2em;
-  }
-  .skit-scale__heading {
-    display: grid;
-    grid-template-columns: 1.35fr 0.65fr;
-    gap: 6vw;
-    align-items: end;
-  }
-  .skit-india-blocks .skit-scale__heading h2 {
-    max-width: 720px;
-    margin: 0 !important;
-    color: #fff !important;
-    font-family: var(--serif) !important;
-    font-size: clamp(36px, 5vw, 52px) !important;
-    font-weight: 300 !important;
-    line-height: 1.18 !important;
-    letter-spacing: 0.4px !important;
-  }
-  .skit-scale__heading h2 span { color: #8ee0d2; }
-  .skit-scale__heading p {
-    max-width: 440px;
-    margin: 0;
-    color: rgba(255, 255, 255, 0.62);
-    font-size: 16px;
-    line-height: 1.7;
-  }
-  .skit-scale__figures {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 16px;
-  }
-  .skit-scale__fig {
-    min-height: 280px;
-    padding: 28px;
-    border-radius: var(--radius);
-    background: #16181d;
-    border: 1px solid var(--line-dark);
-    transition: transform 220ms ease, border-color 220ms ease;
-  }
-  .skit-scale__fig:hover {
-    transform: translateY(-4px);
-    border-color: rgba(142, 224, 210, 0.35);
-  }
-  .skit-scale__fig b {
-    display: block;
-    margin-bottom: 10px;
-    color: #8ee0d2;
-    font-family: var(--serif);
-    font-size: clamp(32px, 3.4vw, 44px);
-    font-weight: 300;
-    letter-spacing: 0.3px;
-    line-height: 1.1;
-  }
-  .skit-scale__fig span {
-    display: block;
-    margin-bottom: 12px;
-    color: #fff;
-    font-size: 15px;
-    font-weight: 600;
-    line-height: 1.35;
-  }
-  .skit-scale__fig p {
-    margin: 0;
-    color: rgba(255, 255, 255, 0.55);
-    font-size: 14px;
-    line-height: 1.65;
-  }
-  .skit-scale__note {
-    max-width: 920px;
-    margin: 40px 0 0 !important;
-    padding-top: 28px;
-    color: rgba(255, 255, 255, 0.55);
-    font-size: 15px;
-    line-height: 1.7;
-  }
-
-  @media (max-width: 900px) {
-    .skit-scale__figures { grid-template-columns: repeat(2, 1fr); }
-  }
-  @media (max-width: 850px) {
-    .skit-scale { padding: 80px 24px; }
-    .skit-scale__header { margin-bottom: 48px; }
-    .skit-scale__heading {
-      grid-template-columns: 1fr;
-      gap: 22px;
-    }
-  }
-  @media (max-width: 600px) {
-    .skit-scale__figures { grid-template-columns: 1fr; gap: 12px; }
-    .skit-scale__fig { min-height: 0; padding: 24px 22px; }
   }
 
   /* ========== CASE STUDIES ========== */
@@ -1265,106 +854,6 @@
     font-weight: 400;
     line-height: 1.5;
   }
-  @media (max-width: 989px) {
-    .skit-cs .skit-ss-quote { padding: 32px 48px; }
-  }
-  @media (max-width: 767px) {
-    .skit-cs .skit-ss-quote { margin-top: 40px; padding: 28px 22px; }
-    .skit-india-blocks .skit-cs .skit-ss-quote p { font-size: 16px !important; line-height: 1.7 !important; }
-  }
-
-  /* ========== END TO END VOICE ========== */
-  .skit-e2e {
-    background: var(--mint);
-    padding: 110px 24px;
-  }
-  .skit-e2e__inner {
-    width: min(1180px, 100%);
-    margin: 0 auto;
-  }
-  .skit-e2e__header {
-    max-width: 920px;
-    margin: 0 auto 40px;
-    text-align: center;
-  }
-  .skit-india-blocks .skit-e2e__header h2 {
-    margin: 0 !important;
-    color: var(--ink) !important;
-    font-family: var(--serif) !important;
-    font-size: clamp(32px, 4.4vw, 46px) !important;
-    font-weight: 300 !important;
-    line-height: 1.2 !important;
-    letter-spacing: 0.3px !important;
-    text-align: center !important;
-  }
-  .skit-india-blocks .skit-e2e__header p {
-    margin: 16px auto 0 !important;
-    color: var(--muted) !important;
-    font-family: var(--sans) !important;
-    font-size: 18px !important;
-    font-weight: 400 !important;
-    line-height: 1.6 !important;
-  }
-  .skit-e2e__grid {
-    display: grid;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-    gap: 30px;
-    padding-top: 20px;
-  }
-  .skit-e2e__card {
-    padding: 22px 16px 16px;
-    background: var(--white);
-    border: 1px solid rgba(0, 0, 0, 0.05);
-    border-radius: var(--radius);
-    box-shadow: var(--shadow);
-  }
-  .skit-e2e__icon {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 48px;
-    height: 48px;
-    margin-bottom: 15px;
-    color: var(--teal);
-  }
-  .skit-e2e__icon svg {
-    width: 36px;
-    height: 36px;
-    display: block;
-  }
-  .skit-india-blocks .skit-e2e__card h3 {
-    margin: 0 0 12px !important;
-    color: var(--navy) !important;
-    font-family: var(--serif) !important;
-    font-size: 22px !important;
-    font-weight: 300 !important;
-    line-height: 1.25 !important;
-  }
-  .skit-e2e__line {
-    width: 95px;
-    height: 1.5px;
-    margin: 0 0 8px;
-    background: var(--teal);
-  }
-  .skit-e2e__card ul {
-    list-style: disc;
-    margin: 0;
-    padding-left: 18px;
-  }
-  .skit-e2e__card li {
-    padding: 6px 0;
-    color: #3d4b5e;
-    font-size: 14px;
-    line-height: 21px;
-  }
-
-  @media (max-width: 989px) {
-    .skit-e2e__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  }
-  @media (max-width: 600px) {
-    .skit-e2e { padding: 80px 18px; }
-    .skit-e2e__grid { grid-template-columns: 1fr; }
-  }
 
   /* ========== COMPLIANCE HIGHLIGHTS ========== */
   .skit-comp {
@@ -1485,8 +974,7 @@
   @media (max-width: 850px) {
     .skit-comp { padding: 80px 24px; }
     .skit-comp__grid { grid-template-columns: 1fr; }
-    .skit-comp__card { min-height: 0; padding: 24px 22px; }
-    .skit-comp__grid { gap: 16px; }
+    .skit-comp__card { min-height: 0; }
   }
 
   /* ========== INTEGRATES ========== */
@@ -1930,78 +1418,849 @@
     .skit-hero-wrap { margin-top: 12px; }
   }
 
-  /* ========== MOBILE TYPE SCALE (matches bfsi-page.html) ========== */
+  /* ========== MARKETING ========== */
+  .skit-mkt {
+    overflow: hidden;
+    padding: 110px 7vw;
+    background: var(--dark);
+    color: #f4f4f0;
+  }
+  .skit-mkt__inner {
+    width: min(1180px, 100%);
+    margin: 0 auto;
+  }
+  .skit-mkt__header {
+    max-width: 850px;
+    margin: 0 auto 52px;
+    text-align: center;
+  }
+  .skit-mkt__label {
+    display: inline-block;
+    margin-bottom: 18px;
+    color: #8ee0d2;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+  }
+  .skit-india-blocks .skit-mkt__header h2 {
+    margin: 0 !important;
+    color: #fff !important;
+    font-family: var(--serif) !important;
+    font-size: clamp(36px, 4.6vw, 52px) !important;
+    font-weight: 300 !important;
+    line-height: 1.18 !important;
+    letter-spacing: 0.5px !important;
+  }
+  .skit-mkt__header h2 span { color: #8ee0d2; }
+  .skit-india-blocks .skit-mkt__header > p {
+    max-width: 850px;
+    margin: 22px auto 0 !important;
+    color: rgba(255, 255, 255, 0.62) !important;
+    font-size: 17px !important;
+    line-height: 1.7 !important;
+  }
+  .skit-india-blocks .skit-mkt__kicker {
+    display: block;
+    margin: 0 0 18px !important;
+    color: #8ee0d2 !important;
+    font-family: var(--sans) !important;
+    font-size: 11px !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.16em !important;
+  }
+  .skit-mkt__board {
+    display: grid;
+    grid-template-columns: 280px minmax(0, 1fr);
+    gap: 0;
+    margin-bottom: 0;
+    background: #16181d;
+    border: 1px solid var(--line-dark);
+    border-radius: var(--radius);
+    box-shadow: 0 18px 48px rgba(0, 0, 0, 0.28);
+    overflow: hidden;
+  }
+  .skit-mkt__tabs {
+    display: flex;
+    flex-direction: column;
+    background: #121318;
+    border-right: 1px solid var(--line-dark);
+  }
+  .skit-mkt__tab {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    width: 100%;
+    padding: 22px 24px;
+    border: 0;
+    border-bottom: 1px solid var(--line-dark);
+    background: transparent;
+    appearance: none;
+    -webkit-appearance: none;
+    color: rgba(255, 255, 255, 0.52);
+    font-family: var(--sans);
+    font-size: 15px;
+    font-weight: 500;
+    line-height: 1.35;
+    text-align: left;
+    cursor: pointer;
+    transition: background 180ms ease, color 180ms ease;
+  }
+  .skit-mkt__tab:last-child { border-bottom: 0; }
+  .skit-mkt__tab b {
+    flex: 0 0 auto;
+    color: #8ee0d2;
+    font-family: var(--serif);
+    font-size: 13px;
+    font-weight: 300;
+  }
+  .skit-mkt__tab:hover { color: #fff; background: rgba(255, 255, 255, 0.04); }
+  .skit-mkt__tab.is-active {
+    background: #1b1e26;
+    color: #fff;
+    box-shadow: inset 3px 0 0 #8ee0d2;
+  }
+  .skit-mkt__tab:focus-visible {
+    outline: 2px solid #8ee0d2;
+    outline-offset: -4px;
+  }
+  .skit-mkt__panels { min-height: 560px; }
+  .skit-mkt__panel {
+    display: none;
+    padding: 40px 44px 44px;
+  }
+  .skit-mkt__panel.is-active { display: block; }
+  .skit-india-blocks .skit-mkt__panel h3 {
+    margin: 0 0 10px !important;
+    color: #fff !important;
+    font-family: var(--serif) !important;
+    font-size: 28px !important;
+    font-weight: 300 !important;
+    line-height: 1.3 !important;
+    letter-spacing: 0.2px !important;
+  }
+  .skit-india-blocks .skit-mkt__lede {
+    margin: 0 0 28px !important;
+    color: rgba(255, 255, 255, 0.62) !important;
+    font-size: 16px !important;
+    line-height: 1.7 !important;
+  }
+  .skit-mkt__split {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+    align-items: center;
+  }
+  .skit-india-blocks .skit-mkt__can-label {
+    margin: 0 0 12px !important;
+    color: #8ee0d2 !important;
+    font-family: var(--sans) !important;
+    font-size: 12px !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.12em !important;
+    text-transform: uppercase !important;
+  }
+  .skit-mkt__can {
+    display: grid;
+    gap: 8px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  .skit-india-blocks .skit-mkt__can li {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    color: rgba(255, 255, 255, 0.86) !important;
+    font-size: 15px !important;
+    line-height: 1.5 !important;
+  }
+  .skit-mkt__can li::before {
+    content: "";
+    flex: 0 0 auto;
+    width: 7px;
+    height: 7px;
+    margin-top: 7px;
+    border-radius: 50%;
+    background: #8ee0d2;
+  }
+  .skit-india-blocks .skit-mkt__pull {
+    margin: 24px 0 0 !important;
+    padding: 16px 18px;
+    border-left: 3px solid #8ee0d2;
+    background: rgba(142, 224, 210, 0.08);
+    color: #c8f0e6 !important;
+    font-family: var(--serif) !important;
+    font-size: 18px !important;
+    font-weight: 300 !important;
+    font-style: italic;
+    line-height: 1.45 !important;
+  }
+  .skit-mkt__visual { min-width: 0; }
+  .skit-mkt__scene {
+    width: 100%;
+    border-radius: var(--radius);
+    background: #0a0b0e;
+    border: 1px solid var(--line-dark);
+    overflow: hidden;
+  }
+  .skit-mkt__scene svg { width: 100%; height: 220px; display: block; }
+  .skit-mkt__stats {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin-top: 24px;
+    border-top: 1px solid var(--line-dark);
+    border-bottom: 1px solid var(--line-dark);
+    background: rgba(255, 255, 255, 0.03);
+  }
+  .skit-mkt__stats div {
+    padding: 18px 16px 20px;
+    border-right: 1px solid var(--line-dark);
+  }
+  .skit-mkt__stats div:last-child { border-right: 0; }
+  .skit-mkt__stats b {
+    display: block;
+    color: #fff;
+    font-family: var(--serif);
+    font-size: 32px;
+    font-weight: 300;
+    letter-spacing: 0.02em;
+    line-height: 1.1;
+  }
+  .skit-mkt__stats b small { font-size: 16px; color: #8ee0d2; }
+  .skit-india-blocks .skit-mkt__stats span {
+    display: block;
+    margin-top: 6px !important;
+    color: rgba(255, 255, 255, 0.52) !important;
+    font-size: 13px !important;
+    line-height: 1.35 !important;
+  }
+
+  .skit-mkt__scene .ring { fill: none; stroke: #8ee0d2; stroke-width: 1.2; opacity: 0.28; transform-origin: 150px 96px; }
+  .skit-mkt__scene .ring-static { fill: none; stroke: #8ee0d2; stroke-width: 1.2; opacity: 0.38; }
+  .skit-mkt__scene .r1 { animation: skitMktRing 3.2s ease-out infinite; }
+  .skit-mkt__scene .r2 { animation: skitMktRing 3.2s ease-out infinite .55s; }
+  .skit-mkt__scene .r3 { animation: skitMktRing 3.2s ease-out infinite 1.1s; }
+  @keyframes skitMktRing {
+    0% { transform: scale(.45); opacity: .45; }
+    100% { transform: scale(1.35); opacity: 0; }
+  }
+  .skit-mkt__scene .bars { transform-origin: 150px 96px; }
+  .skit-mkt__scene .bars rect { fill: #8ee0d2; }
+  .skit-mkt__scene .b1 { animation: skitMktBar 1.1s ease-in-out infinite; }
+  .skit-mkt__scene .b2 { animation: skitMktBar 1.1s ease-in-out infinite .12s; }
+  .skit-mkt__scene .b3 { animation: skitMktBar 1.1s ease-in-out infinite .24s; }
+  .skit-mkt__scene .b4 { animation: skitMktBar 1.1s ease-in-out infinite .12s; }
+  .skit-mkt__scene .b5 { animation: skitMktBar 1.1s ease-in-out infinite; }
+  @keyframes skitMktBar {
+    0%,100% { transform: scaleY(.45); }
+    50% { transform: scaleY(1); }
+  }
+  .skit-mkt__scene .offer { animation: skitMktOffer 4.4s ease-in-out infinite; }
+  @keyframes skitMktOffer {
+    0%,18% { transform: translateX(-10px); opacity: .7; }
+    32%,58% { transform: none; opacity: 1; }
+    78%,100% { transform: translateX(6px); opacity: .7; }
+  }
+  .skit-mkt__scene .dot-sales { offset-path: path("M86 168 C 150 148, 150 148, 214 168"); animation: skitMktRun 4.4s linear infinite; }
+  @keyframes skitMktRun {
+    0%,22% { offset-distance: 0%; opacity: 0; }
+    30% { opacity: 1; }
+    72% { offset-distance: 100%; opacity: 1; }
+    82%,100% { offset-distance: 100%; opacity: 0; }
+  }
+  .skit-mkt__scene .sales-tag { animation: skitMktPop 4.4s ease-in-out infinite; }
+  @keyframes skitMktPop {
+    0%,55% { opacity: .35; transform: translateY(4px); }
+    70%,88% { opacity: 1; transform: none; }
+    100% { opacity: .35; }
+  }
+  .skit-mkt__scene .chip { transform-box: fill-box; transform-origin: center; }
+  .skit-mkt__scene .c1 { animation: skitMktChip 5s ease-in-out infinite; }
+  .skit-mkt__scene .c2 { animation: skitMktChip 5s ease-in-out infinite .7s; }
+  .skit-mkt__scene .c3 { animation: skitMktChip 5s ease-in-out infinite 1.4s; }
+  .skit-mkt__scene .c4 { animation: skitMktChip 5s ease-in-out infinite 2.1s; }
+  @keyframes skitMktChip {
+    0%,18% { transform: scale(.92); opacity: .45; }
+    28%,42% { transform: scale(1.06); opacity: 1; }
+    58%,100% { transform: scale(.92); opacity: .5; }
+  }
+  .skit-mkt__scene .link { stroke-dasharray: 40; animation: skitMktDraw 5s linear infinite; }
+  .skit-mkt__scene .l1 { animation-delay: 0s; }
+  .skit-mkt__scene .l2 { animation-delay: .7s; }
+  .skit-mkt__scene .l3 { animation-delay: 1.4s; }
+  .skit-mkt__scene .l4 { animation-delay: 2.1s; }
+  @keyframes skitMktDraw {
+    0%,18% { stroke-dashoffset: 40; opacity: 0; }
+    28%,42% { stroke-dashoffset: 0; opacity: .8; }
+    58%,100% { stroke-dashoffset: 40; opacity: 0; }
+  }
+  .skit-mkt__scene .lead { animation: skitMktDrop 4.8s ease-in infinite; }
+  .skit-mkt__scene .ld2 { animation-delay: .45s; }
+  .skit-mkt__scene .ld3 { animation-delay: .9s; }
+  @keyframes skitMktDrop {
+    0% { transform: translateY(-16px); opacity: 0; }
+    18% { opacity: 1; }
+    48% { transform: translateY(62px); opacity: .2; }
+    100% { transform: translateY(62px); opacity: 0; }
+  }
+  .skit-mkt__scene .ready { animation: skitMktReady 4.8s ease-in-out infinite; }
+  @keyframes skitMktReady {
+    0%,48% { transform: translateY(10px); opacity: 0; }
+    62%,90% { transform: none; opacity: 1; }
+    100% { opacity: 0; }
+  }
+  .skit-mkt__scene .funnel-glow { animation: skitMktGlow 4.8s ease-in-out infinite; }
+  @keyframes skitMktGlow {
+    0%,30% { opacity: .15; }
+    48%,62% { opacity: .55; }
+    100% { opacity: .15; }
+  }
+  .skit-mkt__scene .cal { animation: skitMktCal 5.2s ease-in-out infinite; }
+  @keyframes skitMktCal {
+    0%,20% { transform: scale(1); }
+    28% { transform: scale(1.06); }
+    40%,100% { transform: scale(1); }
+  }
+  .skit-mkt__scene .remind { animation: skitMktPulse 5.2s ease-out infinite; transform-origin: 92px 108px; }
+  @keyframes skitMktPulse {
+    0%,18% { transform: scale(.6); opacity: .5; }
+    48% { transform: scale(1.5); opacity: 0; }
+    100% { transform: scale(1.5); opacity: 0; }
+  }
+  .skit-mkt__scene .keep { animation: skitMktOutcome 5.2s ease-in-out infinite; }
+  .skit-mkt__scene .esc { animation: skitMktOutcome 5.2s ease-in-out infinite 1.6s; }
+  @keyframes skitMktOutcome {
+    0%,30% { opacity: .25; transform: translateY(6px); }
+    42%,70% { opacity: 1; transform: none; }
+    88%,100% { opacity: .25; }
+  }
+  .skit-mkt__scene .coin { transform-box: fill-box; transform-origin: center bottom; }
+  .skit-mkt__scene .coin1 { animation: skitMktCoin 4.6s ease-in-out infinite; }
+  .skit-mkt__scene .coin2 { animation: skitMktCoin 4.6s ease-in-out infinite .25s; }
+  .skit-mkt__scene .coin3 { animation: skitMktCoin 4.6s ease-in-out infinite .5s; }
+  @keyframes skitMktCoin {
+    0%,15% { transform: translateY(18px) scale(.6); opacity: 0; }
+    35%,78% { transform: none; opacity: 1; }
+    100% { transform: translateY(-8px); opacity: 0; }
+  }
+  .skit-mkt__scene .bubble { animation: skitMktBubble 4.6s ease-in-out infinite; }
+  @keyframes skitMktBubble {
+    0%,12% { opacity: 0; transform: translateY(8px); }
+    24%,70% { opacity: 1; transform: none; }
+    88%,100% { opacity: 0; }
+  }
+  .skit-mkt__scene .intent { animation: skitMktIntent 4.6s ease-in-out infinite; }
+  @keyframes skitMktIntent {
+    0%,48% { opacity: 0; transform: scale(.9); }
+    62%,86% { opacity: 1; transform: none; }
+    100% { opacity: 0; }
+  }
+
   @media (max-width: 850px) {
-    .skit-india-blocks .skit-bo__header h2,
-    .skit-india-blocks .skit-eff__header h2,
-    .skit-india-blocks .skit-cx__heading h2,
-    .skit-india-blocks .skit-scale__heading h2,
-    .skit-india-blocks .skit-cs .section-head h2,
-    .skit-india-blocks .skit-e2e__header h2,
-    .skit-india-blocks .skit-comp__header h2,
-    .skit-india-blocks .skit-int__header h2 { font-size: 34px !important; }
+    .skit-mkt { padding: 80px 24px; }
+    .skit-mkt__header { margin-bottom: 40px; }
+    .skit-mkt__board { grid-template-columns: 1fr; }
+    .skit-mkt__tabs {
+      flex-direction: row;
+      overflow-x: auto;
+      border-right: 0;
+      border-bottom: 1px solid var(--line-dark);
+      -webkit-overflow-scrolling: touch;
+    }
+    .skit-mkt__tab {
+      flex: 0 0 auto;
+      min-width: 0;
+      padding: 14px 16px;
+      border-bottom: 0;
+      border-right: 1px solid var(--line-dark);
+    }
+    .skit-mkt__tab.is-active { box-shadow: inset 0 -3px 0 #8ee0d2; }
+    .skit-mkt__panel { padding: 28px 22px 32px; }
+    .skit-mkt__split { grid-template-columns: 1fr; }
+    .skit-mkt__visual { max-width: 420px; }
   }
-  @media (max-width: 767px) {
-    /* hero */
-    .skit-india-blocks .skit-hero__eyebrow { font-size: 14px !important; }
-    .skit-india-blocks .skit-hero h1 { font-size: 30px !important; line-height: 1.22 !important; }
-    .skit-india-blocks .skit-hero__lead { font-size: 16px !important; line-height: 1.45 !important; }
-
-    /* section headings */
-    .skit-india-blocks .skit-bo__header h2,
-    .skit-india-blocks .skit-eff__header h2,
-    .skit-india-blocks .skit-cx__heading h2,
-    .skit-india-blocks .skit-scale__heading h2,
-    .skit-india-blocks .skit-cs .section-head h2,
-    .skit-india-blocks .skit-e2e__header h2,
-    .skit-india-blocks .skit-comp__header h2,
-    .skit-india-blocks .skit-int__header h2 { font-size: 30px !important; line-height: 1.22 !important; }
-    .skit-india-blocks .skit-faq__inner > h2,
-    .skit-india-blocks .skit-cta h2 { font-size: 32px !important; line-height: 1.22 !important; }
-
-    /* section intros */
-    .skit-bo__header p,
-    .skit-eff__header p,
-    .skit-cx__heading p,
-    .skit-scale__heading p,
-    .skit-india-blocks .skit-cs .section-head p,
-    .skit-india-blocks .skit-e2e__header p,
-    .skit-india-blocks .skit-comp__header p,
-    .skit-india-blocks .skit-int__header p { font-size: 16px !important; line-height: 1.6 !important; }
-
-    /* eyebrows */
-    .skit-cs .section-head .eyebrow { font-size: 12px; }
-    .skit-india-blocks .skit-comp__header .skit-comp__label,
-    .skit-india-blocks .skit-int__header .skit-int__label { font-size: 12px !important; letter-spacing: .08em !important; }
-
-    /* card titles */
-    .skit-bo__card h4 { font-size: 20px; }
-    .skit-eff__track h3 { font-size: 26px; }
-    .skit-cx__step h3 { font-size: 22px; }
-    .skit-cx__footer p { font-size: 22px; }
-    .skit-scale__fig b { font-size: 30px; }
-    .skit-india-blocks .skit-e2e__card h3 { font-size: 20px !important; }
-    .skit-india-blocks .skit-comp__card h3 { font-size: 19px !important; }
-    .skit-india-blocks .skit-int__more h3 { font-size: 24px !important; }
-
-    /* body copy */
-    .skit-cx__step p,
-    .skit-eff__track-head > p { font-size: 15px; }
-    .skit-india-blocks .skit-cta p { font-size: 18px !important; line-height: 1.5 !important; }
+  @media (max-width: 600px) {
+    .skit-india-blocks .skit-mkt__panel h3 { font-size: 24px !important; }
   }
-  @media (max-width: 380px) {
-    .skit-india-blocks .skit-hero h1,
-    .skit-india-blocks .skit-bo__header h2,
-    .skit-india-blocks .skit-eff__header h2,
-    .skit-india-blocks .skit-cx__heading h2,
-    .skit-india-blocks .skit-scale__heading h2,
-    .skit-india-blocks .skit-cs .section-head h2,
-    .skit-india-blocks .skit-e2e__header h2,
-    .skit-india-blocks .skit-comp__header h2,
-    .skit-india-blocks .skit-int__header h2,
-    .skit-india-blocks .skit-faq__inner > h2,
-    .skit-india-blocks .skit-cta h2 { font-size: 27px !important; }
+
+  /* ========== INBOUND SERVICING ========== */
+  .skit-svc {
+    overflow: hidden;
+    padding: 110px 7vw;
+    background: var(--white);
+    color: var(--ink);
   }
+  .skit-svc__inner {
+    width: min(980px, 100%);
+    margin: 0 auto;
+  }
+  .skit-svc__header {
+    max-width: 760px;
+    margin: 0 auto 52px;
+    text-align: center;
+  }
+  .skit-svc__label {
+    display: inline-block;
+    margin-bottom: 18px;
+    color: var(--teal);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+  }
+  .skit-india-blocks .skit-svc__header h2 {
+    margin: 0 !important;
+    color: var(--ink) !important;
+    font-family: var(--serif) !important;
+    font-size: clamp(36px, 4.6vw, 52px) !important;
+    font-weight: 300 !important;
+    line-height: 1.18 !important;
+    letter-spacing: 0.5px !important;
+  }
+  .skit-svc__header h2 span { color: var(--teal); }
+  .skit-india-blocks .skit-svc__header > p {
+    max-width: 640px;
+    margin: 22px auto 0 !important;
+    color: var(--muted) !important;
+    font-size: 17px !important;
+    line-height: 1.7 !important;
+  }
+  .skit-india-blocks .skit-svc__kicker {
+    display: block;
+    margin: 0 0 16px !important;
+    color: var(--teal) !important;
+    font-family: var(--sans) !important;
+    font-size: 11px !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.16em !important;
+  }
+  .skit-svc__list { border-top: 1px solid var(--line); }
+  .skit-svc__row { border-bottom: 1px solid var(--line); }
+  .skit-india-blocks .skit-svc__toggle {
+    display: grid;
+    grid-template-columns: 56px 1fr auto;
+    gap: 16px;
+    align-items: baseline;
+    width: 100%;
+    padding: 22px 0;
+    border: 0 !important;
+    background: none !important;
+    box-shadow: none !important;
+    color: var(--ink) !important;
+    font-family: var(--serif) !important;
+    font-size: 22px !important;
+    font-weight: 300 !important;
+    line-height: 1.3 !important;
+    text-align: left;
+    cursor: pointer;
+    appearance: none;
+    -webkit-appearance: none;
+  }
+  .skit-india-blocks .skit-svc__toggle b {
+    color: var(--teal) !important;
+    font-family: var(--serif) !important;
+    font-size: 13px !important;
+    font-weight: 300 !important;
+  }
+  .skit-india-blocks .skit-svc__toggle span {
+    color: var(--soft) !important;
+    font-family: var(--sans) !important;
+    font-size: 13px !important;
+    font-weight: 500 !important;
+    letter-spacing: 0 !important;
+  }
+  .skit-svc__toggle:hover { opacity: 0.82; }
+  .skit-svc__toggle:focus-visible { outline: 2px solid var(--teal); outline-offset: 4px; }
+  .skit-svc__panel { display: none; padding: 0 0 28px 72px; }
+  .skit-svc__panel.is-active { display: block; }
+  .skit-india-blocks .skit-svc__lede {
+    margin: 0 0 14px !important;
+    color: var(--muted) !important;
+    font-size: 16px !important;
+    line-height: 1.7 !important;
+  }
+  .skit-india-blocks .skit-svc__can-copy {
+    margin: 0 0 22px !important;
+    color: var(--navy) !important;
+    font-size: 16px !important;
+    line-height: 1.7 !important;
+  }
+  .skit-svc__split {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+    align-items: center;
+  }
+  .skit-india-blocks .skit-svc__can-label {
+    margin: 0 0 12px !important;
+    color: var(--teal) !important;
+    font-family: var(--sans) !important;
+    font-size: 12px !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.12em !important;
+    text-transform: uppercase !important;
+  }
+  .skit-svc__can {
+    display: grid;
+    gap: 8px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  .skit-svc__can li {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    color: var(--ink);
+    font-size: 15px;
+    line-height: 1.5;
+  }
+  .skit-svc__can li::before {
+    content: "";
+    flex: 0 0 auto;
+    width: 7px;
+    height: 7px;
+    margin-top: 7px;
+    border-radius: 50%;
+    background: var(--teal);
+  }
+  .skit-svc__scene {
+    width: 100%;
+    border-radius: var(--radius);
+    background: var(--mint);
+    overflow: hidden;
+  }
+  .skit-svc__scene svg { width: 100%; height: 220px; display: block; }
+  .skit-svc__scene .q1 { animation: skitSvcFade 4.4s ease-in-out infinite; }
+  .skit-svc__scene .q2 { animation: skitSvcFade 4.4s ease-in-out infinite .6s; }
+  .skit-svc__scene .route { animation: skitSvcFade 4.4s ease-in-out infinite 1.4s; }
+  @keyframes skitSvcFade {
+    0%,18% { opacity: .35; transform: translateY(6px); }
+    32%,70% { opacity: 1; transform: none; }
+    88%,100% { opacity: .35; }
+  }
+  .skit-svc__scene .lock { animation: skitSvcPop 4.6s ease-in-out infinite; transform-origin: 92px 88px; }
+  .skit-svc__scene .bal { animation: skitSvcFade 4.6s ease-in-out infinite .8s; }
+  @keyframes skitSvcPop {
+    0%,22% { transform: scale(.9); opacity: .5; }
+    38%,72% { transform: none; opacity: 1; }
+    100% { transform: scale(.9); opacity: .5; }
+  }
+  .skit-svc__scene .ck { transform-box: fill-box; transform-origin: center; }
+  .skit-svc__scene .ck1 { animation: skitSvcPop 4.8s ease-in-out infinite; }
+  .skit-svc__scene .ck2 { animation: skitSvcPop 4.8s ease-in-out infinite .45s; }
+  .skit-svc__scene .ck3 { animation: skitSvcPop 4.8s ease-in-out infinite .9s; }
+  .skit-svc__scene .st1 { animation: skitSvcFade 5s ease-in-out infinite; }
+  .skit-svc__scene .st2 { animation: skitSvcFade 5s ease-in-out infinite .5s; }
+  .skit-svc__scene .st3 { animation: skitSvcFade 5s ease-in-out infinite 1s; }
+  .skit-svc__scene .tick { animation: skitSvcFade 4.8s ease-in-out infinite; }
+  .skit-svc__scene .handoff { animation: skitSvcFade 4.8s ease-in-out infinite 1.2s; }
+
+  @media (max-width: 850px) {
+    .skit-svc { padding: 80px 24px; }
+    .skit-svc__split { grid-template-columns: 1fr; }
+    .skit-svc__panel { padding-left: 0; }
+    .skit-india-blocks .skit-svc__toggle {
+      grid-template-columns: 40px 1fr;
+      font-size: 18px !important;
+    }
+    .skit-india-blocks .skit-svc__toggle span { display: none; }
+  }
+
+  /* ========== COLLECTIONS ========== */
+  .skit-col {
+    padding: 110px 7vw 80px;
+    background: var(--cream);
+  }
+  .skit-col__inner {
+    width: min(1180px, 100%);
+    margin: 0 auto;
+  }
+  .skit-col__header {
+    max-width: 850px;
+    margin: 0 auto 52px;
+    text-align: center;
+  }
+  .skit-col__label {
+    display: inline-block;
+    margin-bottom: 18px;
+    color: var(--teal);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+  }
+  .skit-india-blocks .skit-col__header h2 {
+    margin: 0 !important;
+    color: var(--ink) !important;
+    font-family: var(--serif) !important;
+    font-size: clamp(36px, 4.6vw, 52px) !important;
+    font-weight: 300 !important;
+    line-height: 1.18 !important;
+    letter-spacing: 0.5px !important;
+  }
+  .skit-col__header h2 span { color: var(--teal); }
+  .skit-india-blocks .skit-col__header > p {
+    max-width: 850px;
+    margin: 22px auto 0 !important;
+    color: var(--muted) !important;
+    font-size: 17px !important;
+    line-height: 1.7 !important;
+  }
+  .skit-india-blocks .skit-col__kicker {
+    display: block;
+    margin: 0 0 16px !important;
+    color: var(--teal) !important;
+    font-family: var(--sans) !important;
+    font-size: 11px !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.16em !important;
+  }
+  .skit-india-blocks .skit-col__lede {
+    margin: 0 0 14px !important;
+    color: var(--muted) !important;
+    font-size: 16px !important;
+    line-height: 1.7 !important;
+  }
+  .skit-india-blocks .skit-col__can-copy {
+    margin: 0 0 22px !important;
+    color: var(--navy) !important;
+    font-size: 16px !important;
+    line-height: 1.7 !important;
+  }
+  .skit-india-blocks .skit-col__h3 {
+    margin: 0 0 10px !important;
+    color: var(--navy) !important;
+    font-family: var(--serif) !important;
+    font-size: 28px !important;
+    font-weight: 300 !important;
+    line-height: 1.3 !important;
+  }
+  .skit-col__num {
+    display: block;
+    margin-bottom: 8px;
+    color: var(--teal);
+    font-family: var(--serif);
+    font-size: 13px;
+    font-weight: 300;
+  }
+  .skit-india-blocks .skit-col__can-label {
+    margin: 0 0 12px !important;
+    color: var(--teal) !important;
+    font-family: var(--sans) !important;
+    font-size: 12px !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.12em !important;
+    text-transform: uppercase !important;
+  }
+  .skit-col__split {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+    align-items: center;
+  }
+  .skit-col__chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .skit-col__chip {
+    display: inline-block;
+    padding: 7px 12px;
+    border-radius: 999px;
+    background: var(--mint);
+    color: var(--navy);
+    font-size: 13px;
+    font-weight: 500;
+    line-height: 1.3;
+  }
+  .skit-col article {
+    position: sticky;
+    top: var(--stick);
+    padding: 32px 36px;
+    margin-bottom: 14px;
+    background: #fff;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+  }
+  .skit-col article:nth-child(1) { z-index: 1; }
+  .skit-col article:nth-child(2) { z-index: 2; }
+  .skit-col article:nth-child(3) { z-index: 3; }
+  .skit-col article:nth-child(4) { z-index: 4; }
+  .skit-col article:nth-child(5) { z-index: 5; }
+  .skit-col__scene {
+    width: 100%;
+    border-radius: var(--radius);
+    background: #0c1216;
+    overflow: hidden;
+    box-shadow: inset 0 0 0 1px rgba(142, 224, 210, 0.12);
+  }
+  .skit-col__scene svg { width: 100%; height: 240px; display: block; }
+  .skit-col__scene .core-glow { animation: skitColGlow 5.2s ease-in-out infinite; }
+  .skit-col__scene .r1,
+  .skit-col__scene .r2,
+  .skit-col__scene .r3 {
+    fill: none;
+    stroke: #8ee0d2;
+    stroke-width: 1;
+    transform-box: fill-box;
+    transform-origin: center;
+    animation: skitColRing 3.6s ease-out infinite;
+  }
+  .skit-col__scene .r2 { animation-delay: .7s; }
+  .skit-col__scene .r3 { animation-delay: 1.4s; }
+  .skit-col__scene .b1,
+  .skit-col__scene .b2,
+  .skit-col__scene .b3,
+  .skit-col__scene .b4,
+  .skit-col__scene .b5,
+  .skit-col__scene .b6,
+  .skit-col__scene .b7 {
+    fill: #8ee0d2;
+    transform-box: fill-box;
+    transform-origin: center;
+    animation: skitColBar 1.15s ease-in-out infinite;
+  }
+  .skit-col__scene .b2 { animation-delay: .08s; }
+  .skit-col__scene .b3 { animation-delay: .16s; }
+  .skit-col__scene .b4 { animation-delay: .24s; }
+  .skit-col__scene .b5 { animation-delay: .16s; }
+  .skit-col__scene .b6 { animation-delay: .08s; }
+  .skit-col__scene .draw {
+    fill: none;
+    stroke: #8ee0d2;
+    stroke-width: 1.2;
+    stroke-dasharray: 6 8;
+  }
+  @keyframes skitColRing {
+    0% { transform: scale(.78); opacity: .55; }
+    100% { transform: scale(1.55); opacity: 0; }
+  }
+  @keyframes skitColBar {
+    0%, 100% { transform: scaleY(.4); }
+    50% { transform: scaleY(1); }
+  }
+  @keyframes skitColGlow {
+    0%, 100% { opacity: .18; }
+    50% { opacity: .42; }
+  }
+  .skit-col__scene.is-map .chip-a,
+  .skit-col__scene.is-map .chip-b,
+  .skit-col__scene.is-map .chip-c,
+  .skit-col__scene.is-map .chip-d,
+  .skit-col__scene.is-map .chip-e,
+  .skit-col__scene.is-map .draw {
+    animation: none;
+    opacity: 0;
+  }
+  .skit-col__scene.is-map .n0 { animation: skitColSeq0 7s ease-in-out infinite; }
+  .skit-col__scene.is-map .n1 { animation: skitColSeq1 7s ease-in-out infinite; }
+  .skit-col__scene.is-map .n2 { animation: skitColSeq2 7s ease-in-out infinite; }
+  .skit-col__scene.is-map .n3 { animation: skitColSeq3 7s ease-in-out infinite; }
+  .skit-col__scene.is-map .n4 { animation: skitColSeq4 7s ease-in-out infinite; }
+  @keyframes skitColSeq0 {
+    0%, 2% { opacity: 0; transform: scale(.88) translateY(8px); }
+    8%, 82% { opacity: 1; transform: none; }
+    90%, 100% { opacity: 0; transform: scale(.88) translateY(8px); }
+  }
+  @keyframes skitColSeq1 {
+    0%, 14% { opacity: 0; transform: scale(.88) translateY(8px); }
+    20%, 82% { opacity: 1; transform: none; }
+    90%, 100% { opacity: 0; transform: scale(.88) translateY(8px); }
+  }
+  @keyframes skitColSeq2 {
+    0%, 26% { opacity: 0; transform: scale(.88) translateY(8px); }
+    32%, 82% { opacity: 1; transform: none; }
+    90%, 100% { opacity: 0; transform: scale(.88) translateY(8px); }
+  }
+  @keyframes skitColSeq3 {
+    0%, 38% { opacity: 0; transform: scale(.88) translateY(8px); }
+    44%, 82% { opacity: 1; transform: none; }
+    90%, 100% { opacity: 0; transform: scale(.88) translateY(8px); }
+  }
+  @keyframes skitColSeq4 {
+    0%, 50% { opacity: 0; transform: scale(.88) translateY(8px); }
+    56%, 82% { opacity: 1; transform: none; }
+    90%, 100% { opacity: 0; transform: scale(.88) translateY(8px); }
+  }
+  .skit-col__results {
+    margin-top: 48px;
+  }
+  .skit-col__results-head {
+    max-width: 760px;
+    margin: 0 auto 28px;
+    text-align: center;
+  }
+  .skit-india-blocks .skit-col__results-head h3 {
+    margin: 0 !important;
+    color: var(--ink) !important;
+    font-family: var(--serif) !important;
+    font-size: clamp(32px, 4vw, 44px) !important;
+    font-weight: 300 !important;
+    line-height: 1.18 !important;
+    letter-spacing: 0.4px !important;
+  }
+  .skit-col__results-head h3 span { color: var(--teal); }
+  .skit-india-blocks .skit-col__results-sub {
+    max-width: 640px;
+    margin: 22px auto 0 !important;
+    color: var(--muted) !important;
+    font-size: 16px !important;
+    line-height: 1.7 !important;
+    text-align: center;
+  }
+  .skit-col__stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    margin: 0;
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+    background: rgba(255, 255, 255, 0.45);
+  }
+  .skit-col__stats div {
+    padding: 18px 16px 20px;
+    border-right: 1px solid var(--line);
+  }
+  .skit-col__stats div:last-child { border-right: 0; }
+  .skit-col__stats b {
+    display: block;
+    color: var(--navy);
+    font-family: var(--serif);
+    font-size: 32px;
+    font-weight: 300;
+    letter-spacing: 0.02em;
+    line-height: 1.1;
+  }
+  .skit-col__stats b small { font-size: 16px; color: var(--teal); }
+  .skit-india-blocks .skit-col__stats span {
+    display: block;
+    margin-top: 6px !important;
+    color: var(--soft) !important;
+    font-size: 13px !important;
+    line-height: 1.35 !important;
+  }
+
+  @media (max-width: 850px) {
+    .skit-col { padding: 80px 24px 72px; }
+    .skit-col__split { grid-template-columns: 1fr; }
+    .skit-col article {
+      position: static;
+      padding: 28px 22px;
+    }
+    .skit-india-blocks .skit-col__h3 { font-size: 24px !important; }
+    .skit-india-blocks .skit-col__results-head h3 { font-size: 30px !important; }
+    .skit-col__stats { grid-template-columns: 1fr 1fr; }
+    .skit-col__stats div:nth-child(2n) { border-right: 0; }
+    .skit-col__stats div:nth-child(-n+2) { border-bottom: 1px solid var(--line); }
+  }
+  @media (max-width: 600px) {
+    .skit-col__stats { grid-template-columns: 1fr; }
+    .skit-col__stats div {
+      border-right: 0;
+      border-bottom: 1px solid var(--line);
+    }
+    .skit-col__stats div:nth-child(-n+2) { border-bottom: 1px solid var(--line); }
+    .skit-col__stats div:last-child { border-bottom: 0; }
+  }
+
 </style>
 
 <div class="skit-india-blocks">
@@ -2265,200 +2524,425 @@
     </div>
   </section>
 
-<!-- SCALE -->
-  <section id="scale" class="skit-scale" aria-labelledby="skit-scale-title">
-    <div class="skit-scale__header">
-      <div class="skit-scale__label">SCALE</div>
-      <div class="skit-scale__heading">
-        <h2 id="skit-scale-title">Built to carry India's <span>calling volume.</span></h2>
-        <p>14 million attempts in a single peak day. India volume has averaged 24–28 million connected calls a day on a sustained run. Concurrency has no hard ceiling — 3,000+ SIP channels per deployment, scaling on demand.</p>
+  <!-- COLLECTIONS -->
+  <section id="collections" class="skit-col" aria-labelledby="skit-col-title">
+    <div class="skit-col__inner">
+      <div class="skit-col__header">
+        <span class="skit-col__label">COLLECTIONS</span>
+        <h2 id="skit-col-title">Go beyond <span>payment reminders.</span></h2>
+        <p>Turn collections outreach into intelligent, two-way conversations that understand customer circumstances, negotiate next steps, capture commitments, and move every interaction toward resolution.</p>
       </div>
-    </div>
-
-      <div class="skit-scale__figures">
-      <div class="skit-scale__fig">
-        <b>85M+</b>
-        <span>Calls dialled per month</span>
-        <p>India monthly dialled volume, month after month — not a one-off spike.</p>
-      </div>
-      <div class="skit-scale__fig">
-        <b>14M</b>
-        <span>Peak dials in a single day</span>
-        <p>Reached during festive-season peaks. On a sustained basis, India volume has averaged 24–28 million connected calls a day over recent months (as of early 2026).</p>
-      </div>
-      <div class="skit-scale__fig">
-        <b>350M+</b>
-        <span>Connected calls since 2016</span>
-        <p>Cumulative over ~9–10 years since Skit.ai's founding in 2016 — company-wide, not a single client or time window.</p>
-      </div>
-      <div class="skit-scale__fig">
-        <b>3,000+</b>
-        <span>Concurrent SIP channels</span>
-        <p>Per deployment, scaling on demand rather than against a fixed ceiling. Capacity is distributed across multiple telephony vendors, so a campaign grows with the portfolio, not against a queue.</p>
-      </div>
-      <div class="skit-scale__fig">
-        <b>10–12</b>
-        <span>Indian languages</span>
-        <p>Trained across 160+ dialect variations, live on both the NLP and LLM platforms. Coverage goes deep on collections-specific phrasing rather than just general conversational Hindi and English.</p>
-      </div>
-      <div class="skit-scale__fig">
-        <b>24–28M</b>
-        <span>Connected calls a day</span>
-        <p>Sustained India volume over recent months (as of early 2026) — the everyday run, not the festive peak.</p>
-      </div>
-    </div>
-
-    <p class="skit-scale__note">There is no single peak-concurrency ceiling to quote. Capacity is distributed across several telephony vendors on elastic cloud infrastructure, so a campaign scales with the portfolio rather than queuing behind a fixed channel count. Telco traffic runs over AWS Direct Connect and does not traverse the public internet.</p>
-  </section>
-
-<!-- BUSINESS OUTCOMES -->
-  <section class="skit-bo" aria-labelledby="skit-bo-title">
-    <div class="skit-bo__inner">
-      <div class="skit-bo__header">
-        <span class="skit-bo__eyebrow">BUSINESS OUTCOMES</span>
-        <h2 id="skit-bo-title">Turn every conversation into<br><span>measurable business impact.</span></h2>
-        <p>
-          Skit.ai helps enterprises improve financial performance, scale operations,
-          elevate customer experience and strengthen control through AI-powered
-          customer conversations.
-        </p>
-      </div>
-
-      <div class="skit-bo__metrics" aria-label="Business outcome summary">
-        <div><strong>Revenue</strong><span>↑</span></div>
-        <div><strong>Cost-to-Serve</strong><span>↓</span></div>
-        <div><strong>Scale</strong><span>↑</span></div>
-        <div><strong>CX</strong><span>↑</span></div>
-        <div><strong>Productivity</strong><span>↑</span></div>
-        <div><strong>Risk</strong><span>↓</span></div>
-      </div>
-
-      <div class="skit-bo__grid">
-        <article class="skit-bo__card">
-          <div class="skit-bo__icon">↗</div>
-          <div>
-            <h3>Revenue</h3>
-            <h4>Drive more collections, payments and revenue</h4>
-            <p>AI-led conversations increase customer reach and payment opportunities while converting interactions into measurable financial outcomes.</p>
-          </div>
-        </article>
-
-        <article class="skit-bo__card">
-          <div class="skit-bo__icon">↓</div>
-          <div>
-            <h3>Cost-to-Serve</h3>
-            <h4>Automate high-volume interactions at lower cost</h4>
-            <p>Handle repetitive customer conversations with AI, reducing manual effort and allowing human agents to focus on higher-value cases.</p>
-          </div>
-        </article>
-
-        <article class="skit-bo__card">
-          <div class="skit-bo__icon">＋</div>
-          <div>
-            <h3>Scale</h3>
-            <h4>Grow customer coverage without proportional headcount</h4>
-            <p>Engage more customers simultaneously and expand operational capacity without linear increases in workforce.</p>
-          </div>
-        </article>
-
-        <article class="skit-bo__card is-featured">
-          <div class="skit-bo__icon">✦</div>
-          <div>
-            <h3>Customer Experience</h3>
-            <h4>Deliver faster, more personalized experiences</h4>
-            <p>Provide always-on, context-aware conversations in <strong>10–12 Indian languages</strong>, trained across <strong>160+ dialect variations</strong>.</p>
-          </div>
-        </article>
-
-        <article class="skit-bo__card">
-          <div class="skit-bo__icon">◉</div>
-          <div>
-            <h3>Productivity</h3>
-            <h4>Make every human agent more effective</h4>
-            <p>Automate routine interactions and intelligently escalate complex cases, enabling teams to focus where human judgment matters most.</p>
-          </div>
-        </article>
-
-        <article class="skit-bo__card">
-          <div class="skit-bo__icon">✓</div>
-          <div>
-            <h3>Risk &amp; Control</h3>
-            <h4>Increase consistency, governance and compliance</h4>
-            <p>Standardized AI workflows, governance, auditability and controlled human escalation create greater consistency across customer interactions.</p>
-          </div>
-        </article>
+      <p class="skit-col__kicker">5 core collections use cases</p>
+      <div data-col-fill="chips"></div>
+      <div class="skit-col__results">
+        <div class="skit-col__results-head">
+          <h3>Recover <span>smarter.</span></h3>
+        </div>
+        <div class="skit-col__stats">
+          <div><b>82<small>%</small></b><span>Liquidation rate for a leading Indian bank</span></div>
+          <div><b>80–86<small>%</small></b><span>Resolution rate on the same book</span></div>
+          <div><b>95.5–96<small>%</small></b><span>Collection efficiency on a fintech salary-advance portfolio</span></div>
+          <div><b>99.3–99.4<small>%</small></b><span>Current-bucket cycle rate on the same portfolio</span></div>
+        </div>
+        <p class="skit-col__results-sub">Automate payment conversations, follow-ups, and recovery journeys while giving every customer a personalized experience.</p>
       </div>
     </div>
   </section>
 
-  <!-- EFFICIENCY -->
-  <section id="efficiency" class="skit-eff" aria-labelledby="skit-eff-title">
-    <div class="skit-eff__header">
-      <div class="skit-eff__label">EFFICIENCY</div>
-      <div class="skit-eff__heading">
-        <h2 id="skit-eff-title">Turn every conversation into <span>an outcome.</span></h2>
-        <p>What the volume converts into — measured on live portfolios, not on pilots.</p>
+  <!-- MARKETING -->
+  <section id="marketing" class="skit-mkt" aria-labelledby="skit-mkt-title">
+    <div class="skit-mkt__inner">
+      <div class="skit-mkt__header">
+        <span class="skit-mkt__label">MARKETING</span>
+        <h2 id="skit-mkt-title">Turn every customer interaction into a <span>growth opportunity.</span></h2>
+        <p>Skit.ai enables financial institutions to engage customers through intelligent, personalized voice conversations at scale. From generating and qualifying leads to cross-selling products and retaining existing customers, Skit.ai helps marketing teams move from one-way campaign outreach to meaningful two-way conversations.</p>
       </div>
-    </div>
 
-    <div class="skit-eff__tracks">
-      <article class="skit-eff__track">
-        <div class="skit-eff__track-head">
-          <div>
-            <div class="skit-eff__kicker"><i></i><span>COLLECTIONS</span></div>
-            <h3>Recover <em>smarter.</em></h3>
-          </div>
-          <p>Automate payment conversations, follow-ups, and recovery journeys while giving every customer a personalized experience.</p>
+      <p class="skit-mkt__kicker">Key use cases</p>
+      <div class="skit-mkt__board">
+        <div class="skit-mkt__tabs" role="tablist" aria-label="Marketing use cases" aria-orientation="vertical">
+          <button class="skit-mkt__tab is-active" type="button" role="tab" id="mkt-tab-0" aria-controls="mkt-panel-0" aria-selected="true" data-mkt-go="0"><b>01</b> Loan origination</button>
+          <button class="skit-mkt__tab" type="button" role="tab" id="mkt-tab-1" aria-controls="mkt-panel-1" aria-selected="false" tabindex="-1" data-mkt-go="1"><b>02</b> Product cross-sell</button>
+          <button class="skit-mkt__tab" type="button" role="tab" id="mkt-tab-2" aria-controls="mkt-panel-2" aria-selected="false" tabindex="-1" data-mkt-go="2"><b>03</b> Lead qualification</button>
+          <button class="skit-mkt__tab" type="button" role="tab" id="mkt-tab-3" aria-controls="mkt-panel-3" aria-selected="false" tabindex="-1" data-mkt-go="3"><b>04</b> Renewal &amp; retention</button>
+          <button class="skit-mkt__tab" type="button" role="tab" id="mkt-tab-4" aria-controls="mkt-panel-4" aria-selected="false" tabindex="-1" data-mkt-go="4"><b>05</b> Savings campaigns</button>
         </div>
-        <div class="skit-eff__cards">
-          <div class="skit-eff__card">
-            <h4>Liquidation rate for a leading Indian bank</h4>
-            <p>82% across credit card, personal loan, agri and settlement collections, with an 80–86% resolution rate on the same book.</p>
+        <div class="skit-mkt__panels">
+          <div class="skit-mkt__panel is-active" id="mkt-panel-0" role="tabpanel" aria-labelledby="mkt-tab-0">
+            <h3>Loan Origination &amp; Top-Ups</h3>
+            <p class="skit-mkt__lede">Proactively engage eligible customers with relevant loan and top-up offers. Skit.ai can explain the offer, understand customer interest, capture key information, and identify high-intent customers for the next step.</p>
+            <div class="skit-mkt__split">
+              <div>
+                <p class="skit-mkt__can-label">Skit.ai can</p>
+                <ul class="skit-mkt__can">
+                  <li>Reach targeted customer segments</li>
+                  <li>Communicate personalized loan offers</li>
+                  <li>Identify customer intent and requirements</li>
+                  <li>Qualify interested customers</li>
+                  <li>Route high-intent leads to sales teams</li>
+                </ul>
+              </div>
+              <div class="skit-mkt__visual">
+                <div class="skit-mkt__scene" data-scene="0"></div>
+              </div>
+            </div>
+            <div class="skit-mkt__stats">
+              <div><b>6.8<small>x</small></b><span>Qualified card leads</span></div>
+              <div><b>+21<small>%</small></b><span>Engaged-call conversion</span></div>
+            </div>
           </div>
-          <div class="skit-eff__card">
-            <h4>Collection efficiency on a fintech salary-advance portfolio</h4>
-            <p>95.5–96%, with a 99.3–99.4% current-bucket cycle rate and an 84–85% prepayment cure rate on the same portfolio.</p>
+          <div class="skit-mkt__panel" id="mkt-panel-1" role="tabpanel" aria-labelledby="mkt-tab-1" hidden>
+            <h3>Product Cross-Sell</h3>
+            <p class="skit-mkt__lede">Unlock additional value from the existing customer base by engaging customers with relevant financial products based on their profile, relationship, and campaign objectives.</p>
+            <div class="skit-mkt__split">
+              <div>
+                <p class="skit-mkt__can-label">Skit.ai can</p>
+                <ul class="skit-mkt__can">
+                  <li>Identify cross-sell opportunities</li>
+                  <li>Introduce relevant products</li>
+                  <li>Understand customer needs</li>
+                  <li>Handle common questions and objections</li>
+                  <li>Capture interest and initiate the next action</li>
+                </ul>
+              </div>
+              <div class="skit-mkt__visual">
+                <div class="skit-mkt__scene" data-scene="1"></div>
+              </div>
+            </div>
+            <div class="skit-mkt__stats">
+              <div><b>+44<small>%</small></b><span>Engagement on connected calls</span></div>
+              <div><b>93.2<small>%</small></b><span>Gold-loan bot accuracy</span></div>
+            </div>
           </div>
-          <div class="skit-eff__card">
-            <h4>Performance-based commercials</h4>
-            <p>Pay on outcome on large collections deployments — pricing can be tied to what is recovered, so platform cost moves with portfolio performance.</p>
+          <div class="skit-mkt__panel" id="mkt-panel-2" role="tabpanel" aria-labelledby="mkt-tab-2" hidden>
+            <h3>Lead Qualification</h3>
+            <p class="skit-mkt__lede">Turn marketing-generated leads into sales-ready opportunities through automated conversational qualification. Skit.ai can engage leads from digital campaigns, websites, branches, partners, and other acquisition channels, understand their requirements, assess intent, and prioritize leads for sales follow-up.</p>
+            <div class="skit-mkt__split">
+              <div>
+                <p class="skit-mkt__can-label">Skit.ai can</p>
+                <ul class="skit-mkt__can">
+                  <li>Engage leads from digital, branch and partner channels</li>
+                  <li>Understand requirements and assess intent</li>
+                  <li>Prioritize leads for sales follow-up</li>
+                </ul>
+              </div>
+              <div class="skit-mkt__visual">
+                <div class="skit-mkt__scene" data-scene="2"></div>
+              </div>
+            </div>
+            <div class="skit-mkt__stats">
+              <div><b>&minus;38<small>%</small></b><span>Dials per qualified lead</span></div>
+              <div><b>+52<small>%</small></b><span>Business-loan connectivity</span></div>
+            </div>
+            <p class="skit-mkt__pull">From lead generation to lead readiness — Skit.ai keeps the funnel moving.</p>
+          </div>
+          <div class="skit-mkt__panel" id="mkt-panel-3" role="tabpanel" aria-labelledby="mkt-tab-3" hidden>
+            <h3>Renewal &amp; Retention</h3>
+            <p class="skit-mkt__lede">Engage customers ahead of renewals, maturities, or key account milestones to improve retention and reduce customer drop-off. Skit.ai can proactively remind customers, understand their renewal intent, address frequently asked questions, identify potential churn signals, and escalate relevant cases to human teams.</p>
+            <div class="skit-mkt__split">
+              <div>
+                <p class="skit-mkt__can-label">Skit.ai can</p>
+                <ul class="skit-mkt__can">
+                  <li>Remind customers ahead of renewals and maturities</li>
+                  <li>Understand renewal intent</li>
+                  <li>Address frequently asked questions</li>
+                  <li>Identify potential churn signals</li>
+                  <li>Escalate relevant cases to human teams</li>
+                </ul>
+              </div>
+              <div class="skit-mkt__visual">
+                <div class="skit-mkt__scene" data-scene="3"></div>
+              </div>
+            </div>
+            <div class="skit-mkt__stats">
+              <div><b>85%<small>+</small></b><span>Intent accurately captured</span></div>
+              <div><b>30%<small>+</small></b><span>Incomplete journeys recovered</span></div>
+            </div>
+          </div>
+          <div class="skit-mkt__panel" id="mkt-panel-4" role="tabpanel" aria-labelledby="mkt-tab-4" hidden>
+            <h3>Savings Campaign Outreach</h3>
+            <p class="skit-mkt__lede">Drive awareness and adoption of savings products and campaigns through personalized customer conversations. Skit.ai can explain campaign benefits, understand customer interest, answer common questions, and capture intent — helping marketing teams reach more customers while keeping engagement conversational.</p>
+            <div class="skit-mkt__split">
+              <div>
+                <p class="skit-mkt__can-label">Skit.ai can</p>
+                <ul class="skit-mkt__can">
+                  <li>Explain campaign benefits</li>
+                  <li>Understand customer interest</li>
+                  <li>Answer common questions</li>
+                  <li>Capture intent at scale</li>
+                </ul>
+              </div>
+              <div class="skit-mkt__visual">
+                <div class="skit-mkt__scene" data-scene="4"></div>
+              </div>
+            </div>
+            <div class="skit-mkt__stats">
+              <div><b>2.5<small>x</small></b><span>Voice-first engagement</span></div>
+              <div><b>70%<small>+</small></b><span>Interactions automated</span></div>
+            </div>
           </div>
         </div>
-      </article>
-
-      <article class="skit-eff__track">
-        <div class="skit-eff__track-head">
-          <div>
-            <div class="skit-eff__kicker"><i></i><span>SALES</span></div>
-            <h3>Sell <em>smarter.</em></h3>
-          </div>
-          <p>Qualify leads, engage prospects, and move conversations forward with AI that is always ready to respond.</p>
-        </div>
-        <div class="skit-eff__cards">
-          <div class="skit-eff__card">
-            <h4>Calls closed without a human</h4>
-            <p>40% of total calls resolved end to end by the bot, without human escalation.</p>
-          </div>
-          <div class="skit-eff__card">
-            <h4>Call abandonment, after leaving traditional IVR</h4>
-            <p>Reduced from about 60% to single digits after moving off traditional IVR.</p>
-          </div>
-          <div class="skit-eff__card">
-            <h4>Two-way CRM write-back</h4>
-            <p>Dispositions, recordings, transcripts and call summaries can be pushed back to Salesforce or Microsoft Dynamics after each call — via API or SFTP, depending on the client.</p>
-          </div>
-        </div>
-      </article>
-    </div>
-
-    <div class="skit-eff__close">
-      <div class="skit-eff__footer">
-        <span>ONE AI. TWO BUSINESS OUTCOMES.</span>
-        <strong>Recover more. Sell more.</strong>
       </div>
-      <p class="skit-eff__note">Liquidation rate and collection efficiency measure different things and are reported separately rather than blended. Every figure above is tied to a specific portfolio, bucket and measurement window, shared in full under NDA.</p>
     </div>
   </section>
+
+  <template id="skit-mkt-scene-0">
+    <svg viewBox="0 0 300 210" fill="none" aria-hidden="true">
+      <circle class="ring-static" cx="150" cy="96" r="42"/>
+      <circle class="ring r1" cx="150" cy="96" r="54"/>
+      <circle class="ring r2" cx="150" cy="96" r="54"/>
+      <circle class="ring r3" cx="150" cy="96" r="54"/>
+      <circle cx="150" cy="96" r="28" fill="#0e0f13"/>
+      <g class="bars">
+        <rect class="b1" x="136" y="86" width="3.2" height="20" rx="1.6" style="transform-box:fill-box;transform-origin:center"/>
+        <rect class="b2" x="142" y="82" width="3.2" height="28" rx="1.6" style="transform-box:fill-box;transform-origin:center"/>
+        <rect class="b3" x="148.4" y="78" width="3.2" height="36" rx="1.6" style="transform-box:fill-box;transform-origin:center"/>
+        <rect class="b4" x="154.8" y="82" width="3.2" height="28" rx="1.6" style="transform-box:fill-box;transform-origin:center"/>
+        <rect class="b5" x="161.2" y="86" width="3.2" height="20" rx="1.6" style="transform-box:fill-box;transform-origin:center"/>
+      </g>
+      <g class="offer">
+        <rect x="18" y="78" width="78" height="36" rx="8" fill="#fff" stroke="rgba(13,27,62,.1)"/>
+        <text x="57" y="94" text-anchor="middle" fill="#1d7a6b" font-size="8" font-weight="700" font-family="Inter,sans-serif" letter-spacing=".12em">OFFER</text>
+        <text x="57" y="106" text-anchor="middle" fill="#0d1b3e" font-size="11" font-family="Merriweather,serif">Loan top-up</text>
+      </g>
+      <circle cx="236" cy="96" r="16" fill="#fff" stroke="#1d7a6b"/>
+      <circle cx="236" cy="90" r="5" fill="#1d7a6b"/>
+      <path d="M224 112c3.5-7 8.5-10 12-10s8.5 3 12 10" stroke="#1d7a6b" stroke-width="1.6" stroke-linecap="round"/>
+      <path d="M86 168 C 150 148, 150 148, 214 168" stroke="#1d7a6b" stroke-width="1.2" stroke-dasharray="4 5" opacity=".45"/>
+      <circle class="dot-sales" r="4.5" fill="#1d7a6b" cx="0" cy="0"/>
+      <g class="sales-tag">
+        <rect x="214" y="174" width="68" height="22" rx="11" fill="#0e0f13"/>
+        <text x="248" y="189" text-anchor="middle" fill="#8ee0d2" font-size="10" font-weight="600" font-family="Inter,sans-serif">Sales</text>
+      </g>
+    </svg>
+  </template>
+  <template id="skit-mkt-scene-1">
+    <svg viewBox="0 0 300 210" fill="none" aria-hidden="true">
+      <circle cx="150" cy="108" r="26" fill="#0e0f13"/>
+      <circle cx="150" cy="100" r="7" fill="#8ee0d2"/>
+      <path d="M134 128c5-10 11-14 16-14s11 4 16 14" stroke="#8ee0d2" stroke-width="1.8" stroke-linecap="round"/>
+      <line class="link l1" x1="150" y1="108" x2="64" y2="48" stroke="#1d7a6b" stroke-width="1.2"/>
+      <line class="link l2" x1="150" y1="108" x2="236" y2="48" stroke="#1d7a6b" stroke-width="1.2"/>
+      <line class="link l3" x1="150" y1="108" x2="64" y2="168" stroke="#1d7a6b" stroke-width="1.2"/>
+      <line class="link l4" x1="150" y1="108" x2="236" y2="168" stroke="#1d7a6b" stroke-width="1.2"/>
+      <g class="chip c1"><rect x="22" y="32" width="84" height="32" rx="8" fill="#fff"/><text x="64" y="52" text-anchor="middle" fill="#0d1b3e" font-size="11" font-family="Inter,sans-serif">Credit card</text></g>
+      <g class="chip c2"><rect x="194" y="32" width="84" height="32" rx="8" fill="#fff"/><text x="236" y="52" text-anchor="middle" fill="#0d1b3e" font-size="11" font-family="Inter,sans-serif">Gold loan</text></g>
+      <g class="chip c3"><rect x="22" y="152" width="84" height="32" rx="8" fill="#fff"/><text x="64" y="172" text-anchor="middle" fill="#0d1b3e" font-size="11" font-family="Inter,sans-serif">FD</text></g>
+      <g class="chip c4"><rect x="194" y="152" width="84" height="32" rx="8" fill="#fff"/><text x="236" y="172" text-anchor="middle" fill="#0d1b3e" font-size="11" font-family="Inter,sans-serif">Insurance</text></g>
+    </svg>
+  </template>
+  <template id="skit-mkt-scene-2">
+    <svg viewBox="0 0 300 210" fill="none" aria-hidden="true">
+      <text x="54" y="28" text-anchor="middle" fill="#8ee0d2" font-size="9" font-weight="600" font-family="Inter,sans-serif" letter-spacing=".08em">DIGITAL</text>
+      <text x="150" y="28" text-anchor="middle" fill="#8ee0d2" font-size="9" font-weight="600" font-family="Inter,sans-serif" letter-spacing=".08em">BRANCH</text>
+      <text x="246" y="28" text-anchor="middle" fill="#8ee0d2" font-size="9" font-weight="600" font-family="Inter,sans-serif" letter-spacing=".08em">PARTNER</text>
+      <circle class="lead" cx="54" cy="46" r="6" fill="#1d7a6b"/>
+      <circle class="lead ld2" cx="150" cy="46" r="6" fill="#1d7a6b"/>
+      <circle class="lead ld3" cx="246" cy="46" r="6" fill="#1d7a6b"/>
+      <path class="funnel-glow" d="M70 92 L230 92 L190 148 L110 148 Z" fill="#1d7a6b"/>
+      <path d="M78 96 L222 96 L186 144 L114 144 Z" fill="#fff" stroke="rgba(13,27,62,.1)"/>
+      <path d="M122 144 L178 144 L168 176 L132 176 Z" fill="#0e0f13"/>
+      <g class="ready">
+        <rect x="96" y="178" width="108" height="24" rx="12" fill="#1d7a6b"/>
+        <text x="150" y="194" text-anchor="middle" fill="#fff" font-size="10" font-weight="600" font-family="Inter,sans-serif">Sales-ready</text>
+      </g>
+    </svg>
+  </template>
+  <template id="skit-mkt-scene-3">
+    <svg viewBox="0 0 300 210" fill="none" aria-hidden="true">
+      <g class="cal">
+        <rect x="58" y="36" width="68" height="76" rx="10" fill="#fff" stroke="rgba(13,27,62,.1)"/>
+        <rect x="58" y="36" width="68" height="18" rx="10" fill="#0e0f13"/>
+        <text x="92" y="49" text-anchor="middle" fill="#8ee0d2" font-size="8" font-weight="700" font-family="Inter,sans-serif">DUE</text>
+        <text x="92" y="88" text-anchor="middle" fill="#0d1b3e" font-size="28" font-family="Merriweather,serif">28</text>
+      </g>
+      <circle class="remind" cx="92" cy="108" r="34" fill="none" stroke="#1d7a6b" stroke-width="2"/>
+      <g class="keep">
+        <rect x="168" y="48" width="110" height="44" rx="10" fill="#fff"/>
+        <circle cx="186" cy="70" r="8" fill="#1d7a6b"/>
+        <path d="M182 70 l3 3 6-7" stroke="#fff" stroke-width="1.6" stroke-linecap="round" fill="none"/>
+        <text x="228" y="74" text-anchor="middle" fill="#0d1b3e" font-size="12" font-family="Inter,sans-serif">Renewed</text>
+      </g>
+      <g class="esc">
+        <rect x="168" y="118" width="110" height="44" rx="10" fill="#0e0f13"/>
+        <circle cx="186" cy="140" r="8" fill="#8ee0d2"/>
+        <text x="232" y="144" text-anchor="middle" fill="#fff" font-size="12" font-family="Inter,sans-serif">Escalate</text>
+      </g>
+    </svg>
+  </template>
+  <template id="skit-mkt-scene-4">
+    <svg viewBox="0 0 300 210" fill="none" aria-hidden="true">
+      <g class="bubble">
+        <rect x="24" y="36" width="118" height="36" rx="18" fill="#fff"/>
+        <text x="83" y="58" text-anchor="middle" fill="#0d1b3e" font-size="11" font-family="Inter,sans-serif">Campaign benefit</text>
+      </g>
+      <circle cx="92" cy="128" r="22" fill="#0e0f13"/>
+      <g class="bars" transform="translate(-58 32)">
+        <rect class="b1" x="136" y="86" width="3.2" height="20" rx="1.6" style="transform-box:fill-box;transform-origin:center"/>
+        <rect class="b2" x="142" y="82" width="3.2" height="28" rx="1.6" style="transform-box:fill-box;transform-origin:center"/>
+        <rect class="b3" x="148.4" y="78" width="3.2" height="36" rx="1.6" style="transform-box:fill-box;transform-origin:center"/>
+        <rect class="b4" x="154.8" y="82" width="3.2" height="28" rx="1.6" style="transform-box:fill-box;transform-origin:center"/>
+        <rect class="b5" x="161.2" y="86" width="3.2" height="20" rx="1.6" style="transform-box:fill-box;transform-origin:center"/>
+      </g>
+      <g class="coin coin1"><ellipse cx="188" cy="150" rx="22" ry="7" fill="#1d7a6b"/><rect x="166" y="132" width="44" height="18" fill="#1d7a6b"/><ellipse cx="188" cy="132" rx="22" ry="7" fill="#8ee0d2"/></g>
+      <g class="coin coin2"><ellipse cx="188" cy="124" rx="22" ry="7" fill="#166555"/><rect x="166" y="108" width="44" height="16" fill="#1d7a6b"/><ellipse cx="188" cy="108" rx="22" ry="7" fill="#8ee0d2"/></g>
+      <g class="coin coin3"><ellipse cx="188" cy="100" rx="22" ry="7" fill="#166555"/><rect x="166" y="86" width="44" height="14" fill="#1d7a6b"/><ellipse cx="188" cy="86" rx="22" ry="7" fill="#c8f0e6"/></g>
+      <g class="intent">
+        <rect x="154" y="28" width="122" height="28" rx="14" fill="#0e0f13"/>
+        <text x="215" y="46" text-anchor="middle" fill="#8ee0d2" font-size="11" font-weight="600" font-family="Inter,sans-serif">Intent captured</text>
+      </g>
+    </svg>
+  </template>
+
+<!-- INBOUND SERVICING -->
+  <section id="inbound-servicing" class="skit-svc" aria-labelledby="skit-svc-title">
+    <div class="skit-svc__inner">
+      <div class="skit-svc__header">
+        <span class="skit-svc__label">INBOUND SERVICING</span>
+        <h2 id="skit-svc-title">Go beyond <span>answering calls.</span></h2>
+        <p>Turn inbound customer calls into intelligent service conversations. Skit.ai helps financial institutions automate routine queries, resolve service requests, check application status, and route complex interactions to the right team — while delivering a consistent customer experience at scale.</p>
+      </div>
+      <p class="skit-svc__kicker">5 core servicing use cases</p>
+      <div class="skit-svc__list">
+        <div class="skit-svc__row is-open">
+          <button class="skit-svc__toggle is-active" type="button" id="svc-tab-0" aria-controls="svc-panel-0" aria-expanded="true" data-svc-go="0"><b>01</b> FAQ Handling &amp; Smart Routing<span>Instant answers</span></button>
+          <div class="skit-svc__panel is-active" id="svc-panel-0" role="region" aria-labelledby="svc-tab-0">
+            <p class="skit-svc__lede">Give customers instant answers to common questions and intelligently route conversations when human assistance is required.</p>
+            <p class="skit-svc__can-copy">Skit.ai can understand the customer’s query, provide relevant information, identify the nature of the request, and connect the customer to the appropriate team or workflow.</p>
+            <div class="skit-svc__split">
+              <div>
+                <p class="skit-svc__can-label">Handle</p>
+                <ul class="skit-svc__can">
+                  <li>Product and service FAQs</li>
+                  <li>Process-related queries</li>
+                  <li>Documentation requirements</li>
+                  <li>Branch and service information</li>
+                  <li>Intelligent call routing</li>
+                </ul>
+              </div>
+              <div class="skit-svc__scene" data-scene="0"></div>
+            </div>
+          </div>
+        </div>
+        <div class="skit-svc__row">
+          <button class="skit-svc__toggle" type="button" id="svc-tab-1" aria-controls="svc-panel-1" aria-expanded="false" data-svc-go="1"><b>02</b> Account Balance Queries<span>Voice access</span></button>
+          <div class="skit-svc__panel" id="svc-panel-1" role="region" aria-labelledby="svc-tab-1" hidden>
+            <p class="skit-svc__lede">Enable customers to access routine account information through natural voice interactions.</p>
+            <p class="skit-svc__can-copy">Skit.ai can authenticate customers through configured workflows, understand their request, provide the relevant account information, and handle follow-up questions.</p>
+            <div class="skit-svc__split">
+              <div>
+                <p class="skit-svc__can-label">Support</p>
+                <ul class="skit-svc__can">
+                  <li>Balance enquiries</li>
+                  <li>Account-related information</li>
+                  <li>Recent transaction queries</li>
+                  <li>Product-specific account questions</li>
+                  <li>Service information</li>
+                </ul>
+              </div>
+              <div class="skit-svc__scene" data-scene="1"></div>
+            </div>
+          </div>
+        </div>
+        <div class="skit-svc__row">
+          <button class="skit-svc__toggle" type="button" id="svc-tab-2" aria-controls="svc-panel-2" aria-expanded="false" data-svc-go="2"><b>03</b> Service Request Resolution<span>Start to resolve</span></button>
+          <div class="skit-svc__panel" id="svc-panel-2" role="region" aria-labelledby="svc-tab-2" hidden>
+            <p class="skit-svc__lede">Automate common service requests from initiation through resolution, reducing the need for customers to navigate multiple channels.</p>
+            <p class="skit-svc__can-copy">Skit.ai can understand the request, collect required information, initiate the appropriate workflow, provide status updates, and escalate cases when necessary.</p>
+            <div class="skit-svc__split">
+              <div>
+                <p class="skit-svc__can-label">Support</p>
+                <ul class="skit-svc__can">
+                  <li>Service request initiation</li>
+                  <li>Information collection</li>
+                  <li>Request status</li>
+                  <li>Resolution workflows</li>
+                  <li>Human escalation</li>
+                </ul>
+              </div>
+              <div class="skit-svc__scene" data-scene="2"></div>
+            </div>
+          </div>
+        </div>
+        <div class="skit-svc__row">
+          <button class="skit-svc__toggle" type="button" id="svc-tab-3" aria-controls="svc-panel-3" aria-expanded="false" data-svc-go="3"><b>04</b> Application Status Checks<span>Next-step visibility</span></button>
+          <div class="skit-svc__panel" id="svc-panel-3" role="region" aria-labelledby="svc-tab-3" hidden>
+            <p class="skit-svc__lede">Give customers immediate visibility into the status of their applications without requiring manual agent intervention.</p>
+            <p class="skit-svc__can-copy">Skit.ai can identify the application, retrieve the relevant status through connected systems, explain the next step, and address common follow-up questions.</p>
+            <div class="skit-svc__split">
+              <div>
+                <p class="skit-svc__can-label">Support</p>
+                <ul class="skit-svc__can">
+                  <li>Loan application status</li>
+                  <li>Card application status</li>
+                  <li>Account opening status</li>
+                  <li>Document status</li>
+                  <li>Next-step guidance</li>
+                </ul>
+              </div>
+              <div class="skit-svc__scene" data-scene="3"></div>
+            </div>
+          </div>
+        </div>
+        <div class="skit-svc__row">
+          <button class="skit-svc__toggle" type="button" id="svc-tab-4" aria-controls="svc-panel-4" aria-expanded="false" data-svc-go="4"><b>05</b> Service Ticket Resolution<span>Open to close</span></button>
+          <div class="skit-svc__panel" id="svc-panel-4" role="region" aria-labelledby="svc-tab-4" hidden>
+            <p class="skit-svc__lede">Make service-ticket journeys faster and more transparent by allowing customers to check, update, and resolve eligible requests through conversation.</p>
+            <p class="skit-svc__can-copy">Skit.ai can identify existing tickets, understand the customer’s concern, provide updates, capture additional information, and route unresolved issues to the appropriate team.</p>
+            <div class="skit-svc__split">
+              <div>
+                <p class="skit-svc__can-label">Support</p>
+                <ul class="skit-svc__can">
+                  <li>Ticket status checks</li>
+                  <li>Additional information capture</li>
+                  <li>Resolution updates</li>
+                  <li>Follow-up requests</li>
+                  <li>Escalation to service teams</li>
+                </ul>
+              </div>
+              <div class="skit-svc__scene" data-scene="4"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <template id="skit-svc-scene-0">
+    <svg viewBox="0 0 300 210" fill="none" aria-hidden="true">
+      <g class="q1"><rect x="24" y="36" width="132" height="36" rx="18" fill="#fff"/><text x="90" y="58" text-anchor="middle" fill="#0d1b3e" font-size="11" font-family="Inter,sans-serif">Where is my branch?</text></g>
+      <g class="q2"><rect x="144" y="86" width="132" height="36" rx="18" fill="#0e0f13"/><text x="210" y="108" text-anchor="middle" fill="#8ee0d2" font-size="11" font-family="Inter,sans-serif">Answered in-bot</text></g>
+      <g class="route"><rect x="86" y="148" width="128" height="32" rx="16" fill="#1d7a6b"/><text x="150" y="168" text-anchor="middle" fill="#fff" font-size="11" font-weight="600" font-family="Inter,sans-serif">Route to specialist</text></g>
+    </svg>
+  </template>
+  <template id="skit-svc-scene-1">
+    <svg viewBox="0 0 300 210" fill="none" aria-hidden="true">
+      <g class="lock"><rect x="58" y="52" width="68" height="80" rx="12" fill="#0e0f13"/><circle cx="92" cy="82" r="10" fill="none" stroke="#8ee0d2" stroke-width="2"/><rect x="86" y="82" width="12" height="18" rx="2" fill="#8ee0d2"/></g>
+      <g class="bal"><rect x="148" y="58" width="118" height="88" rx="14" fill="#fff"/><text x="207" y="88" text-anchor="middle" fill="#1d7a6b" font-size="11" font-weight="700" font-family="Inter,sans-serif" letter-spacing=".08em">BALANCE</text><text x="207" y="118" text-anchor="middle" fill="#0d1b3e" font-size="22" font-family="Merriweather,serif">Verified</text></g>
+    </svg>
+  </template>
+  <template id="skit-svc-scene-2">
+    <svg viewBox="0 0 300 210" fill="none" aria-hidden="true">
+      <g class="ck ck1"><rect x="48" y="42" width="204" height="36" rx="10" fill="#fff"/><circle cx="70" cy="60" r="8" fill="#1d7a6b"/><path d="M66 60 l3 3 6-7" stroke="#fff" stroke-width="1.6" fill="none"/><text x="150" y="65" fill="#0d1b3e" font-size="12" font-family="Inter,sans-serif">Request captured</text></g>
+      <g class="ck ck2"><rect x="48" y="88" width="204" height="36" rx="10" fill="#fff"/><circle cx="70" cy="106" r="8" fill="#1d7a6b"/><path d="M66 106 l3 3 6-7" stroke="#fff" stroke-width="1.6" fill="none"/><text x="150" y="111" fill="#0d1b3e" font-size="12" font-family="Inter,sans-serif">Workflow started</text></g>
+      <g class="ck ck3"><rect x="48" y="134" width="204" height="36" rx="10" fill="#0e0f13"/><circle cx="70" cy="152" r="8" fill="#8ee0d2"/><text x="158" y="157" fill="#fff" font-size="12" font-family="Inter,sans-serif">Resolved or escalated</text></g>
+    </svg>
+  </template>
+  <template id="skit-svc-scene-3">
+    <svg viewBox="0 0 300 210" fill="none" aria-hidden="true">
+      <g class="st1"><rect x="28" y="78" width="76" height="54" rx="12" fill="#fff"/><text x="66" y="110" text-anchor="middle" fill="#0d1b3e" font-size="11" font-family="Inter,sans-serif">Received</text></g>
+      <g class="st2"><rect x="112" y="78" width="76" height="54" rx="12" fill="#0e0f13"/><text x="150" y="110" text-anchor="middle" fill="#8ee0d2" font-size="11" font-family="Inter,sans-serif">In review</text></g>
+      <g class="st3"><rect x="196" y="78" width="76" height="54" rx="12" fill="#1d7a6b"/><text x="234" y="110" text-anchor="middle" fill="#fff" font-size="11" font-family="Inter,sans-serif">Next step</text></g>
+      <path d="M104 105 H112" stroke="#1d7a6b" stroke-width="1.4"/><path d="M188 105 H196" stroke="#1d7a6b" stroke-width="1.4"/>
+    </svg>
+  </template>
+  <template id="skit-svc-scene-4">
+    <svg viewBox="0 0 300 210" fill="none" aria-hidden="true">
+      <g class="tick"><rect x="36" y="48" width="140" height="88" rx="14" fill="#fff"/><text x="106" y="78" text-anchor="middle" fill="#1d7a6b" font-size="10" font-weight="700" font-family="Inter,sans-serif" letter-spacing=".1em">TICKET</text><text x="106" y="108" text-anchor="middle" fill="#0d1b3e" font-size="16" font-family="Merriweather,serif">Open · updated</text></g>
+      <g class="handoff"><rect x="190" y="70" width="84" height="44" rx="12" fill="#0e0f13"/><text x="232" y="96" text-anchor="middle" fill="#8ee0d2" font-size="12" font-family="Inter,sans-serif">Escalate</text></g>
+    </svg>
+  </template>
+
 
 <!-- CUSTOMER EXPERIENCE -->
   <section class="skit-cx" aria-labelledby="skit-cx-title">
@@ -2745,85 +3229,6 @@
         <p>We are very glad to have found an intelligent AI-powered assistant that has helped us create a positive &amp; better CX. The efficiency with which the team handled a large-scale deployment like ours is highly commendable.</p>
         <cite>Portfolio Head - Digital Initiatives, One of India’s Leading Banks</cite>
       </blockquote>
-    </div>
-  </section>
-
-  <!-- END TO END VOICE -->
-  <section id="end-to-end" class="skit-e2e" aria-labelledby="skit-e2e-title">
-    <div class="skit-e2e__inner">
-      <div class="skit-e2e__header">
-        <h2 id="skit-e2e-title">End to End Voice AI, For Every Use Case.</h2>
-        <p>Voice-led touch points across the full lifecycle, Inbound and Outbound.</p>
-      </div>
-      <div class="skit-e2e__grid">
-        <article class="skit-e2e__card">
-          <div class="skit-e2e__icon" aria-hidden="true">
-            <svg viewBox="0 0 36 36" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-              <circle cx="18" cy="18" r="6"/>
-              <circle cx="18" cy="18" r="11"/>
-              <path d="M18 4v3M18 29v3M4 18h3M29 18h3"/>
-            </svg>
-          </div>
-          <h3>Acquisition</h3>
-          <div class="skit-e2e__line"></div>
-          <ul>
-            <li>Lead generation</li>
-            <li>Lead qualification</li>
-            <li>Product information</li>
-            <li>Document collection</li>
-          </ul>
-        </article>
-        <article class="skit-e2e__card">
-          <div class="skit-e2e__icon" aria-hidden="true">
-            <svg viewBox="0 0 36 36" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-              <circle cx="18" cy="13" r="5"/>
-              <path d="M8 30c1.6-5.2 5.4-8 10-8s8.4 2.8 10 8"/>
-              <path d="M26 8h6M29 5v6"/>
-            </svg>
-          </div>
-          <h3>Onboarding</h3>
-          <div class="skit-e2e__line"></div>
-          <ul>
-            <li>Welcome calls</li>
-            <li>Service activation</li>
-            <li>KYC verification</li>
-            <li>Account setup</li>
-          </ul>
-        </article>
-        <article class="skit-e2e__card">
-          <div class="skit-e2e__icon" aria-hidden="true">
-            <svg viewBox="0 0 36 36" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M8 16a10 8 0 0 1 20 0v6a3 3 0 0 1-3 3h-1v-9"/>
-              <path d="M8 16v9a3 3 0 0 0 3 3h2"/>
-              <path d="M13 28v1a5 5 0 0 0 10 0"/>
-            </svg>
-          </div>
-          <h3>Service</h3>
-          <div class="skit-e2e__line"></div>
-          <ul>
-            <li>FAQ resolution</li>
-            <li>Balance inquiries</li>
-            <li>Complaint handling</li>
-            <li>Agent transfers</li>
-          </ul>
-        </article>
-        <article class="skit-e2e__card">
-          <div class="skit-e2e__icon" aria-hidden="true">
-            <svg viewBox="0 0 36 36" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M10 18a8 8 0 1 1 2.3 5.6"/>
-              <path d="M10 26v-8h8"/>
-            </svg>
-          </div>
-          <h3>Retention</h3>
-          <div class="skit-e2e__line"></div>
-          <ul>
-            <li>Payment reminders</li>
-            <li>Renewal campaigns</li>
-            <li>Upsell / cross-sell</li>
-            <li>Feedback surveys</li>
-          </ul>
-        </article>
-      </div>
     </div>
   </section>
 
@@ -3170,6 +3575,255 @@
 
 <script>
 (function () {
+  var root = document.querySelector('.skit-mkt');
+  if (!root) return;
+  root.querySelectorAll('.skit-mkt__scene[data-scene]').forEach(function (el) {
+    var tpl = document.getElementById('skit-mkt-scene-' + el.getAttribute('data-scene'));
+    if (tpl) el.appendChild(tpl.content.cloneNode(true));
+  });
+  var tabs = root.querySelectorAll('[data-mkt-go]');
+  var panels = root.querySelectorAll('.skit-mkt__panel');
+  var tablist = root.querySelector('[role="tablist"]');
+  function restart(panel) {
+    var scene = panel.querySelector('.skit-mkt__scene');
+    if (!scene) return;
+    scene.parentNode.replaceChild(scene.cloneNode(true), scene);
+  }
+  function go(i) {
+    Array.prototype.forEach.call(tabs, function (tab, n) {
+      var on = n === i;
+      tab.classList.toggle('is-active', on);
+      tab.setAttribute('aria-selected', on ? 'true' : 'false');
+      tab.tabIndex = on ? 0 : -1;
+    });
+    Array.prototype.forEach.call(panels, function (panel, n) {
+      var on = n === i;
+      panel.classList.toggle('is-active', on);
+      if (on) panel.removeAttribute('hidden');
+      else panel.setAttribute('hidden', '');
+    });
+    restart(panels[i]);
+    if (tablist && tabs[i] && tablist.scrollWidth > tablist.clientWidth) {
+      var tab = tabs[i];
+      tablist.scrollLeft = tab.offsetLeft - (tablist.clientWidth - tab.offsetWidth) / 2;
+    }
+  }
+  root.addEventListener('click', function (e) {
+    var btn = e.target.closest('[data-mkt-go]');
+    if (!btn || !root.contains(btn)) return;
+    go(+btn.getAttribute('data-mkt-go'));
+  });
+  if (tablist) {
+    tablist.addEventListener('keydown', function (e) {
+      var i = Array.prototype.indexOf.call(tabs, document.activeElement);
+      if (i < 0) return;
+      var next = i;
+      if (e.key === 'ArrowDown' || e.key === 'ArrowRight') next = Math.min(i + 1, tabs.length - 1);
+      else if (e.key === 'ArrowUp' || e.key === 'ArrowLeft') next = Math.max(i - 1, 0);
+      else if (e.key === 'Home') next = 0;
+      else if (e.key === 'End') next = tabs.length - 1;
+      else return;
+      e.preventDefault();
+      go(next);
+      tabs[next].focus();
+    });
+  }
+})();
+</script>
+
+<script>
+(function () {
+  var root = document.querySelector('.skit-svc');
+  if (!root) return;
+  root.querySelectorAll('.skit-svc__scene[data-scene]').forEach(function (el) {
+    var tpl = document.getElementById('skit-svc-scene-' + el.getAttribute('data-scene'));
+    if (tpl) el.appendChild(tpl.content.cloneNode(true));
+  });
+  var tabs = root.querySelectorAll('[data-svc-go]');
+  var panels = root.querySelectorAll('.skit-svc__panel');
+  var rows = root.querySelectorAll('.skit-svc__row');
+  function restart(panel) {
+    var scene = panel.querySelector('.skit-svc__scene');
+    if (!scene) return;
+    scene.parentNode.replaceChild(scene.cloneNode(true), scene);
+  }
+  function go(i) {
+    Array.prototype.forEach.call(tabs, function (tab, n) {
+      var on = n === i;
+      tab.classList.toggle('is-active', on);
+      tab.setAttribute('aria-expanded', on ? 'true' : 'false');
+    });
+    Array.prototype.forEach.call(rows, function (row, n) {
+      row.classList.toggle('is-open', n === i);
+    });
+    Array.prototype.forEach.call(panels, function (panel, n) {
+      var on = n === i;
+      panel.classList.toggle('is-active', on);
+      if (on) panel.removeAttribute('hidden');
+      else panel.setAttribute('hidden', '');
+    });
+    restart(panels[i]);
+  }
+  root.addEventListener('click', function (e) {
+    var btn = e.target.closest('[data-svc-go]');
+    if (!btn || !root.contains(btn)) return;
+    go(+btn.getAttribute('data-svc-go'));
+  });
+  root.addEventListener('keydown', function (e) {
+    var i = Array.prototype.indexOf.call(tabs, document.activeElement);
+    if (i < 0) return;
+    var next = i;
+    if (e.key === 'ArrowDown' || e.key === 'ArrowRight') next = Math.min(i + 1, tabs.length - 1);
+    else if (e.key === 'ArrowUp' || e.key === 'ArrowLeft') next = Math.max(i - 1, 0);
+    else if (e.key === 'Home') next = 0;
+    else if (e.key === 'End') next = tabs.length - 1;
+    else return;
+    e.preventDefault();
+    go(next);
+    tabs[next].focus();
+  });
+})();
+</script>
+
+<script>
+(function () {
+  var root = document.querySelector(".skit-col");
+  if (!root) return;
+  var CASES = [
+    {
+      title: "Payment Reminders",
+      lede: "Engage customers proactively before or after payment due dates with timely, personalized reminders.",
+      can: "Skit.ai can communicate outstanding payment information, understand customer responses, answer common questions, and guide customers toward the appropriate next step.",
+      items: ["Due-date reminders", "Overdue payment outreach", "Payment information", "Customer responses", "Follow-up journeys"]
+    },
+    {
+      title: "PTP Capture &amp; Negotiations",
+      lede: "Turn collection conversations into structured payment commitments through natural, context-aware conversations.",
+      can: "Skit.ai can understand a customer’s situation, discuss configured payment options, negotiate within defined parameters, capture a promise-to-pay, and record the agreed next step.",
+      items: ["Customer intent capture", "Payment commitment", "Date and amount capture", "Configured negotiation rules", "Follow-up scheduling"]
+    },
+    {
+      title: "Settlement Offers",
+      lede: "Present eligible customers with configured settlement options and help them understand the available paths toward resolution.",
+      can: "Skit.ai can explain settlement terms, answer common questions, capture customer interest, and initiate the appropriate workflow.",
+      items: ["Settlement offer communication", "Eligibility-based outreach", "Offer explanation", "Customer acceptance or rejection", "Workflow initiation"]
+    },
+    {
+      title: "Right-Party Verification",
+      lede: "Make sure collection conversations reach and engage the appropriate customer before discussing sensitive account information.",
+      can: "Skit.ai can follow configured verification workflows, confirm relevant customer details, and proceed only when the required verification criteria are met.",
+      items: ["Customer identification", "Right-party confirmation", "Configured verification flows", "Privacy-aware conversations", "Escalation when verification fails"]
+    },
+    {
+      title: "Callback Scheduling",
+      lede: "Make it easy for customers to choose a suitable time to continue the conversation.",
+      can: "Skit.ai can understand when customers are unavailable, capture their preferred callback window, schedule the next interaction, and maintain continuity across the collection journey.",
+      items: ["Callback requests", "Preferred date and time", "Rescheduling", "Follow-up reminders", "Agent handoff"]
+    }
+  ];
+  var GFX_CHIPS = [
+    { pills: ["Overdue", "Payment info", "Follow-up"], accent: "Reminder sent", featured: { k: "DUE", v: "28" } },
+    { pills: ["Intent", "Date &amp; amount", "Follow-up"], accent: "Captured", featured: { k: "PTP", v: "Captured" }, typing: true },
+    { pills: ["Eligible", "Offer explained", "Interest", "Workflow"], accent: "Accepted" },
+    { pills: ["Identity", "Right party", "Privacy", "Escalation"], accent: "Verified" },
+    { pills: ["Preferred time", "Reschedule", "Handoff"], accent: "Window set", featured: { k: "CALLBACK", v: "Listening" } }
+  ];
+  function pad(n) { return (n < 10 ? "0" : "") + n; }
+  function gfxBars(cx, cy) {
+    var xs = [-15, -10, -5, 0, 5, 10, 15];
+    var hs = [18, 28, 40, 50, 40, 28, 18];
+    return xs.map(function (x, i) {
+      return '<rect class="b' + (i + 1) + '" x="' + (cx + x - 1.4) + '" y="' + (cy - hs[i] / 2) + '" width="2.8" height="' + hs[i] + '" rx="1.4"/>';
+    }).join("");
+  }
+  function gfxCore(cx, cy, i) {
+    var rings = '<circle class="core-glow" cx="' + cx + '" cy="' + cy + '" r="52" fill="#1d7a6b"/>' +
+      '<circle class="r1" cx="' + cx + '" cy="' + cy + '" r="36"/>' +
+      '<circle class="r2" cx="' + cx + '" cy="' + cy + '" r="36"/>' +
+      '<circle class="r3" cx="' + cx + '" cy="' + cy + '" r="36"/>';
+    var body = '<circle cx="' + cx + '" cy="' + cy + '" r="26" fill="#11181d" stroke="rgba(142,224,210,.45)" stroke-width="1.2"/>';
+    if (i === 3) {
+      body += '<circle cx="' + cx + '" cy="' + (cy - 8) + '" r="5.5" fill="#8ee0d2"/>' +
+        '<path d="M' + (cx - 13) + ' ' + (cy + 13) + 'c4-8 8-11 13-11s9 3 13 11" stroke="#8ee0d2" stroke-width="1.8" fill="none" stroke-linecap="round"/>';
+    } else if (i === 4) {
+      body += '<circle cx="' + cx + '" cy="' + cy + '" r="15" fill="none" stroke="#8ee0d2" stroke-width="1.6"/>' +
+        '<path d="M' + cx + ' ' + (cy - 13) + ' v13 h9" stroke="#8ee0d2" stroke-width="2" fill="none" stroke-linecap="round"/>';
+    } else {
+      body += gfxBars(cx, cy);
+    }
+    return rings + body;
+  }
+  function gfxChip(x, y, w, h, label, cls, kind) {
+    var glass = kind === "accent"
+      ? 'fill="rgba(29,122,107,.4)" stroke="rgba(142,224,210,.45)"'
+      : 'fill="rgba(255,255,255,.06)" stroke="rgba(142,224,210,.32)"';
+    var color = kind === "accent" ? "#8ee0d2" : "#fff";
+    var text = '<text x="' + (x + w / 2) + '" y="' + (y + h / 2 + 3.5) + '" text-anchor="middle" fill="' + color + '" font-size="9" font-family="Inter,sans-serif">' + label + "</text>";
+    return '<g class="' + cls + '"><rect x="' + x + '" y="' + y + '" width="' + w + '" height="' + h + '" rx="' + Math.min(13, h / 2) + '" ' + glass + "/>" + text + "</g>";
+  }
+  function gfxLabels(d) {
+    var out = [];
+    if (d.typing) out.push("Listening");
+    else if (d.featured) out.push(d.featured.k === "DUE" ? "Due " + d.featured.v : d.featured.v);
+    d.pills.forEach(function (item) { out.push(item); });
+    out.push(d.accent);
+    var seen = {};
+    return out.filter(function (item) {
+      if (seen[item]) return false;
+      seen[item] = true;
+      return true;
+    }).slice(0, 5);
+  }
+  function buildMap(i) {
+    var d = GFX_CHIPS[i];
+    var nodes = [
+      { x: 28, y: 28, w: 92 },
+      { x: 188, y: 18, w: 96 },
+      { x: 196, y: 96, w: 88 },
+      { x: 22, y: 168, w: 100 },
+      { x: 168, y: 176, w: 110 }
+    ];
+    var labs = gfxLabels(d);
+    var lineD = [
+      "M74 52 C 110 80, 130 100, 150 120",
+      "M188 42 C 170 80, 160 100, 150 120",
+      "M196 120 L 176 120",
+      "M72 180 C 110 160, 130 140, 150 120",
+      "M168 188 C 160 160, 154 140, 150 120"
+    ];
+    var lines = lineD.map(function (dPath, idx) {
+      return '<path class="draw n' + idx + '" d="' + dPath + '"/>';
+    }).join("");
+    var ns = nodes.map(function (n, idx) {
+      return gfxChip(n.x, n.y, n.w, 24, labs[idx] || d.accent, "chip-" + ["a", "c", "d", "e", "b"][idx] + " n" + idx, idx === 4 ? "accent" : "glass");
+    }).join("");
+    return '<svg viewBox="0 0 300 240" fill="none" aria-hidden="true"><rect width="300" height="240" fill="#0c1216"/>' + lines + gfxCore(150, 120, i) + ns + "</svg>";
+  }
+  function pills(c) {
+    return '<div class="skit-col__chips">' + c.items.map(function (item) {
+      return '<span class="skit-col__chip">' + item + "</span>";
+    }).join("") + "</div>";
+  }
+  var mount = root.querySelector("[data-col-fill]");
+  if (mount) {
+    mount.innerHTML = CASES.map(function (c, i) {
+      return '<article><span class="skit-col__num">' + pad(i + 1) + "</span>" +
+        '<h3 class="skit-col__h3">' + c.title + "</h3>" +
+        '<p class="skit-col__lede">' + c.lede + "</p>" +
+        '<p class="skit-col__can-copy">' + c.can + "</p>" +
+        '<div class="skit-col__split"><div><p class="skit-col__can-label">Support</p>' + pills(c) +
+        '</div><div class="skit-col__scene is-map" data-scene="' + i + '"></div></div></article>';
+    }).join("");
+  }
+  root.querySelectorAll(".skit-col__scene[data-scene]").forEach(function (el) {
+    el.innerHTML = buildMap(+el.getAttribute("data-scene"));
+  });
+})();
+</script>
+
+
+<script>
+(function () {
   var wrap = document.querySelector('.skit-hero-wrap');
   var canvas = document.getElementById('skit-neural-canvas');
   if (!wrap || !canvas) return;
@@ -3385,7 +4039,7 @@
 })();
 
 </script>
-<footer class="bfsi-foot">
+<footer class="bfsi-chrome">
   <div class="footer-main">
     <div class="skit-container">
       <div class="footer-inner">
@@ -3451,4 +4105,24 @@
     </div>
   </div>
 </footer>
+
+<button id="back-to-top" class="back-to-top" aria-label="Back to top" type="button">
+  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5"/><path d="M5 12l7-7 7 7"/></svg>
+</button>
+
+<script>
+(function () {
+  var btn = document.getElementById('back-to-top');
+  if (!btn) return;
+  function toggle() {
+    if (window.scrollY > 480) btn.classList.add('is-visible');
+    else btn.classList.remove('is-visible');
+  }
+  window.addEventListener('scroll', toggle, { passive: true });
+  toggle();
+  btn.addEventListener('click', function () {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+})();
+</script>
 </body></html>
